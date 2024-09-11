@@ -36,14 +36,14 @@
     <p>With Tzar’s special permission, Sergei Mikhailovich Prokudin-Gorskii travelled across the Russian Empire in the 20th century. He has taken photographs of everything, ranging from people to buildings even bridges. His idea was to save three exposures of thousands of color pictures onto a glass plate with red, green, and blue filters. His glass plate negatives has been digitized by the Library of Congress. This project aims to automatically produce a color image of these glass plate images with modern image processing methods. </p>
     
     <h2>Project Details</h2>
-    <p>My approach for small images was to search for possible translations of in the range of [-15, 15]. I used normalized mutual information as the metric to evaluate each translation based on their similarity. 
+    <pre>My approach for small images was to search for possible translations of in the range of [-15, 15]. I used normalized mutual information as the metric to evaluate each translation based on their similarity. 
 
 For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach. Basically, the pyramid represent the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the same alignment function I defined for small images with the change that I search for the translation in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:         elif i >= 3:
             wndw = 3
         elif i < 3:
             wndw = i +1
         scale = 1/2**i
-i is the variable for the index of the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images.</p>
+i is the variable for the index of the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images.</pre>
     <ul>
         <li><a href="./1/index.html">Project 1</a> - Brief description of Project 1</li>
         <!-- Add more project links as needed -->
