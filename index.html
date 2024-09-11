@@ -39,9 +39,9 @@
     <p>My approach for small images was to search for possible translations of in the range of [-15, 15]. I used normalized mutual information as the metric to evaluate each translation based on their similarity.</p> 
     <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach. Basically, the pyramid represent the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the same alignment function I defined for small images with the change that I search for the translation in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>         
     <p>elif i >= 3:</p>
-    <p>    wndw = 3</p>
+    <p>style="text-indent: 2em;">wndw = 3</p>
     <p>elif i < 3:</p>
-    <p>    wndw = i +1</p>
+    <p>style="text-indent: 2em;">wndw = i +1</p>
     <p>scale = 1/2**i</p>
     <p>i is the variable for the index of the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images.</p>
     <ul>
