@@ -3,46 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My</title>
+    <title>Project 1: Images of the Russian Empire -- Colorizing the Prokudin-Gorskii Photo Collection</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-        }
-        h1, h2 {
+            background-color: #f4f4f4;
             color: #333;
         }
-        .image-container {
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        .project-overview {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 20px;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .image-container {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .image-container img {
             max-width: 100%;
             height: auto;
+            border-radius: 3px;
         }
         .image-description {
-            margin-top: 5px;
+            margin-top: 10px;
             font-style: italic;
+            font-size: 0.9em;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <h1>Project 1: Images of the Russian Empire -- Colorizing the Prokudin-Gorskii Photo Collection</h1>
-    <h1>Alp Eren Ozdarendeli</h1>
-    <h2>Project Overview</h2>
-    <p>My approach for small images was to search for possible translations of in the range of [-15, 15]. I used normalized mutual information as the metric to evaluate each translation based on their similarity.</p>
-            <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach. Basically, the pyramid represent the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the same alignment function I defined for small images with the change that I search for the translation in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
-            <p>elif i >= 3:<br>
-               &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
-               elif i < 3:<br>
-               &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
-               scale = 1/2**i</p>
-            <p>i is the variable for the index of the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images.</p>
+    <h2>Alp Eren Ozdarendeli</h2>
+    
+    <div class="project-overview">
+        <h2>Project Overview</h2>
+        <p>My approach for small images was to search for possible translations of in the range of [-15, 15]. I used normalized mutual information as the metric to evaluate each translation based on their similarity.</p>
+        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach. Basically, the pyramid represent the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the same alignment function I defined for small images with the change that I search for the translation in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
+        <p>elif i >= 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
+           elif i < 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
+           scale = 1/2**i</p>
+        <p>i is the variable for the index of the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images.</p>
+    </div>
+
     <h2>Images</h2>
-    <div class="image-row">
+    <div class="image-grid">
         <div class="image-container">
             <img src="images/cathedral_output.jpg" alt="cathedral.jpg - gshift: [5, 2] rshift: [12, 3]">
             <p class="image-description"><i>cathedral.jpg</i> gshift: [5, 2] rshift: [12, 3]</p>
@@ -51,125 +79,57 @@
             <img src="images/monastery_output.jpg" alt="monastery.jpg - gshift: [-3, 2] rshift: [3, 2]">
             <p class="image-description"><i>monastery.jpg</i> gshift: [-3, 2] rshift: [3, 2]</p>
         </div>
-    </div>
-    
-    <div class="image-row">
         <div class="image-container">
             <img src="images/tobolsk_output.jpg" alt="tobolsk.jpg - gshift: [3, 2] rshift: [6, 3]">
             <p class="image-description"><i>tobolsk.jpg</i> gshift: [3, 2] rshift: [6, 3]</p>
         </div>
         <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        <div class="image-row">
-        <div class="image-container">
             <img src="images/icon_output.jpg" alt="icon.jpg - gshift: [40, 16] rshift: [90, 22]">
             <p class="image-description"><i>icon.jpg</i> gshift: [40, 16] rshift: [90, 22]</p>
         </div>
-        <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        <div class="image-row">
         <div class="image-container">
             <img src="images/harvesters_output.jpg" alt="harvesters.jpg - gshift: [59, 15] rshift: [124, 12]">
             <p class="image-description"><i>harvesters.jpg</i> gshift: [59, 15] rshift: [124, 12]</p>
         </div>
         <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        <div class="image-row">
-        <div class="image-container">
             <img src="images/emir_output.jpg" alt="emir_output.jpg - gshift: [49, 22] rshift: [106, 40]">
             <p class="image-description"><i>emir.jpg</i> gshift: [49, 22] rshift: [106, 40]</p>
         </div>
         <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        <div class="image-row">
-        <div class="image-container">
             <img src="images/church_output.jpg" alt="church_output.jpg - gshift: [24, -6] rshift: [55, -7]">
-            <p class="image-description"><i>church.jpg"</i> gshift: [24, -6] rshift: [55, -7]</p>
+            <p class="image-description"><i>church.jpg</i> gshift: [24, -6] rshift: [55, -7]</p>
         </div>
-        <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        </div>
-        <div class="image-row">
         <div class="image-container">
             <img src="images/lady_output.jpg" alt="lady_output.jpg - gshift: [56, 6] rshift: [115, 11]">
-            <p class="image-description"><i>lady.jpg"</i> gshift: [56, 6] rshift: [115, 11]</p>
+            <p class="image-description"><i>lady.jpg</i> gshift: [56, 6] rshift: [115, 11]</p>
         </div>
-        <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        </div>
-        <div class="image-row">
         <div class="image-container">
             <img src="images/melons_output.jpg" alt="melons_output.jpg - gshift: [81, 9] rshift: [178, 12]">
-            <p class="image-description"><i>melons.jpg"</i> gshift: [81, 9] rshift: [178, 12] </p>
+            <p class="image-description"><i>melons.jpg</i> gshift: [81, 9] rshift: [178, 12]</p>
         </div>
-        <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        </div>
-        <div class="image-row">
         <div class="image-container">
             <img src="images/onion_church_output.jpg" alt="onion_church_output.jpg - gshift: [52, 24] rshift: [108, 35]">
-            <p class="image-description"><i>onion_church.jpg"</i> gshift: [52, 24] rshift: [108, 35] </p>
+            <p class="image-description"><i>onion_church.jpg</i> gshift: [52, 24] rshift: [108, 35]</p>
         </div>
-        <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        </div>
-        <div class="image-row">
         <div class="image-container">
             <img src="images/sculpture_output.jpg" alt="sculpture_output.jpg - gshift: [33, -12] rshift: [140, -27]">
-            <p class="image-description"><i>sculpture.jpg"</i> gshift: [33, -12] rshift: [140, -27]</p>
+            <p class="image-description"><i>sculpture.jpg</i> gshift: [33, -12] rshift: [140, -27]</p>
         </div>
         <div class="image-container">
-            <!-- You can add another image here if needed -->
+            <img src="images/self_portrait_output.jpg" alt="self_portrait_output.jpg - gshift: [78, 28] rshift: [176, 36]">
+            <p class="image-description"><i>self_portrait.jpg</i> gshift: [78, 28] rshift: [176, 36]</p>
         </div>
-    </div>
-        </div>
-        <div class="image-row">
-        <div class="image-container">
-            <img src="images/self_portrait_output.jpg" alt="church_output.jpg - gshift: [78, 28] rshift: [176, 36]">
-            <p class="image-description"><i>church.jpg"</i> gshift: [78, 28] rshift: [176, 36] </p>
-        </div>
-        <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        </div>
-        </div>
-        <div class="image-row">
         <div class="image-container">
             <img src="images/three_generations_output.jpg" alt="three_generations_output.jpg - gshift: [53, 14]rshift: [112, 10]">
-            <p class="image-description"><i>three_generations.jpg"</i> gshift: [53, 14] rshift: [112, 10]</p>
+            <p class="image-description"><i>three_generations.jpg</i> gshift: [53, 14] rshift: [112, 10]</p>
         </div>
-        <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
-    </div>
-        </div>
-        </div>
-        </div>
-        <div class="image-row">
         <div class="image-container">
             <img src="images/train_output.jpg" alt="train_output.jpg - gshift: [42, 0] rshift: [86, 30]">
-            <p class="image-description"><i>train.jpg"</i> gshift: [42, 0] rshift: [86, 30]</p>
+            <p class="image-description"><i>train.jpg</i> gshift: [42, 0] rshift: [86, 30]</p>
         </div>
-        <div class="image-container">
-            <!-- You can add another image here if needed -->
-        </div>
+    </div>
+</body>
+</html>
     </div>
 </body>
 </html>
