@@ -41,6 +41,12 @@
             gap: 15px;
             margin-bottom: 20px;
         }
+        .image-gr {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
         .image-container {
             background-color: #fff;
             padding: 10px;
@@ -292,16 +298,24 @@
         </div>
         <div class="clear-float"></div>
     <h2>Gaussian and Laplacian Stacks"</h2>
-            <p>For this part, my goal is to blend images. In order to blend, I created Gaussian stacks and Laplacian stacks for the images. The Laplacian stacks are formed by substracting the consecutive images in their Gaussian stacks. The last level of the Laplacian stack is the last level of the Gaussian stack so the Laplacian and Gaussian stacks have the same number of levels. </p>
+            <p>For this part, my goal is to blend images. In order to blend, I created Gaussian stacks and Laplacian stacks for the images. The Laplacian stacks are formed by substracting the consecutive images in their Gaussian stacks. The last level of the Laplacian stack is the last level of the Gaussian stack so the Laplacian and Gaussian stacks have the same number of levels. I used size 18 and sigma =3 Gaussian filters.</p>
         <div class="clear-float"></div>
-        <div class="image-gri">
+        <div class="image-gr">
         <div class="image-container">
-            <img src="proj2images/taj.jpg" alt="taj.jpg">
-            <p class="image-subtitle">Taj Mahal</p>
+            <img src="proj2images/apple_gauss.jpg" alt="taj.jpg">
+            <p class="image-subtitle">Gauss stack for apple</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
+            <img src="proj2images/apple_laplace.jpg" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Laplace stack for apple</p>
+        </div>
+        <div class="image-container">
+            <img src="proj2images/gauss_orange.jpg" alt="taj.jpg">
+            <p class="image-subtitle">Gauss stack for orange</p>
+        </div>
+        <div class="image-container">
+            <img src="proj2images/laplace_orange.jpg" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Laplace stack for orange</p>
         </div>
         </div>
         <div class="clear-float"></div>
