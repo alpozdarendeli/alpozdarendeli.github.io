@@ -149,7 +149,7 @@
             </div>
         </div>
         <div class="clear-float"></div>
-            <h2>Part 2: Fun with Frequencies!</h2>
+        <h2>Part 2: Fun with Frequencies!</h2>
             <h2>Part 2.1: Image "Sharpening"</h2>
             <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, I sharpen the original image. I combines this operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
@@ -199,10 +199,12 @@
         </div>
         <div class="image-container">
             <img src="proj2images/tt_blur_sharp.jpg" alt="tt_blur_sharp.jpg">
-            <p class="image-subtitle">Sharpened version of Blurred Rams Park</p>
+            <p class="image-subtitle">Sharpened version of Blurred Rams Park, alpha = 1.5</p>
         </div>
         </div>
         <div class="clear-float"></div>
+        <h2>Part 2.2: Hybrid Images"</h2>
+            <p>For this part, my goal is to create hybrid images that can be interpreted differently from different distances. In order to do this, I capture low frequency and high frequency of different images by passing the images through a Gaussian filter. High freqencies are captured by subtracting the image passed through the filter from its original image. The hybrid image is the average of both filtered images. I used color to enhance the effect of combining the images.</p>
         <div class="image-grid">
         <div class="image-container">
             <img src="proj2images/DerekPicture.jpg" alt="DerekPicture.jpg">
@@ -214,7 +216,7 @@
         </div>
         <div class="image-container">
             <img src="proj2images/catderek.jpg" alt="derekcat.jpg">
-            <p class="image-subtitle">Dermeg? Nutrek?</p>
+            <p class="image-subtitle">Dermeg? Nutrek? (kernel_size = 30, low_sigma = 7, high_sigma = 5)</p>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -229,7 +231,7 @@
         </div>
         <div class="image-container">
             <img src="proj2images/darwin_monkey.jpg" alt="darwin_monkey.jpg">
-            <p class="image-subtitle">Hybrid Darwin</p>
+            <p class="image-subtitle">Hybrid Darwin (kernel_size = 25, low_sigma = 4, high_sigma = 4)</p>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -244,7 +246,7 @@
         </div>
         <div class="image-container">
             <img src="proj2images/two_tsg.jpg" alt="two_tsg.jpg">
-            <p class="image-subtitle">Two-Tan</p>
+            <p class="image-subtitle">Two-Tan (kernel_size = 25, low_sigma = 5, high_sigma = 4) </p>
         </div>
         </div>
         <div class="clear-float"></div>
