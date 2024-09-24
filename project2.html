@@ -151,7 +151,7 @@
         <div class="clear-float"></div>
             <h2>Part 2: Fun with Frequencies!</h2>
             <h2>Part 2.1: Image "Sharpening"</h2>
-            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, I sharpen the original image. I combines this operations into a single convolution operation which can be formulized as sharpened = convolve2d(image[::i], (1 + delta) * unit_impulse - delta * gauss_kernel, mode='same', boundary='symm'), where image[::i] is a channel of the image, delta is the coefficient of the sharpening. </p>
+            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, I sharpen the original image. I combines this operations into a single convolution operation which can be formulized as sharpened = convolve2d(image[::i], (1 + alpha) * unit_impulse - alpha * gauss_kernel, mode='same', boundary='symm'), where image[::i] is a channel of the image, alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
@@ -160,7 +160,7 @@
         </div>
         <div class="image-container">
             <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Sharpened Taj Mahal</p>
+            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -171,7 +171,7 @@
         </div>
         <div class="image-container">
             <img src="proj2images/ataturk_sharp.jpg" alt="ataturk_sharp.jpg">
-            <p class="image-subtitle">Sharpened Mustafa Kemal Ataturk</p>
+            <p class="image-subtitle">Sharpened Mustafa Kemal Ataturk, alpha = 1.2</p>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -182,7 +182,7 @@
         </div>
         <div class="image-container">
             <img src="proj2images/galatasaray_sharp.jpg" alt="galatasaray_sharp.jpg">
-            <p class="image-subtitle">Sharpened Galatasaray players are celebrating defeating Fenerbahce</p>
+            <p class="image-subtitle">Sharpened Galatasaray players are celebrating defeating Fenerbahce, alpha = 1</p>
         </div>
         </div>
         <div class="clear-float"></div>
