@@ -62,7 +62,56 @@
         <p>In this project, I focused on manipulating image frequencies to achieve various effects. I sharpened images by boosting high-frequency components, created hybrid images by combining high and low frequencies from different images, and blended iamges using Gaussian and Laplacian stacks.</p>
     </div>
     
-    <div class="project-overview">
+    <div class="Part 1">
+        <h2>Part 1: Fun with Filter</h2>
+        <h2>Part 1.1: Finite Difference Operator</h2>
+        <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created bynp.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. To form the gradient magnitude image, I used scipy.sqrt(dx ** 2 + dy ** 2). In order to binarize the gradient magnitude, I chosen a threshold of 0.29 per pixel.</p>
+    </div>
+        <div class="project-overview">
+        <h2>Project Overview</h2>
+        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
+        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
+        <p>elif i >= 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
+           elif i < 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
+           scale = 1/2**i</p>
+        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
+    </div>
+        <div class="project-overview">
+        <h2>Project Overview</h2>
+        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
+        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
+        <p>elif i >= 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
+           elif i < 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
+           scale = 1/2**i</p>
+        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
+    </div>
+        <div class="project-overview">
+        <h2>Project Overview</h2>
+        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
+        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
+        <p>elif i >= 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
+           elif i < 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
+           scale = 1/2**i</p>
+        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
+    </div>
+        <div class="project-overview">
+        <h2>Project Overview</h2>
+        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
+        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
+        <p>elif i >= 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
+           elif i < 3:<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
+           scale = 1/2**i</p>
+        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
+    </div>
+        <div class="project-overview">
         <h2>Project Overview</h2>
         <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
         <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
