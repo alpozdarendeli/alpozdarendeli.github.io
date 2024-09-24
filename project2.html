@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="clear-float"></div>
-        <h2>Part 1.2: Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
+        <h2>Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
         <p> I have blurred the original image by doing convolution with a 2D Gaussian kernel, with sigma = 1 and kernel width 6. 2D Gaussian kernel is created by firstly creating a 1D Gaussian filter with cv2.getGaussianKernel() and doing outer product with its transpose. Then, I applied the same procedure with part 1.1 to get partial derivatives and gradient magnitude of the blurred image.</p>
         <p>The results with gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background the image is less apparent with the gaussian filter.</p>
         <div class="image-grid">
