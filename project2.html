@@ -29,7 +29,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 20px;
         }
-       .image-grid {
+        .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
@@ -45,6 +45,16 @@
             max-width: 100%;
             height: auto;
             border-radius: 3px;
+        }
+        .image-subtitle {
+            margin-top: 8px;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .clear-float {
+            clear: both;
+            width: 100%;
         }
         .image-description {
             margin-top: 8px;
@@ -85,11 +95,11 @@
                 <p class="image-subtitle">Binarized Gradient Magnitude</p>
             </div>
         </div>
-        <div class="project-overview">
-            <h2>Part 1.2: Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
-            <p> I have blurred the original image by doing convolution with a 2D Gaussian kernel, with sigma = 1 and kernel width 6. 2D Gaussian kernel is created by firstly creating a 1D Gaussian filter with cv2.getGaussianKernel() and doing outer product with its transpose. Then, I applied the same procedure with part 1.1 to get partial derivatives and gradient magnitude of the blurred image.</p>
-            <p>The results with gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background the image is less apparent with the gaussian filter.</p>
-            <div class="image-grid">
+        <div class="clear-float"></div>
+        <h2>Part 1.2: Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
+        <p> I have blurred the original image by doing convolution with a 2D Gaussian kernel, with sigma = 1 and kernel width 6. 2D Gaussian kernel is created by firstly creating a 1D Gaussian filter with cv2.getGaussianKernel() and doing outer product with its transpose. Then, I applied the same procedure with part 1.1 to get partial derivatives and gradient magnitude of the blurred image.</p>
+        <p>The results with gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background the image is less apparent with the gaussian filter.</p>
+        <div class="image-grid">
             <div class="image-container">
                 <img src="proj2images/im_blurred.jpg" alt="im_blurred.jpg">
                 <p class="image-subtitle">Blurred Image with Gaussian Filter</p>
@@ -110,27 +120,28 @@
                 <img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="im_blurred_gradient_magnitude.jpg">
                 <p class="image-subtitle">Binarized Gradient Magnitude of Blurred Image</p>
             </div>
-            <p> This time, I convolved with the derivative of Gaussian instead of convolving the image twice with partial derivatives and the Gaussian filter.</p>
-            <p> The results are the same because of convolution operation's associativity property. </p>
-            <div class="image-grid">
-            <div class="image-container">
-                <img src="proj2images/im_blurred_dx.jpg" alt="dog_dx.jpg">
-                <p class="image-subtitle">Dx DoG</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/im_blurred_dy.jpg" alt="dog_dy.jpg">
-                <p class="image-subtitle">Dy DoG</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/im_blurred_magnitude.jpg" alt="dog_magnitude.jpg">
-                <p class="image-subtitle">Gradient Magnitude of DoG</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="dog_gradient_magnitude.jpg">
-                <p class="image-subtitle">Binarized Gradient Magnitude of DoG</p>
-            </div>
-                
         </div>
+        <div class="clear-float"></div>
+        <p> This time, I convolved with the derivative of Gaussian instead of convolving the image twice with partial derivatives and the Gaussian filter.</p>
+        <p> The results are the same because of convolution operation's associativity property. </p>
+        <div class="image-grid">
+        <div class="image-container">
+            <img src="proj2images/im_blurred_dx.jpg" alt="dog_dx.jpg">
+            <p class="image-subtitle">Dx DoG</p>
+        </div>
+        <div class="image-container">
+            <img src="proj2images/im_blurred_dy.jpg" alt="dog_dy.jpg">
+            <p class="image-subtitle">Dy DoG</p>
+        </div>
+        <div class="image-container">
+            <img src="proj2images/im_blurred_magnitude.jpg" alt="dog_magnitude.jpg">
+            <p class="image-subtitle">Gradient Magnitude of DoG</p>
+        </div>
+        <div class="image-container">
+            <img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="dog_gradient_magnitude.jpg">
+            <p class="image-subtitle">Binarized Gradient Magnitude of DoG</p>
+        </div>
+    </div>
 </body>
 </html>
     </div>
