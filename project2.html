@@ -85,132 +85,31 @@
             </div>
         </div>
         <div class="project-overview">
-        <h2>Project Overview</h2>
-        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
-        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
-        <p>elif i >= 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
-           elif i < 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
-           scale = 1/2**i</p>
-        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
-    </div>
-        <div class="project-overview">
-        <h2>Project Overview</h2>
-        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
-        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
-        <p>elif i >= 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
-           elif i < 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
-           scale = 1/2**i</p>
-        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
-    </div>
-        <div class="project-overview">
-        <h2>Project Overview</h2>
-        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
-        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
-        <p>elif i >= 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
-           elif i < 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
-           scale = 1/2**i</p>
-        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
-    </div>
-        <div class="project-overview">
-        <h2>Project Overview</h2>
-        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
-        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
-        <p>elif i >= 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
-           elif i < 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
-           scale = 1/2**i</p>
-        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
-    </div>
-        <div class="project-overview">
-        <h2>Project Overview</h2>
-        <p>My approach for small images was to search for possible translations of in the range of [-15, 15] for each dimension. I used normalized mutual information as the metric to evaluate each translation based on their similarity. I used the offset that yielded best normalized mutual information score for alignment.</p>
-        <p>For larger images, this exhaustive method is very inefficient. Thus, I implemented a pyramid approach that uses my previous alignment function with different range (window) parameters. Basically, the pyramid represents the image at different factors of two. As smallest image, I have made the condition that number of pixels in any dimension does not go below 100.  For the smallest image, I use the my alignment function for the offset in range of [-46, 46]. For the recursive calls after the smallest image, I defined the window as follows:</p>
-        <p>elif i >= 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = 3<br>
-           elif i < 3:<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;wndw = i +1<br>
-           scale = 1/2**i</p>
-        <p>i is the variable for the index based on the largeness of the image, at 0th index, we have the original image. With this refined windows for the recursive calls, the algorithm runs faster and still able to obtain color images with accuracy. After obtaining the final images, I cropped %8 from each side along each dimension for each image to get rid of the border pixels.</p>
-    </div>
-
-    <h2>Images</h2>
-    <div class="image-grid">
-        <div class="image-container">
-            <img src="images/cathedral_output.jpg" alt="cathedral.jpg - gshift: [5, 2] rshift: [12, 3]">
-            <p class="image-description"><i>cathedral.jpg</i> gshift: [5, 2] rshift: [12, 3]</p>
+            <h2>Part 1.2: Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
+            <p> I have blurred the original image by doing convolution with a 2D Gaussian kernel, with sigma = 1 and kernel width 6. 2D Gaussian kernel is created by firstly creating a 1D Gaussian filter with cv2.getGaussianKernel() and doing outer product with its transpose. Then, I applied the same procedure with part 1.1 to get partial derivatives and gradient magnitude of the blurred image.</p>
+            <div class="image-grid">
+            <div class="image-container">
+                <img src="proj2images/im_blurred.jpg" alt="im_blurred.jpg">
+                <p class="image-subtitle">Blurred Image with Gaussian Filter</p>
+            </div>
+            <div class="image-container">
+                <img src="proj2images/im_blurred_dx.jpg" alt="im_blurred_dx.jpg">
+                <p class="image-subtitle">Dx of Blurred Image</p>
+            </div>
+            <div class="image-container">
+                <img src="proj2images/im_blurred_dy.jpg" alt="im_blurred_dy.jpg">
+                <p class="image-subtitle">Dy of Blurred image</p>
+            </div>
+            <div class="image-container">
+                <img src="proj2images/im_blurred_magnitude.jpg" alt="im_blurredmagnitude.jpg">
+                <p class="image-subtitle">Gradient Magnitude of Blurred Image</p>
+            </div>
+            <div class="image-container">
+                <img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="im_blurred_gradient_magnitude.jpg">
+                <p class="image-subtitle">Binarized Gradient Magnitude of Blurred Image</p>
+            </div>
+            <p>The results with gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background the image is less apparent with the gaussian filter.</p>
         </div>
-        <div class="image-container">
-            <img src="images/monastery_output.jpg" alt="monastery.jpg - gshift: [-3, 2] rshift: [3, 2]">
-            <p class="image-description"><i>monastery.jpg</i> gshift: [-3, 2] rshift: [3, 2]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/tobolsk_output.jpg" alt="tobolsk.jpg - gshift: [3, 2] rshift: [6, 3]">
-            <p class="image-description"><i>tobolsk.jpg</i> gshift: [3, 2] rshift: [6, 3]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/icon_output.jpg" alt="icon.jpg - gshift: [40, 16] rshift: [90, 22]">
-            <p class="image-description"><i>icon.jpg</i> gshift: [40, 16] rshift: [90, 22]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/harvesters_output.jpg" alt="harvesters.jpg - gshift: [59, 15] rshift: [124, 12]">
-            <p class="image-description"><i>harvesters.jpg</i> gshift: [59, 15] rshift: [124, 12]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/emir_output.jpg" alt="emir_output.jpg - gshift: [49, 22] rshift: [106, 40]">
-            <p class="image-description"><i>emir.jpg</i> gshift: [49, 22] rshift: [106, 40]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/church_output.jpg" alt="church_output.jpg - gshift: [24, -6] rshift: [55, -7]">
-            <p class="image-description"><i>church.jpg</i> gshift: [24, -6] rshift: [55, -7]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/lady_output.jpg" alt="lady_output.jpg - gshift: [56, 6] rshift: [115, 11]">
-            <p class="image-description"><i>lady.jpg</i> gshift: [56, 6] rshift: [115, 11]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/melons_output.jpg" alt="melons_output.jpg - gshift: [81, 9] rshift: [178, 12]">
-            <p class="image-description"><i>melons.jpg</i> gshift: [81, 9] rshift: [178, 12]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/onion_church_output.jpg" alt="onion_church_output.jpg - gshift: [52, 24] rshift: [108, 35]">
-            <p class="image-description"><i>onion_church.jpg</i> gshift: [52, 24] rshift: [108, 35]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/sculpture_output.jpg" alt="sculpture_output.jpg - gshift: [33, -12] rshift: [140, -27]">
-            <p class="image-description"><i>sculpture.jpg</i> gshift: [33, -12] rshift: [140, -27]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/self_portrait_output.jpg" alt="self_portrait_output.jpg - gshift: [78, 28] rshift: [176, 36]">
-            <p class="image-description"><i>self_portrait.jpg</i> gshift: [78, 28] rshift: [176, 36]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/three_generations_output.jpg" alt="three_generations_output.jpg - gshift: [53, 14]rshift: [112, 10]">
-            <p class="image-description"><i>three_generations.jpg</i> gshift: [53, 14] rshift: [112, 10]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/train_output.jpg" alt="train_output.jpg - gshift: [42, 0] rshift: [86, 30]">
-            <p class="image-description"><i>train.jpg</i> gshift: [42, 0] rshift: [86, 30]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/religious_portrait.jpg" alt="religious_portrait.jpg (my choosing from collection) - gshift: [29, 4] rshift: [69, 6]">
-            <p class="image-description"><i>religious_portrait.jpg</i> (my choosing from collection) gshift: [29, 4] rshift: [69, 6]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/landscape.jpg" alt="landscape.jpg (my choosing from collection) - gshift: [14, 26] rshift: [84, 50]">
-            <p class="image-description"><i>landscape.jpg</i> (my choosing from collection) gshift: [14, 26] rshift: [84, 50]</p>
-        </div>
-        <div class="image-container">
-            <img src="images/napoleon.jpg" alt="napoleon.jpg (my choosing from collection) - gshift: [64, 4] rshift: [132, -2]">
-            <p class="image-description"><i>napoleon.jpg</i> (my choosing from collection) gshift: [64, 4] rshift: [132, -2]</p>
-        </div>
-    </div>
 </body>
 </html>
     </div>
