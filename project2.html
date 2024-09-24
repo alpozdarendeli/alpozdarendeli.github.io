@@ -151,7 +151,7 @@
         <div class="clear-float"></div>
             <h2>Part 2: Fun with Frequencies!</h2>
             <h2>Part 2.1: Image "Sharpening"</h2>
-            <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created bynp.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. To form the gradient magnitude image, I used scipy.sqrt(dx ** 2 + dy ** 2). In order to binarize the gradient magnitude, I have chosen a threshold of 0.29 per pixel.</p>
+            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, I sharpen the original image. I combines this operations into a single convolution operation which can be formulized as sharpened = convolve2d(image[::i], (1 + delta) * unit_impulse - delta * gauss_kernel, mode='same', boundary='symm'), where image[::i] is a channel of the image, delta is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
