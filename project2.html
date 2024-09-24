@@ -35,6 +35,12 @@
             gap: 15px;
             margin-bottom: 20px;
         }
+        .image-gri {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
         .image-container {
             background-color: #fff;
             padding: 10px;
@@ -124,23 +130,43 @@
         <div class="clear-float"></div>
         <p> This time, I convolved with the derivative of Gaussian instead of convolving the image twice with partial derivatives and the Gaussian filter.</p>
         <p> The results are visibly the same because of convolution operation's associativity property. I used the same threshold for the binary gradient magnitude and obtained the same edge image. </p>
-        <div class="image-grid">
+        <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/im_blurred_dx.jpg" alt="dog_dx.jpg">
-            <p class="image-subtitle">Dx DoG</p>
+            <img src="proj2images/taj.jpg" alt="taj.jpg">
+            <p class="image-subtitle">Taj Mahal</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/im_blurred_dy.jpg" alt="dog_dy.jpg">
-            <p class="image-subtitle">Dy DoG</p>
+            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Sharpened Taj Mahal</p>
+        </div>
+        <div class="clear-float"></div>
+                <div class="image-container">
+            <img src="proj2images/ataturk.jpg" alt="ataturk.jpg">
+            <p class="image-subtitle">Mustafa Kemal Ataturk</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/im_blurred_magnitude.jpg" alt="dog_magnitude.jpg">
-            <p class="image-subtitle">Gradient Magnitude of DoG</p>
+            <img src="proj2images/ataturk_sharp.jpg" alt="ataturk_sharp.jpg">
+            <p class="image-subtitle">Sharpened Mustafa Kemal Ataturk</p>
+        </div>
+        <div class="clear-float"></div>
+                <div class="image-container">
+            <img src="proj2images/galatasaray.jpg" alt="galatasaray.jpg">
+            <p class="image-subtitle">Galatasaray players are celebrating defeating Fenerbahce</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="dog_gradient_magnitude.jpg">
-            <p class="image-subtitle">Binarized Gradient Magnitude of DoG</p>
+            <img src="proj2images/galatasaray_sharp.jpg" alt="galatasaray_sharp.jpg">
+            <p class="image-subtitle">Sharpened Galatasaray players are celebrating defeating Fenerbahce</p>
         </div>
+        <div class="clear-float"></div>
+                <div class="image-container">
+            <img src="proj2images/ataturk.jpg" alt="ataturk.jpg">
+            <p class="image-subtitle">Mustafa Kemal Atatur</p>
+        </div>
+        <div class="image-container">
+            <img src="proj2images/ataturk_sharp.jpg" alt="ataturk_sharp.jpg">
+            <p class="image-subtitle">Sharpened Mustafa Kemal Ataturk</p>
+        </div>
+        <div class="clear-float"></div>
     </div>
 </body>
 </html>
