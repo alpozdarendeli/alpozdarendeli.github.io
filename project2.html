@@ -62,7 +62,7 @@
         <p>In this project, I focused on manipulating image frequencies to achieve various effects. I sharpened images by boosting high-frequency components, created hybrid images by combining high and low frequencies from different images, and blended iamges using Gaussian and Laplacian stacks.</p>
     </div>
     
-    <div class="Part 1">
+    <div class="project-overview">
         <h2>Part 1: Fun with Filter</h2>
             <h2>Part 1.1: Finite Difference Operator</h2>
             <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created bynp.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. To form the gradient magnitude image, I used scipy.sqrt(dx ** 2 + dy ** 2). In order to binarize the gradient magnitude, I have chosen a threshold of 0.29 per pixel.</p>
