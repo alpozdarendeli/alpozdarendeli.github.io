@@ -117,24 +117,24 @@
         </div>
         <div class="clear-float"></div>
         <h2>Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
-        <p> I have blurred the original image by doing convolution with a 2D Gaussian kernel, with sigma = 1 and kernel size 6. 2D Gaussian kernel is created by firstly creating a 1D Gaussian filter with cv2.getGaussianKernel() and doing outer product with its transpose. Then, I applied the same procedure with part 1.1 to get partial derivatives and gradient magnitude of the blurred image.</p>
-        <p>The results with gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background the image is less apparent with the gaussian filter.</p>
+        <p> I have blurred the original image by doing convolution with a 2D Gaussian kernel, with sigma = 1 and kernel size 6. 2D Gaussian kernel is created by firstly creating a 1D Gaussian filter with cv2.getGaussianKernel() and doing outer product with its transpose. Then, I applied the same procedure from part 1.1 to get the partial derivatives and gradient magnitude of the blurred image.</p>
+        <p>The results with Gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background of the image is less apparent with the Gaussian filter, and gradient magnitude is significantly lower.</p>
         <div class="image-grid">
             <div class="image-container">
                 <img src="proj2images/im_blurred.jpg" alt="im_blurred.jpg">
-                <p class="image-subtitle">Blurred Image with Gaussian Filter</p>
+                <p class="image-subtitle">Image with Gaussian Filter</p>
             </div>
             <div class="image-container">
                 <img src="proj2images/im_blurred_dx.jpg" alt="im_blurred_dx.jpg">
-                <p class="image-subtitle">Dx of Blurred Image</p>
+                <p class="image-subtitle">Dx of Image with Gaussian Filter</p>
             </div>
             <div class="image-container">
                 <img src="proj2images/im_blurred_dy.jpg" alt="im_blurred_dy.jpg">
-                <p class="image-subtitle">Dy of Blurred image</p>
+                <p class="image-subtitle">Dy of Image with Gaussian Filter</p>
             </div>
             <div class="image-container">
                 <img src="proj2images/im_blurred_magnitude.jpg" alt="im_blurred_magnitude.jpg">
-                <p class="image-subtitle">Gradient Magnitude of Blurred Image</p>
+                <p class="image-subtitle">Gradient Magnitude of Image with Gaussian Filter</p>
             </div>
             <div class="image-container">
                 <img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="im_blurred_gradient_magnitude.jpg">
