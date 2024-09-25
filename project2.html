@@ -435,7 +435,7 @@
     <p>In order to blend, I used Laplacian stacks of the images and the Gaussian stack for the mask. We apply Gaussian filter to the mask at each layer so that blending is smoother. After creating the Laplacian stack for the images and Gaussian stack for the mask, I create a blend stack for the images with merging them by mask_gauss[i] * apple_laplace[i] + (1 - mask_gauss[i]) * orange_laplace[i]. Mask is applied to one of the images, and 1 - mask is applied to another. After having a stack of blends, I collapse them to achieve a final blend of the images.</p>
     <h2>Hagi & Drogba</h2>
     <p> Finally, I was able to blend Didier Drogba and Gheorghe Hagi onto the same image.</p>
-    <div class="image-gr">
+    <div class="image-gri">
         <div class="image-container">
             <img src="proj2images/hagi.jpg" alt="grayscale_tan.jpg">
             <p class="image-subtitle">Gheorghe Hagi</p>
@@ -455,7 +455,7 @@
         </div>
         <div class="clear-float"></div>
     <p> Here is its blending process.</p>
-     <div class="image-gri">
+     <div class="image-gr">
         <div class="image-container">
             <img src="proj2images/drogba_hagi_blend.jpg" alt="grayscale_tan.jpg">
             <p class="image-subtitle">Drogba & Hagi Blend Process</p>
