@@ -164,7 +164,7 @@
         </div>
         <div class="clear-float"></div>
         <h2>Part 2: Fun with Frequencies!</h2>
-            <h2>Part 2.1: Image "Sharpening"</h2>
+            <h2>Part 2.1: Image "Sharpening</h2>
             <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, I sharpen the original image. I combines this operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
         <div class="image-gri">
@@ -217,7 +217,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <h2>Part 2.2: Hybrid Images"</h2>
+        <h2>Part 2.2: Hybrid Images</h2>
             <p>For this part, my goal is to create hybrid images that can be interpreted differently from different distances. In order to do this, I capture low frequency and high frequency of different images by passing the images through a Gaussian filter. High freqencies are captured by subtracting the image passed through the filter from its original image. The hybrid image is the average of both filtered images. I used color to enhance the effect of combining the images.</p>
         <div class="image-grid">
         <div class="image-container">
@@ -305,7 +305,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-    <h2>Gaussian and Laplacian Stacks</h2>
+    <h2>Part 2.3: Gaussian and Laplacian Stacks</h2>
             <p>For this part, my goal is to blend images. In order to blend, I created Gaussian stacks and Laplacian stacks for the images. The Laplacian stacks are formed by substracting the consecutive images in their Gaussian stacks. The last level of the Laplacian stack is the last level of the Gaussian stack so the Laplacian and Gaussian stacks have the same number of levels. I used size 18 and sigma = 3 Gaussian filters.</p>
         <h2>Apple Gauss Stack</h2>
 <div class="image-g">
