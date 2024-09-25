@@ -430,7 +430,7 @@
         </div>
         <div class="clear-float"></div>
     <h2>Part 2.4: Multiresolution Blending</h2>
-    <p>In order to blend, I used Laplacian stacks of the images and the Gaussian stack for the mask. We apply Gaussian filter to the mask at each layer so that blending is smoother. After creating the Laplacian stack for the images and Gaussian stack for the mask, I create a blend stack for the images by merging them with mask_gauss[i] * apple_laplace[i] + (1 - mask_gauss[i]) * orange_laplace[i]. Mask is applied to one of the images, and 1 - mask is applied to another. After having a stack of blends, I collapse them to achieve a final blend of the images.</p>
+    <p>In order to blend, I used Laplacian stacks of the images and the Gaussian stack for the mask. We apply Gaussian filter to the mask at each layer so that blending is smoother. After creating the Laplacian stack for the images and Gaussian stack for the mask, I create a blend stack for the images by merging them using the formula blend[i] = mask_gauss[i] * apple_laplace[i] + (1 - mask_gauss[i]) * orange_laplace[i] In this process, the Gaussian mask is applied to one image, while its inverse (1 - mask) is applied to the other for each level in the Laplacian pyramid. After creating a stack of blended images at each level, I collapse them to produce the final blended image. This enables a smooth transition between the images.</p>
     <h2>Hagi & Drogba</h2>
     <p> Finally, I was able to blend Didier Drogba and Gheorghe Hagi onto the same image.</p>
     <div class="image-gri">
