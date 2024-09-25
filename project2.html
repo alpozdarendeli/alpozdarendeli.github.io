@@ -47,6 +47,12 @@
             gap: 15px;
             margin-bottom: 20px;
         }
+        .image-g {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
         .image-container {
             background-color: #fff;
             padding: 10px;
@@ -299,23 +305,119 @@
         <div class="clear-float"></div>
     <h2>Gaussian and Laplacian Stacks</h2>
             <p>For this part, my goal is to blend images. In order to blend, I created Gaussian stacks and Laplacian stacks for the images. The Laplacian stacks are formed by substracting the consecutive images in their Gaussian stacks. The last level of the Laplacian stack is the last level of the Gaussian stack so the Laplacian and Gaussian stacks have the same number of levels. I used size 18 and sigma = 3 Gaussian filters.</p>
-        <div class="clear-float"></div>
+        <h2>Apple Gauss Stack</h2>
+<div class="image-g">
+    <div class="image-container">
+        <img src="gauss_app0.jpg" alt="Apple Gauss Level 0">
+        <p class="image-subtitle">Level 0</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_app1.jpg" alt="Apple Gauss Level 1">
+        <p class="image-subtitle">Level 1</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_app2.jpg" alt="Apple Gauss Level 2">
+        <p class="image-subtitle">Level 2</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_app3.jpg" alt="Apple Gauss Level 3">
+        <p class="image-subtitle">Level 3</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_app4.jpg" alt="Apple Gauss Level 4">
+        <p class="image-subtitle">Level 4</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_app5.jpg" alt="Apple Gauss Level 5">
+        <p class="image-subtitle">Level 5</p>
+    </div>
+</div>
+
+<h2>Apple Laplace Stack</h2>
+<div class="image-g">
+    <div class="image-container">
+        <img src="lap_app0.jpg" alt="Apple Laplace Level 0">
+        <p class="image-subtitle">Level 0</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_app1.jpg" alt="Apple Laplace Level 1">
+        <p class="image-subtitle">Level 1</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_app2.jpg" alt="Apple Laplace Level 2">
+        <p class="image-subtitle">Level 2</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_app3.jpg" alt="Apple Laplace Level 3">
+        <p class="image-subtitle">Level 3</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_app4.jpg" alt="Apple Laplace Level 4">
+        <p class="image-subtitle">Level 4</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_app5.jpg" alt="Apple Laplace Level 5">
+        <p class="image-subtitle">Level 5</p>
+    </div>
+</div>
+
+<h2>Orange Gauss Stack</h2>
+<div class="image-g">
+    <div class="image-container">
+        <img src="gauss_or0.jpg" alt="Orange Gauss Level 0">
+        <p class="image-subtitle">Level 0</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_or1.jpg" alt="Orange Gauss Level 1">
+        <p class="image-subtitle">Level 1</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_or2.jpg" alt="Orange Gauss Level 2">
+        <p class="image-subtitle">Level 2</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_or3.jpg" alt="Orange Gauss Level 3">
+        <p class="image-subtitle">Level 3</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_or4.jpg" alt="Orange Gauss Level 4">
+        <p class="image-subtitle">Level 4</p>
+    </div>
+    <div class="image-container">
+        <img src="gauss_or5.jpg" alt="Orange Gauss Level 5">
+        <p class="image-subtitle">Level 5</p>
+    </div>
+</div>
+
+<h2>Orange Laplace Stack</h2>
+<div class="image-g">
+    <div class="image-container">
+        <img src="lap_or0.jpg" alt="Orange Laplace Level 0">
+        <p class="image-subtitle">Level 0</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_or1.jpg" alt="Orange Laplace Level 1">
+        <p class="image-subtitle">Level 1</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_or2.jpg" alt="Orange Laplace Level 2">
+        <p class="image-subtitle">Level 2</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_or3.jpg" alt="Orange Laplace Level 3">
+        <p class="image-subtitle">Level 3</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_or4.jpg" alt="Orange Laplace Level 4">
+        <p class="image-subtitle">Level 4</p>
+    </div>
+    <div class="image-container">
+        <img src="lap_or5.jpg" alt="Orange Laplace Level 5">
+        <p class="image-subtitle">Level 5</p>
+    </div>
+</div>
+    <div class="clear-float"></div>
         <div class="image-gr">
-        <div class="image-container">
-            <img src="proj2images/apple_gauss.jpg" alt="taj.jpg">
-            <p class="image-subtitle">Gauss stack for apple</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/apple_laplace.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Laplace stack for apple</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/gauss_orange.jpg" alt="taj.jpg">
-            <p class="image-subtitle">Gauss stack for orange</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/laplace_orange.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Laplace stack for orange</p>
         <div class="image-container">
             <img src="proj2images/blended.jpg" alt="taj.jpg">
             <p class="image-subtitle">Oraple!</p>
