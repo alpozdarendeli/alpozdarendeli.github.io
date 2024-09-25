@@ -96,7 +96,7 @@
     <div class="project-overview">
         <h2>Part 1: Fun with Filter</h2>
             <h2>Part 1.1: Finite Difference Operator</h2>
-            <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created bynp.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. To form the gradient magnitude image, I used scipy.sqrt(dx ** 2 + dy ** 2). In order to binarize the gradient magnitude, I have chosen a threshold of 0.29 per pixel.</p>
+            <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created bynp.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. The gradient magnitude is calculated by taking the square root of the sum of squared partial derivatives in the x and y directions with s.cipy.sqrt(dx ** 2 + dy ** 2). This is essentially calculating the L2 norm of the gradient vector at each pixel. In order to binarize the gradient magnitude, I have chosen a threshold of 0.29 per pixel.</p>
             <div class="image-grid">
             <div class="image-container">
                 <img src="proj2images/d_x.jpg" alt="d_x.jpg">
