@@ -94,8 +94,7 @@
     </div>
     
     <div class="project-overview">
-        <h2>Part 1: Fun with Filter</h2>
-            <h2>Part 1.1: Finite Difference Operator</h2>
+        <h2>Part 1:  Defining Correspondences</h2>
             <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created by np.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. The gradient magnitude is calculated by taking the square root of the sum of squared partial derivatives in the x and y directions. This is essentially calculating the L2 norm of the gradient vector at each pixel. In order to binarize the gradient magnitude, I have chosen a threshold of 0.29 per pixel.</p>
             <div class="image-grid">
             <div class="image-container">
@@ -116,55 +115,7 @@
             </div>
         </div>
         <div class="clear-float"></div>
-        <h2>Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
-        <p> I have blurred the original image by doing convolution with a 2D Gaussian kernel, with sigma = 1 and kernel size 6. 2D Gaussian kernel is created by firstly creating a 1D Gaussian filter with cv2.getGaussianKernel() and doing outer product with its transpose. Then, I applied the same procedure from part 1.1 to get the partial derivatives and gradient magnitude of the blurred image.</p>
-        <p>The results with Gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background of the image is less apparent with the Gaussian filter, and gradient magnitude is significantly lower.</p>
-        <div class="image-grid">
-            <div class="image-container">
-                <img src="proj2images/im_blurred.jpg" alt="im_blurred.jpg">
-                <p class="image-subtitle">Image with Gaussian Filter</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/im_blurred_dx.jpg" alt="im_blurred_dx.jpg">
-                <p class="image-subtitle">Dx of Image with Gaussian Filter</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/im_blurred_dy.jpg" alt="im_blurred_dy.jpg">
-                <p class="image-subtitle">Dy of Image with Gaussian Filter</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/im_blurred_magnitude.jpg" alt="im_blurred_magnitude.jpg">
-                <p class="image-subtitle">Gradient Magnitude of Image with Gaussian Filter</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="im_blurred_gradient_magnitude.jpg">
-                <p class="image-subtitle">Binarized Gradient Magnitude of Blurred Image</p>
-            </div>
-        </div>
-        <div class="clear-float"></div>
-        <p> This time, I convolved with the derivative of Gaussian instead of convolving the image twice with partial derivatives and the Gaussian filter.</p>
-        <p> The results are visibly the same because of convolution operation's associativity property. I used the same threshold for the binary gradient magnitude and obtained the same edge image. </p>
-                <div class="image-grid">
-            <div class="image-container">
-                <img src="proj2images/dog_dx.jpg" alt="im_blurred.jpg">
-                <p class="image-subtitle">Dx of DoG</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/dog_dy.jpg" alt="im_blurred_dx.jpg">
-                <p class="image-subtitle">Dy of DoG</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/dog_magnitude.jpg" alt="im_blurred_dy.jpg">
-                <p class="image-subtitle">Gradient Magnitude of DoG</p>
-            </div>
-            <div class="image-container">
-                <img src="proj2images/dog_gradient_magnitude.jpg" alt="im_blurred_magnitude.jpg">
-                <p class="image-subtitle"> Binarized Gradient Magnitude of DoG</p>
-            </div>
-        </div>
-        <div class="clear-float"></div>
-        <h2>Part 2: Fun with Frequencies!</h2>
-            <h2>Part 2.1: Image "Sharpening</h2>
+        <h2>Part 2: Computing the "Mid-way Face"</h2>
             <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
         <div class="image-gri">
@@ -199,304 +150,59 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <p>For evaluation, I attempted to sharpen an image after blurring it. I observed that sharpening process was not able to sharpen the blurred image to its original quality, regardless of the value of the coefficient alpha. When an image is blurred, it becomes more noisy than the original and lose some of its details that even sharpening cannot recover. </p>
+        <h2>Part 3: The Morph Sequence</h2>
+            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
+        <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/tt_arena.jpg" alt="tt_arena.jpg">
-            <p class="image-subtitle">Rams park</p>
+            <img src="proj2images/taj.jpg" alt="taj.jpg">
+            <p class="image-subtitle">Taj Mahal</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/tt_blur.jpg" alt="tt_blur.jpg">
-            <p class="image-subtitle">Blurred Rams Park</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/tt_blur_sharp.jpg" alt="tt_blur_sharp.jpg">
-            <p class="image-subtitle">Sharpened version of Blurred Rams Park, alpha = 1.5</p>
+            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
         </div>
         </div>
         <div class="clear-float"></div>
-        <h2>Part 2.2: Hybrid Images</h2>
-            <p>For this part, my goal is to create hybrid images that can be interpreted differently from different distances. In order to do this, I capture low frequency and high frequency of different images by passing the images through a Gaussian filter. High frequencies are captured by subtracting the image passed through the filter from its original image. The hybrid image is the average of both filtered images. I used color to enhance the effect of combining the images.</p>
-        <div class="image-grid">
-        <div class="image-container">
-            <img src="proj2images/DerekPicture.jpg" alt="DerekPicture.jpg">
-            <p class="image-subtitle">Derek</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/nutmeg.jpg" alt="nutmeg.jpg">
-            <p class="image-subtitle">Nutmeg</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/catderek.jpg" alt="derekcat.jpg">
-            <p class="image-subtitle">Dermeg? Nutrek? (kernel_size = 30, low_sigma = 7, high_sigma = 5)</p>
-        </div>
-        </div>
+        <h2>Part 4: The "Mean face" of a population</h2>
+            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
-            <div class="image-grid">
-        <div class="image-container">
-            <img src="proj2images/darwin.jpg" alt="darwin.jpg">
-            <p class="image-subtitle">Darwin</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/chimp.jpg" alt="chimp.jpg">
-            <p class="image-subtitle">Chimp</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/darwin_monkey.jpg" alt="darwin_monkey.jpg">
-            <p class="image-subtitle">Hybrid Darwin (kernel_size = 25, low_sigma = 4, high_sigma = 4)</p>
-        </div>
-        </div>
-        <div class="clear-float"></div>
-        <div class="image-grid">
-        <div class="image-container">
-            <img src="proj2images/tann.jpg" alt="tann.jpg">
-            <p class="image-subtitle">Tan</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/two_face.jpg" alt="two_face.jpg">
-            <p class="image-subtitle">Two-Face</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/two_tsg.jpg" alt="two_tsg.jpg">
-            <p class="image-subtitle">Two-Tan (kernel_size = 25, low_sigma = 5, high_sigma = 4) </p>
-        </div>
-        </div>
-        <div class="clear-float"></div>
-    </div>
-    <p>Two-Tan was my favorite result so far. Here is its frequency analysis with Fourier transformation:</p>
-    <div class="image-grid">
-        <div class="image-container">
-            <img src="proj2images/grayscale_tan.jpg" alt="grayscale_tan.jpg">
-            <p class="image-subtitle">Tan FFT</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/grayscale_twoface.jpg" alt="grayscale_two_face.jpg">
-            <p class="image-subtitle">Two-Face FFT</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/filtered_tan.jpg" alt="filtered_tan.jpg">
-            <p class="image-subtitle">Tan FFT after low-pass filter</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/filtered_two.jpg" alt="filtered_two.jpg">
-            <p class="image-subtitle">Two-Face FFT after high-pass filter</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/hybrid.jpg" alt="hybrid.jpg">
-            <p class="image-subtitle">Two-Tan FFT</p>
-        </div>
-        </div>
-        <div class="clear-float"></div>
-    <p>For a failed one, I tried to make a hybrid of Gheorghe Hagi and Didier Drogba. Unfortunately, it wasn't very successful but I will use them again for another technique. </p>
-    <div class="image-grid">
-        <div class="image-container">
-            <img src="proj2images/hagi.jpg" alt="grayscale_tan.jpg">
-            <p class="image-subtitle">Gheorghe Hagi</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/drogba.jpg" alt="grayscale_two_face.jpg">
-            <p class="image-subtitle">Didier Drogba</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/failed.jpg" alt="filtered_tan.jpg">
-            <p class="image-subtitle">Failed</p>
-        </div>
-        </div>
-        <div class="clear-float"></div>
-    <h2>Part 2.3: Gaussian and Laplacian Stacks</h2>
-            <p>For this part, my goal is to blend images. In order to blend, I created Gaussian stacks and Laplacian stacks for the images. The Laplacian stacks are formed by substracting the consecutive images in their Gaussian stacks. The last level of the Laplacian stack is the last level of the Gaussian stack so the Laplacian and Gaussian stacks have the same number of levels.</p>
-        <h2>Apple Gauss Stack</h2>
-<div class="image-g">
-    <div class="image-container">
-        <img src="proj2images/gauss_app0.jpg" alt="Apple Gauss Level 0">
-        <p class="image-subtitle">Level 0</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_app1.jpg" alt="Apple Gauss Level 1">
-        <p class="image-subtitle">Level 1</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_app2.jpg" alt="Apple Gauss Level 2">
-        <p class="image-subtitle">Level 2</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_app3.jpg" alt="Apple Gauss Level 3">
-        <p class="image-subtitle">Level 3</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_app4.jpg" alt="Apple Gauss Level 4">
-        <p class="image-subtitle">Level 4</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_app5.jpg" alt="Apple Gauss Level 5">
-        <p class="image-subtitle">Level 5</p>
-    </div>
-</div>
-
-<h2>Apple Laplace Stack</h2>
-<div class="image-g">
-    <div class="image-container">
-        <img src="proj2images/lap_app0.jpg" alt="Apple Laplace Level 0">
-        <p class="image-subtitle">Level 0</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_app1.jpg" alt="Apple Laplace Level 1">
-        <p class="image-subtitle">Level 1</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_app2.jpg" alt="Apple Laplace Level 2">
-        <p class="image-subtitle">Level 2</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_app3.jpg" alt="Apple Laplace Level 3">
-        <p class="image-subtitle">Level 3</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_app4.jpg" alt="Apple Laplace Level 4">
-        <p class="image-subtitle">Level 4</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_app5.jpg" alt="Apple Laplace Level 5">
-        <p class="image-subtitle">Level 5</p>
-    </div>
-</div>
-
-<h2>Orange Gauss Stack</h2>
-<div class="image-g">
-    <div class="image-container">
-        <img src="proj2images/gauss_or0.jpg" alt="Orange Gauss Level 0">
-        <p class="image-subtitle">Level 0</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_or1.jpg" alt="Orange Gauss Level 1">
-        <p class="image-subtitle">Level 1</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_or2.jpg" alt="Orange Gauss Level 2">
-        <p class="image-subtitle">Level 2</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_or3.jpg" alt="Orange Gauss Level 3">
-        <p class="image-subtitle">Level 3</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_or4.jpg" alt="Orange Gauss Level 4">
-        <p class="image-subtitle">Level 4</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/gauss_or5.jpg" alt="Orange Gauss Level 5">
-        <p class="image-subtitle">Level 5</p>
-    </div>
-</div>
-
-<h2>Orange Laplace Stack</h2>
-<div class="image-g">
-    <div class="image-container">
-        <img src="proj2images/lap_or0.jpg" alt="Orange Laplace Level 0">
-        <p class="image-subtitle">Level 0</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_or1.jpg" alt="Orange Laplace Level 1">
-        <p class="image-subtitle">Level 1</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_or2.jpg" alt="Orange Laplace Level 2">
-        <p class="image-subtitle">Level 2</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_or3.jpg" alt="Orange Laplace Level 3">
-        <p class="image-subtitle">Level 3</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_or4.jpg" alt="Orange Laplace Level 4">
-        <p class="image-subtitle">Level 4</p>
-    </div>
-    <div class="image-container">
-        <img src="proj2images/lap_or5.jpg" alt="Orange Laplace Level 5">
-        <p class="image-subtitle">Level 5</p>
-    </div>
-</div>
-    <div class="clear-float"></div>
-    <h2>Oraple</h2>
         <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/oraple.jpg" alt="taj.jpg">
-            <p class="image-subtitle">Oraple!</p>
+            <img src="proj2images/taj.jpg" alt="taj.jpg">
+            <p class="image-subtitle">Taj Mahal</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/blended_levels.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Blend Levels</p>
+            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
         </div>
         </div>
         <div class="clear-float"></div>
-    <h2>Part 2.4: Multiresolution Blending</h2>
-    <p>In order to blend, I used Laplacian stacks of the images and the Gaussian stack for the mask. We apply Gaussian filter to the mask at each layer so that blending is smoother. After creating the Laplacian stack for the images and Gaussian stack for the mask, I create a blend stack for the images by merging them using the formula blend[i] = mask_gauss[i] * apple_laplace[i] + (1 - mask_gauss[i]) * orange_laplace[i] In this process, the Gaussian mask is applied to one image, while its inverse (1 - mask) is applied to the other for each level in the Laplacian pyramid. After creating a stack of blended images at each level, I collapse them to produce the final blended image. This enables a smooth transition between the images.</p>
-    <h2>Hagi & Drogba</h2>
-    <p> Finally, I was able to blend Didier Drogba and Gheorghe Hagi onto the same image.</p>
-    <div class="image-gri">
+        <h2>Part 5: Caricatures: Extrapolating from the mean</h2>
+            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
+        <div class="clear-float"></div>
+        <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/hagi.jpg" alt="grayscale_tan.jpg">
-            <p class="image-subtitle">Gheorghe Hagi</p>
+            <img src="proj2images/taj.jpg" alt="taj.jpg">
+            <p class="image-subtitle">Taj Mahal</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/drogba.jpg" alt="grayscale_two_face.jpg">
-            <p class="image-subtitle">Didier Drogba</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/drogba_mask.jpg" alt="filtered_tan.jpg">
-            <p class="image-subtitle">Mask</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/drogba_hagi.png" alt="filtered_two.jpg">
-            <p class="image-subtitle">Didier Drogba & Gheorghe Hagi (kernel size = 24, sigma = 4, depth = 5)</p>
+            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
         </div>
         </div>
         <div class="clear-float"></div>
-    <p> Here is its blending process.</p>
-     <div class="image-gr">
-        <div class="image-container">
-            <img src="proj2images/drogba_hagi_blend.jpg" alt="grayscale_tan.jpg">
-            <p class="image-subtitle">Drogba & Hagi Blend Process</p>
-        </div>
-        </div>
-    <h2>Spidermeme Recreation</h2>
-    <div class="image-gri">
-        <div class="image-container">
-            <img src="proj2images/spiderman.jpg" alt="grayscale_tan.jpg">
-            <p class="image-subtitle">Spiderman</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/spidermeme.jpg" alt="grayscale_two_face.jpg">
-            <p class="image-subtitle">Spidermeme</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/spideymask.jpg" alt="filtered_tan.jpg">
-            <p class="image-subtitle">Mask</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/spidermeme_spiderman.png" alt="filtered_two.jpg">
-            <p class="image-subtitle">Spiderman Meme with Andrew Garfield! (kernel size = 24, sigma = 4, depth = 5)</p>
-        </div>
-        </div>
+        <h2>Part 6: Bells and Whistles</h2>
+            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
-    <h2>Early Halloween</h2>
-    <p>I think I could have achieved a better blending with a better mask but still it is early Halloween!</p>
-    <div class="image-gri">
+        <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/jokerr_750.jpg" alt="grayscale_two_face.jpg">
-            <p class="image-subtitle">Joker</p>
+            <img src="proj2images/taj.jpg" alt="taj.jpg">
+            <p class="image-subtitle">Taj Mahal</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/pumpkin_750.jpg" alt="grayscale_tan.jpg">
-            <p class="image-subtitle">Pumpkin</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/jokemask_750.jpg" alt="filtered_tan.jpg">
-            <p class="image-subtitle">Mask</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/joker_pumpkin.png" alt="filtered_two.jpg">
-            <p class="image-subtitle">Early Halloween (kernel size = 24, sigma = 4, depth = 5)</p> 
+            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
         </div>
         </div>
         <div class="clear-float"></div>
