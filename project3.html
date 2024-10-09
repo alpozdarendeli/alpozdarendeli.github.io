@@ -186,6 +186,7 @@
     </div>
 
     <p> Thus, we can use a linear algebra solver to find a, b, c, d, e, and f, and calculate the transformation matrix.</p>
+    <p> Once we have the tranformation matrix for every triangle, we use inverse warping to warp original images to the average shape. Since I use inverse warping, the corresponding pixels in the source image can be between pixels so I used RegularGridInterpolator to interpolate the pixel values for dissolving. Applying warping to both of the images, and taking the point-wise average of them gives us the average face. This is basically morphing with warp and morph fraction of 0.5. </p>
 </html>
         <div class="clear-float"></div>
         <div class="image-gri">
