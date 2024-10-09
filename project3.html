@@ -100,7 +100,7 @@
     
     <div class="project-overview">
         <h2>Part 1:  Defining Correspondences</h2>
-            <p> To morph two images, we need to select points of correspondences. I used the given tool to select points on the images. After defining the correspondences, I used Delaney Triangulation to triangulate the mean points of Larry David's and Can Ruso's images. </p>
+            <p> To morph two images, we need to select points of correspondences. I used the given tool to select points on the images. After defining the correspondences, I used Delaney Triangulation to triangulate the mean points of Larry David's and Can Ruso's images to find the mean shape. </p>
             <div class="image-grid">
             <div class="image-container">
                 <img src="proj3images/ruso_triangulate.png" alt="d_x.jpg">
@@ -128,25 +128,13 @@
             tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
         });
     </script>
-
-    <h1>Affine Transformation Explanation</h1>
-
-    <h2>Triangle Transformation</h2>
-    <p>Consider two triangles:</p>
+    <p> In order to compute the mid-way face, we need to find the affine transformation matrix that transforms original points in Larry and Can's images to points in each triangle in the average shape trinagulation. 
+    <p>Let's say we have two triangles(one is from one of the original shapes, and one is from the average shape):</p>
     <ul>
-        <li>Original triangle with points $p_1, p_2, p_3$, each with coordinates $(x_i, y_i), i=1, 2, 3$</li>
-        <li>Transformed triangle with points $q_1, q_2, q_3$, following the same formalism</li>
+        <li>Original triangle has points $p_1, p_2, p_3$, with $(x_i, y_i) coordinates for each</li>
+        <li>Transformed triangle has points $q_1, q_2, q_3$ with $(x'_i, y'_i) coordinates for each </li>
     </ul>
-
-    <h2>Affine Transformation Matrix</h2>
-    <p>If a 3x3 affine transformation matrix A exists, then:</p>
-    <div class="equation">
-        \[A\vec{p_i'} = \vec{q_i'}\]
-    </div>
-    <p>Where $p'$ represents $p$ padded by a 1 at the bottom to allow for affine transformation.</p>
-
-    <h2>Matrix Breakdown</h2>
-    <p>Breaking down matrix A further:</p>
+    <p>Then, we can write the following matrix multiplication for the transformation operation, the 1s  appended for affine operations:</p>
     <div class="equation">
         \[
         \begin{bmatrix}
