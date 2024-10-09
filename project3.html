@@ -112,7 +112,128 @@
         </div>
         <div class="clear-float"></div>
         <h2>Part 2: Computing the "Mid-way Face"</h2>
-            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affine Transformation Explanation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+        }
+        .equation {
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Affine Transformation Explanation</h1>
+
+    <h2>Triangle Transformation</h2>
+    <p>Consider two triangles:</p>
+    <ul>
+        <li>Original triangle with points $p_1, p_2, p_3$, each with coordinates $(x_i, y_i), i=1, 2, 3$</li>
+        <li>Transformed triangle with points $q_1, q_2, q_3$, following the same formalism</li>
+    </ul>
+
+    <h2>Affine Transformation Matrix</h2>
+    <p>If a 3x3 affine transformation matrix A exists, then:</p>
+    <div class="equation">
+        \[A\vec{p_i'} = \vec{q_i'}\]
+    </div>
+    <p>Where $p'$ represents $p$ padded by a 1 at the bottom to allow for affine transformation.</p>
+
+    <h2>Matrix Breakdown</h2>
+    <p>Breaking down matrix A further:</p>
+    <div class="equation">
+        \[
+        \begin{bmatrix}
+        a & b & c \\
+        d & e & f \\
+        0 & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        px_i \\
+        py_i \\
+        1
+        \end{bmatrix} =
+        \begin{bmatrix}
+        qx_i \\
+        qy_i \\
+        1
+        \end{bmatrix}
+        \]
+    </div>
+
+    <h2>System of Equations</h2>
+    <p>This gives us the following system of equations:</p>
+    <div class="equation">
+        \[
+        \begin{aligned}
+        apx_i + bpy_i + c + 0d + 0e + 0f &= qx_i \\
+        0a + 0b + 0c + dpx_i + epy_i + f &= qy_i
+        \end{aligned}
+        \]
+    </div>
+
+    <h2>Expanded Equations</h2>
+    <p>Expanding for all 3 points:</p>
+    <div class="equation">
+        \[
+        \begin{aligned}
+        apx_1 + bpy_1 + c + 0d + 0e + 0f &= qx_1 \\
+        0a + 0b + 0c + dpx_1 + epy_1 + f &= qy_1 \\
+        apx_2 + bpy_2 + c + 0d + 0e + 0f &= qx_2 \\
+        0a + 0b + 0c + dpx_2 + epy_2 + f &= qy_2 \\
+        apx_3 + bpy_3 + c + 0d + 0e + 0f &= qx_3 \\
+        0a + 0b + 0c + dpx_3 + epy_3 + f &= qy_3
+        \end{aligned}
+        \]
+    </div>
+
+    <h2>Matrix Form Solution</h2>
+    <p>We can solve this system in matrix form:</p>
+    <div class="equation">
+        \[
+        \begin{bmatrix}
+        px_1 & py_1 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & px_1 & py_1 & 1 \\
+        px_2 & py_2 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & px_2 & py_2 & 1 \\
+        px_3 & py_3 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & px_3 & py_3 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        a \\ b \\ c \\ d \\ e \\ f
+        \end{bmatrix} =
+        \begin{bmatrix}
+        qx_1 \\ qy_1 \\ qx_2 \\ qy_2 \\ qx_3 \\ qy_3
+        \end{bmatrix}
+        \]
+    </div>
+
+    <p>This system can be solved using computational software to find the values of a, b, c, d, e, and f, which define the affine transformation matrix.</p>
+</body>
+</html>
         <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
