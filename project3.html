@@ -90,24 +90,24 @@
 
     <div class="Background">
         <h2>Background</h2>
-        <p> In this project, I aim to successfully face morph Larry David to my roommate Can, whom we watch Curb Your Enthuasiasm together.</p>
+        <p> In this project, I aim to successfully face morph Larry David to my roommate Can, whom I watch Curb Your Enthuasiasm together.</p>
     </div>
     
     <div class="project-overview">
         <h2>Part 1:  Defining Correspondences</h2>
-            <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created by np.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. The gradient magnitude is calculated by taking the square root of the sum of squared partial derivatives in the x and y directions. This is essentially calculating the L2 norm of the gradient vector at each pixel. In order to binarize the gradient magnitude, I have chosen a threshold of 0.29 per pixel.</p>
+            <p> To morph two images, we need to select points of correspondences. I used the given tool to select points on the images. After defining the correspondences, I used Delaney Triangulation to triangulate the mean points of Larry David's and Can Ruso's images. </p>
             <div class="image-grid">
             <div class="image-container">
-                <img src="proj2images/d_x.jpg" alt="d_x.jpg">
-                <p class="image-subtitle">d_x</p>
+                <img src="proj3images//ruso_triangulate.png" alt="d_x.jpg">
+                <p class="image-subtitle">Ruso points</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/d_y.jpg" alt="d_y.jpg">
-                <p class="image-subtitle">d_y</p>
+                <img src="proj3images/david_triangulate.png" alt="d_y.jpg">
+                <p class="image-subtitle">David points</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/magnitude.jpg" alt="magnitude.jpg">
-                <p class="image-subtitle">Gradient Magnitude</p>
+                <img src="proj3images/mid_triangulate.png" alt="magnitude.jpg">
+                <p class="image-subtitle">Mean points on Can Ruso</p>
             </div>
             <div class="image-container">
                 <img src="proj2images/gradient_magnitude.jpg" alt="gradient_magnitude.jpg">
