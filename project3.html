@@ -130,10 +130,8 @@
     </script>
     <p> In order to compute the mid-way face, we need to find the affine transformation matrix that transforms original points in Larry and Can's images to points in each triangle in the average shape trinagulation. 
     <p>Let's say we have two triangles(one is from one of the original shapes, and one is from the average shape):</p>
-    <ul>
-        <li>Original triangle has points $p_1, p_2, p_3$, with $(x_i, y_i) coordinates for each</li>
-        <li>Transformed triangle has points $q_1, q_2, q_3$ with $(x'_i, y'_i) coordinates for each </li>
-    </ul>
+    <p>Original triangle has points $p_1, p_2, p_3$, with $(x_i, y_i) coordinates for each</p>
+    <p>Transformed triangle has points $q_1, q_2, q_3$ with $(x'_i, y'_i) coordinates for each </p>
     <p>Then, we can write the following matrix multiplication for the transformation operation, the 1s  appended for affine operations:</p>
     <div class="equation">
         \[
@@ -154,20 +152,16 @@
         \end{bmatrix}
         \]
     </div>
-
-    <h2>System of Equations</h2>
-    <p>This gives us the following system of equations:</p>
+    <p>Based on this, we can write the following equations:</p>
     <div class="equation">
         \[
         \begin{aligned}
         ax_i + by_i + c + 0d + 0e + 0f &= x'_i \\
-        0a + 0b + 0c + dx_i + epy_i + f &= y'_i
+        0a + 0b + 0c + dx_i + ey_i + f &= y'_i
         \end{aligned}
         \]
     </div>
-
-    <h2>Expanded Equations</h2>
-    <p>Expanding for all 3 points:</p>
+    <p>If we expand this on all 3 points in the triangles:</p>
     <div class="equation">
         \[
         \begin{aligned}
@@ -180,8 +174,6 @@
         \end{aligned}
         \]
     </div>
-
-    <h2>Matrix Form Solution</h2>
     <p>We can solve this system in matrix form:</p>
     <div class="equation">
         \[
