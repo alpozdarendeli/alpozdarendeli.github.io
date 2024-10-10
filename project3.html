@@ -221,16 +221,20 @@
         </div>
         </div>
         <h2>Part 4: The "Mean face" of a population</h2>
-            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
+            <p> For this part, I used all of the data points from Danes dataset to compute the mean face of the population. Firstly, I found the average of all the corresponding points for the given images. I warped all images to the average shape and computed their average to get the mean face. Here are a few examples of the warped images to the average shape:</p>
         <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/taj.jpg" alt="taj.jpg">
-            <p class="image-subtitle">Taj Mahal</p>
+            <img src="proj3images/morphed2.png" alt="taj.jpg">
         </div>
         <div class="image-container">
-            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
+            <img src="proj3images/morphed3.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj3images/morphed4.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj3images/morhped6.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
