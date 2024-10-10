@@ -204,19 +204,22 @@
         </div>
         <div class="clear-float"></div>
         <h2>Part 3: The Morph Sequence</h2>
-            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
+            <p> To produce the morphing sequence, I applied the previous procedure for finding the mid-way face with different warp and dissolve fractions. To create 45 frames, I increase the fractions by 1/45 for each frame. Dissolve fraction determines the weight of source image for the final image while taking the average of the source images. Warp fraction determines how close the shape of final image will be to the source image. Here is a gif with 45 frames for transforming Larry David to Can:</p>
         <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/taj.jpg" alt="taj.jpg">
-            <p class="image-subtitle">Taj Mahal</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
+            <img src="proj3images/larrycan.gif" alt="taj.jpg">
+            <p class="image-subtitle">Larry David to Can Ruso</p>
         </div>
         </div>
         <div class="clear-float"></div>
+        <p> I also applied the morphing sequence to my father and myself. It turns out we look pretty alike:</p>
+        <div class="image-gri">
+        <div class="image-container">
+            <img src="proj3images/morph.gif" alt="taj.jpg">
+            <p class="image-subtitle">My father to Me</p>
+        </div>
+        </div>
         <h2>Part 4: The "Mean face" of a population</h2>
             <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
