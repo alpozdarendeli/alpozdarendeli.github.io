@@ -188,36 +188,18 @@
     <p> Thus, we can use a linear algebra solver to find a, b, c, d, e, and f, and calculate the transformation matrix.</p>
     <p> Once we have the tranformation matrix for every triangle, we use inverse warping to warp original images to the average shape. Since I use inverse warping, the corresponding pixels in the source image can be between pixels so I used RegularGridInterpolator to interpolate the pixel values for dissolving. Applying warping to both of the images, and taking the point-wise average of them gives us the average face. This is basically morphing with warp and morph fraction of 0.5. </p>
 </html>
-        <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/taj.jpg" alt="taj.jpg">
-            <p class="image-subtitle">Taj Mahal</p>
+            <img src="proj3images/warpedcan.png" alt="ataturk.jpg">
+            <p class="image-subtitle">Warped Can</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
-        </div>
-        </div>
-        <div class="clear-float"></div>
-        <div class="image-gri">
-        <div class="image-container">
-            <img src="proj2images/ataturk.jpg" alt="ataturk.jpg">
-            <p class="image-subtitle">Mustafa Kemal Ataturk</p>
+            <img src="proj3images/warpedlarry.png" alt="ataturk_sharp.jpg">
+            <p class="image-subtitle">Warped Larry</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/ataturk_sharp.jpg" alt="ataturk_sharp.jpg">
-            <p class="image-subtitle">Sharpened Mustafa Kemal Ataturk, alpha = 1.2</p>
-        </div>
-        </div>
-        <div class="clear-float"></div>
-        <div class="image-container">
-            <img src="proj2images/galatasaray.jpg" alt="galatasaray.jpg">
-            <p class="image-subtitle">Galatasaray players are celebrating defeating Fenerbahce</p>
-        </div>
-        <div class="image-container">
-            <img src="proj2images/galatasaray_sharp.jpg" alt="galatasaray_sharp.jpg">
-            <p class="image-subtitle">Sharpened Galatasaray players are celebrating defeating Fenerbahce, alpha = 2</p>
+            <img src="proj3images/averageshape.png" alt="ataturk_sharp.jpg">
+            <p class="image-subtitle">Mid-way Face</p>
         </div>
         </div>
         <div class="clear-float"></div>
