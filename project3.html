@@ -238,6 +238,16 @@
         </div>
         </div>
         <div class="clear-float"></div>
+        <p> After computing the mean face of the population, I warped Can's face into the average face, and warped the mean face into Can's face:</p>
+        <div class="image-gri">
+        <div class="image-container">
+            <img src="proj3images/warped_avg.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj3images/warpedcan_avg.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
         <h2>Part 5: Caricatures: Extrapolating from the mean</h2>
             <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
