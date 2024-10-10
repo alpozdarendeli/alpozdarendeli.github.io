@@ -248,17 +248,16 @@
         </div>
         </div>
         <div class="clear-float"></div>
+        Instead of using the warping methods to bring my face closer to the mean or the mean face closer to mine, we can also pull them further apart. In the image below, I warped my face into target points calculated by mean_points + 1.7 * (my_points - mean_points). This is a linear extrapolation of a face that is twice as far from the mean as I am; it essentially doubles the vector distance between the points for my face and the mean points while keeping the direction of the deviation the same.
         <h2>Part 5: Caricatures: Extrapolating from the mean</h2>
-            <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
+            <p> I also caricaturize Can's image. Instead of warping Can's image to the mean shape, we can warp Can's face to can_shape + alpha(can_shape - average_shape) for a negative alpha and a positive alpha > 1. Here are the results:</p>
         <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
-            <img src="proj2images/taj.jpg" alt="taj.jpg">
-            <p class="image-subtitle">Taj Mahal</p>
+            <img src="proj2images/alpha1_7.png" alt="taj.jpg">
         </div>
         <div class="image-container">
-            <img src="proj2images/taj_sharp.jpg" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
+            <img src="proj3images/alpha_0_7.png" alt="taj_sharp.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
