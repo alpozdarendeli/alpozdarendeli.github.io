@@ -255,7 +255,6 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        Instead of using the warping methods to bring my face closer to the mean or the mean face closer to mine, we can also pull them further apart. In the image below, I warped my face into target points calculated by mean_points + 1.7 * (my_points - mean_points). This is a linear extrapolation of a face that is twice as far from the mean as I am; it essentially doubles the vector distance between the points for my face and the mean points while keeping the direction of the deviation the same.
         <h2>Part 5: Caricatures: Extrapolating from the mean</h2>
             <p> I also caricaturize Can's image. Instead of warping Can's image to the mean shape, we can warp Can's face to can_shape + alpha(can_shape - average_shape) for a negative alpha and a positive alpha > 1. Here are the results:</p>
         <div class="clear-float"></div>
