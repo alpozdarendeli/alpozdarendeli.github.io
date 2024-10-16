@@ -96,16 +96,15 @@
     </style>
 </head>
 <body>
-    <h1>Project 3: Face Morphing</h1>
+    <h1>Project 4: Image Warping and Mosaicing</h1>
     <h2>Alp Eren Ozdarendeli</h2>
 
     <div class="Background">
-        <h2>Background</h2>
-        <p>In this project, I aim to successfully face-morph Larry David into my roommate Can, with whom I watch 'Curb Your Enthusiasm' together.</p>
+        <h2>Part A</h2>
     </div>
     
     <div class="project-overview">
-        <h2>Part 1:  Defining Correspondences</h2>
+        <h2>Shoot the Pictures</h2>
             <p> To morph two images, we need to select points of correspondences. I used the given tool to select points on the images. After defining the correspondences, I used Delaney Triangulation to triangulate the mean points of Larry David's and Can Ruso's images to find the mean shape. </p>
             <div class="image-grid">
             <div class="image-container">
@@ -122,7 +121,7 @@
             </div>
         </div>
         <div class="clear-float"></div>
-        <h2>Part 2: Computing the "Mid-way Face"</h2>
+        <h2>Recover Homographies</h2>
     <p> In order to compute the mid-way face, we need to find the affine transformation matrix that transforms original points from Larry and Can's images to points in each triangle in the average shape triangulation. 
     <p>Let's say we have two triangles (one is from one of the original shapes, and one is from the average shape):</p>
     <p>Original triangle has points p<sub>1</sub>, p<sub>2</sub>, p<sub>3</sub>, with (x<sub>i</sub>, y<sub>i</sub>) coordinates for each point</p>
@@ -197,7 +196,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <h2>Part 3: The Morph Sequence</h2>
+        <h2>Warp the Images</h2>
             <p> To produce the morphing sequence, I applied the previous procedure for finding the mid-way face with different warp and dissolve fractions. To create 45 frames, I increase the fractions by 1/45 for each frame. Dissolve fraction determines the weight of source image for the final image while taking the average of the source images. Warp fraction determines how close the shape of final image will be to the source image. Here is a gif with 45 frames for transforming Larry David to Can:</p>
         <div class="clear-float"></div>
         <div class="image-gr">
@@ -214,7 +213,7 @@
             <p class="image-subtitle">My father to Me</p>
         </div>
         </div>
-        <h2>Part 4: The "Mean face" of a population</h2>
+        <h2>Image Rectification</h2>
             <p> For this part, I used all of the data points from Danes dataset to compute the mean face of the population. Firstly, I found the average of all the corresponding points for the given images. I warped all images to the average shape and computed their average to get the mean face. Here are a few examples of the warped images to the average shape:</p>
         <div class="clear-float"></div>
         <div class="image-gri">
@@ -249,7 +248,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <h2>Part 5: Caricatures: Extrapolating from the mean</h2>
+        <h2>Blend the images into a mosaic</h2>
             <p> I also caricaturize Can's image. Instead of warping Can's image to the mean shape, we can warp Can's face to can_shape + alpha(can_shape - average_shape) for a negative alpha and a positive alpha > 1 to extrapolate Can's face. These basically exaggerates Can's facial features that are far away from the mean face and the mean face's features that are far away from Can's face. Here are the results:</p>
         <div class="clear-float"></div>
         <div class="image-gri">
