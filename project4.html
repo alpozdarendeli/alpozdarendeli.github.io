@@ -1,1 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3: Face Morphing</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        .project-overview {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .image-gri {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .image-gr {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+            justify-items: center; 
+            align-items: center; 
+        }
+        .image-g {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 3px;
+        }
+        .image-subtitle {
+            margin-top: 8px;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .clear-float {
+            clear: both;
+            width: 100%;
+        }
+        .image-description {
+            margin-top: 8px;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #555;
+        }
+                
+        .equation {
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project 3: Face Morphing</h1>
+    <h2>Alp Eren Ozdarendeli</h2>
 
+    <div class="Background">
+        <h2>Background</h2>
+        <p>In this project, I aim to successfully face-morph Larry David into my roommate Can, with whom I watch 'Curb Your Enthusiasm' together.</p>
+    </div>
+    
+    <div class="project-overview">
+        <h2>Part 1:  Defining Correspondences</h2>
+            <p> To morph two images, we need to select points of correspondences. I used the given tool to select points on the images. After defining the correspondences, I used Delaney Triangulation to triangulate the mean points of Larry David's and Can Ruso's images to find the mean shape. </p>
+            <div class="image-grid">
+            <div class="image-container">
+                <img src="proj3images/ruso_tr.png" alt="d_x.jpg">
+                <p class="image-subtitle">Ruso points</p>
+            </div>
+            <div class="image-container">
+                <img src="proj3images/david_tr.png" alt="d_y.jpg">
+                <p class="image-subtitle">David points</p>
+            </div>
+            <div class="image-container">
+                <img src="proj3images/mid_tr.png" alt="magnitude.jpg">
+                <p class="image-subtitle">Mean points on Can Ruso</p>
+            </div>
+        </div>
+        <div class="clear-float"></div>
+        <h2>Part 2: Computing the "Mid-way Face"</h2>
+    <p> In order to compute the mid-way face, we need to find the affine transformation matrix that transforms original points from Larry and Can's images to points in each triangle in the average shape triangulation. 
+    <p>Let's say we have two triangles (one is from one of the original shapes, and one is from the average shape):</p>
+    <p>Original triangle has points p<sub>1</sub>, p<sub>2</sub>, p<sub>3</sub>, with (x<sub>i</sub>, y<sub>i</sub>) coordinates for each point</p>
+    <p>Transformed triangle has points q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub> with (x'<sub>i</sub>, y'<sub>i</sub>) coordinates for each point</p>
+    <p>Then, we can write the following matrix multiplication for the transformation operation, the 1s  appended for affine operations:</p>
+    <div class="equation">
+        \[
+        \begin{bmatrix}
+        a & b & c \\
+        d & e & f \\
+        0 & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        x_i \\
+        y_i \\
+        1
+        \end{bmatrix} =
+        \begin{bmatrix}
+        x'_i \\
+        y'_i \\
+        1
+        \end{bmatrix}
+        \]
+    </div>
+    <p>If we expand this on all 3 points in the triangles:</p>
+    <div class="equation">
+        \[
+        \begin{aligned}
+        ax_1 + by_1 + c + 0d + 0e + 0f &= x'_1 \\
+        0a + 0b + 0c + dx_1 + ey_1 + f &= y'_1 \\
+        ax_2 + by_2 + c + 0d + 0e + 0f &= x'_2 \\
+        0a + 0b + 0c + dx_2 + ey_2 + f &= y'_2 \\
+        ax_3 + by_3 + c + 0d + 0e + 0f &= x'_3 \\
+        0a + 0b + 0c + dx_3 + ey_3 + f &= y'_3
+        \end{aligned}
+        \]
+    </div>
+    <p>We can solve this system in matrix form:</p>
+    <div class="equation">
+        \[
+        \begin{bmatrix}
+        x_1 & y_1 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & x_1 & y_1 & 1 \\
+        x_2 & y_2 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & x_2 & y_2 & 1 \\
+        x_3 & y_3 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & x_3 & y_3 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        a \\ b \\ c \\ d \\ e \\ f
+        \end{bmatrix} =
+        \begin{bmatrix}
+        x'_1 \\ y'_1 \\ x'_2 \\ y'_2 \\ x'_3 \\ y'_3
+        \end{bmatrix}
+        \]
+    </div>
+    <p> Thus, we can use a linear algebra solver to find a, b, c, d, e, and f, and calculate the transformation matrix.</p>
+    <p> Once we have the tranformation matrix for every triangle, we use inverse warping to warp original images to the average shape. Since I use inverse warping, the corresponding pixels in the source image can be between pixels so I used RegularGridInterpolator to interpolate the pixel values for dissolving. Applying warping to both of the images, and taking the point-wise average of them gives us the average face. This is basically morphing with warp and morph fraction of 0.5. </p>
+</html>
+        <div class="image-grid">
+        <div class="image-container">
+            <img src="proj3images/warpedcan.png" alt="ataturk.jpg">
+            <p class="image-subtitle">Warped Can</p>
+        </div>
+        <div class="image-container">
+            <img src="proj3images/warpedlarry.png" alt="ataturk_sharp.jpg">
+            <p class="image-subtitle">Warped Larry</p>
+        </div>
+        <div class="image-container">
+            <img src="proj3images/averageshape.png" alt="ataturk_sharp.jpg">
+            <p class="image-subtitle">Mid-way Face</p>
+        </div>
+        </div>
+        <div class="clear-float"></div>
+        <h2>Part 3: The Morph Sequence</h2>
+            <p> To produce the morphing sequence, I applied the previous procedure for finding the mid-way face with different warp and dissolve fractions. To create 45 frames, I increase the fractions by 1/45 for each frame. Dissolve fraction determines the weight of source image for the final image while taking the average of the source images. Warp fraction determines how close the shape of final image will be to the source image. Here is a gif with 45 frames for transforming Larry David to Can:</p>
+        <div class="clear-float"></div>
+        <div class="image-gr">
+        <div class="image-container">
+            <img src="proj3images/larrycan.gif" alt="taj.jpg">
+            <p class="image-subtitle">Larry David to Can Ruso</p>
+        </div>
+        </div>
+        <div class="clear-float"></div>
+        <p> I also applied the morphing sequence to my father and myself. It turns out we look pretty alike:</p>
+        <div class="image-gr">
+        <div class="image-container">
+            <img src="proj3images/morph.gif" alt="taj.jpg">
+            <p class="image-subtitle">My father to Me</p>
+        </div>
+        </div>
+        <h2>Part 4: The "Mean face" of a population</h2>
+            <p> For this part, I used all of the data points from Danes dataset to compute the mean face of the population. Firstly, I found the average of all the corresponding points for the given images. I warped all images to the average shape and computed their average to get the mean face. Here are a few examples of the warped images to the average shape:</p>
+        <div class="clear-float"></div>
+        <div class="image-gri">
+        <div class="image-container">
+            <img src="proj3images/morphed2.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj3images/morphed3.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj3images/morphed4.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj3images/morhped6.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
+        <p> Here is the mean face of the population:</p>
+        <div class="image-gr">
+        <div class="image-container">
+            <img src="proj3images/avgface.jpg" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
+        <p> After computing the mean face of the population, I warped Can's face into the average face, and warped the mean face into Can's face:</p>
+        <div class="image-gri">
+        <div class="image-container">
+            <img src="proj3images/warped_avg.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj3images/warpedcan_avg.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
+        <h2>Part 5: Caricatures: Extrapolating from the mean</h2>
+            <p> I also caricaturize Can's image. Instead of warping Can's image to the mean shape, we can warp Can's face to can_shape + alpha(can_shape - average_shape) for a negative alpha and a positive alpha > 1 to extrapolate Can's face. These basically exaggerates Can's facial features that are far away from the mean face and the mean face's features that are far away from Can's face. Here are the results:</p>
+        <div class="clear-float"></div>
+        <div class="image-gri">
+        <div class="image-container">
+            <img src="proj3images/alpha1_7.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj3images/alpha_0_7.png" alt="taj_sharp.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
+        <h2>Part 6: Bells and Whistles</h2>
+        <p> I completed two Bells and Whistles. For the first one, I made a video of myself at different ages. There are 13 different pictures of myself that are morphed sequentially to produce aging effect. I used the morphing sequence defined earlier for each consecutive image. Here is the link:</p>
+        <a href="https://youtu.be/4YwmFifFEhw"> Link to my video</a>
+        <p>For the second B&W, I computed the mean face of all the woman images in Danes dataset, and tried to morph only Can's appearance, only Can's shape and both. These are done by having 0 warp frac and 1 dissolve frac, 1 warp frac and 0 dissolve frac, and 0.5 dissolve and warp frac.</p>
+        <div class="image-gri">
+        <div class="image-container">
+            <img src="proj3images/womanavg.jpg" alt="taj.jpg">
+            <p class="image-subtitle">Mean Woman Face</p>
+        </div>
+        <div class="image-container">
+            <img src="proj3images/warp_can_w.png" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Shape only</p>
+        </div>
+        <div class="image-container">
+            <img src="proj3images/can_appear.png" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Appearance only</p>
+        </div>
+        <div class="image-container">
+            <img src="proj3images/can_both.png" alt="taj_sharp.jpg">
+            <p class="image-subtitle">Both</p>
+        </div>
+        </div>
+        <div class="clear-float"></div>
+    </div>
+</body>
+</html>
+    </div>
+</body>
+</html>
