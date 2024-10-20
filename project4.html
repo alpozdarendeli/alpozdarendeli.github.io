@@ -210,11 +210,17 @@
         </div>
         </div>
         <h2>Image Rectification</h2>
-            <p> For this part, I used all of the data points from Danes dataset to compute the mean face of the population. Firstly, I found the average of all the corresponding points for the given images. I warped all images to the average shape and computed their average to get the mean face. Here are a few examples of the warped images to the average shape:</p>
+            <p> For image rectification I used the warping function I defined earlier with a little nuance. Instead of selecting corresponding points between two images, I chose the edges of a rectangle or a square shape from an image and I manually defined the corresponding points so that these edges would form a rectified rectangular shape. Here are the corresponding points I have chosen and the resultant rectified image:</p>
         <div class="clear-float"></div>
-        <div class="image-gr">
+        <div class="image-gri">
+        <div class="image-container">
+            <img src="proj4images/tip.png" alt="taj.jpg">
+        </div>
         <div class="image-container">
             <img src="proj4images/tikare.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj4images/yastikp.png" alt="taj.jpg">
         </div>
         <div class="image-container">
             <img src="proj4images/yastikkare.png" alt="taj.jpg">
