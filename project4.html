@@ -121,62 +121,60 @@
         </div>
         <div class="clear-float"></div>
         <h2>Recover Homographies</h2>
-    <p> In order to compute the mid-way face, we need to find the affine transformation matrix that transforms original points from Larry and Can's images to points in each triangle in the average shape triangulation. 
-    <p>Let's say we have two triangles (one is from one of the original shapes, and one is from the average shape):</p>
-    <p>Original triangle has points p<sub>1</sub>, p<sub>2</sub>, p<sub>3</sub>, with (x<sub>i</sub>, y<sub>i</sub>) coordinates for each point</p>
-    <p>Transformed triangle has points q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub> with (x'<sub>i</sub>, y'<sub>i</sub>) coordinates for each point</p>
-    <p>Then, we can write the following matrix multiplication for the transformation operation, the 1s  appended for affine operations:</p>
+    <p>A homography is defined by a 3x3 matrix that maps augmented coordinates (x, y, 1) to another set of augmented coordinates (x', y', w). Since the third coordinate is always 1, we can set the scaling factor w to 1. Therefore, we define the homography as:</p>
     <div class="equation">
         \[
+        \begin{bmatrix}
+        wx' \\
+        wy' \\
+        w
+        \end{bmatrix} =
         \begin{bmatrix}
         a & b & c \\
         d & e & f \\
-        0 & 0 & 1
+        g & h & 1
         \end{bmatrix}
         \begin{bmatrix}
-        x_i \\
-        y_i \\
-        1
-        \end{bmatrix} =
-        \begin{bmatrix}
-        x'_i \\
-        y'_i \\
+        x \\
+        y \\
         1
         \end{bmatrix}
         \]
     </div>
-    <p>If we expand this on all 3 points in the triangles:</p>
+    <p>We can write the equations as:</p>
     <div class="equation">
-        \[
-        \begin{aligned}
-        ax_1 + by_1 + c + 0d + 0e + 0f &= x'_1 \\
-        0a + 0b + 0c + dx_1 + ey_1 + f &= y'_1 \\
-        ax_2 + by_2 + c + 0d + 0e + 0f &= x'_2 \\
-        0a + 0b + 0c + dx_2 + ey_2 + f &= y'_2 \\
-        ax_3 + by_3 + c + 0d + 0e + 0f &= x'_3 \\
-        0a + 0b + 0c + dx_3 + ey_3 + f &= y'_3
-        \end{aligned}
+                \[
+        x' = \frac{ax + by + c}{gx + hy + 1}, \\
+        y' = \frac{dx + ey + f}{gx + hy + 1}
         \]
     </div>
-    <p>We can solve this system in matrix form:</p>
+    <p>For multiple points, we obtain the following linear system:</p>
     <div class="equation">
         \[
         \begin{bmatrix}
-        x_1 & y_1 & 1 & 0 & 0 & 0 \\
-        0 & 0 & 0 & x_1 & y_1 & 1 \\
-        x_2 & y_2 & 1 & 0 & 0 & 0 \\
-        0 & 0 & 0 & x_2 & y_2 & 1 \\
-        x_3 & y_3 & 1 & 0 & 0 & 0 \\
-        0 & 0 & 0 & x_3 & y_3 & 1
+        x_1 & y_1 & 1 & 0 & 0 & 0 & -x_1 x'_1 & -y_1 x'_1 \\
+        0 & 0 & 0 & x_1 & y_1 & 1 & -x_1 y'_1 & -y_1 y'_1 \\
+        x_2 & y_2 & 1 & 0 & 0 & 0 & -x_2 x'_2 & -y_2 x'_2 \\
+        0 & 0 & 0 & x_2 & y_2 & 1 & -x_2 y'_2 & -y_2 y'_2
         \end{bmatrix}
         \begin{bmatrix}
-        a \\ b \\ c \\ d \\ e \\ f
+        a \\
+        b \\
+        c \\
+        d \\
+        e \\
+        f \\
+        g \\
+        h
         \end{bmatrix} =
         \begin{bmatrix}
-        x'_1 \\ y'_1 \\ x'_2 \\ y'_2 \\ x'_3 \\ y'_3
+        x'_1 \\
+        y'_1 \\
+        x'_2 \\
+        y'_2
         \end{bmatrix}
         \]
-    </div>
+          </div>
     <p> Thus, we can use a linear algebra solver to find a, b, c, d, e, and f, and calculate the transformation matrix.</p>
     <p> Once we have the tranformation matrix for every triangle, we use inverse warping to warp original images to the average shape. Since I use inverse warping, the corresponding pixels in the source image can be between pixels so I used RegularGridInterpolator to interpolate the pixel values for dissolving. Applying warping to both of the images, and taking the point-wise average of them gives us the average face. This is basically morphing with warp and morph fraction of 0.5. </p>
 </html>
