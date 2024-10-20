@@ -190,22 +190,6 @@
         \]
           </div>
     <p> However, ideally, we should use more than 4 correspondence points to make homography recovery stable and less prone to error. Using more than 4 correspondence points would make the equation overdetermined and we solve this by least-squares solver to recover the homographies.</p>
-</html>
-        <div class="image-grid">
-        <div class="image-container">
-            <img src="proj3images/warpedcan.png" alt="ataturk.jpg">
-            <p class="image-subtitle">Warped Can</p>
-        </div>
-        <div class="image-container">
-            <img src="proj3images/warpedlarry.png" alt="ataturk_sharp.jpg">
-            <p class="image-subtitle">Warped Larry</p>
-        </div>
-        <div class="image-container">
-            <img src="proj3images/averageshape.png" alt="ataturk_sharp.jpg">
-            <p class="image-subtitle">Mid-way Face</p>
-        </div>
-        </div>
-        <div class="clear-float"></div>
         <h2>Warp the Images</h2>
             <p> To produce the morphing sequence, I applied the previous procedure for finding the mid-way face with different warp and dissolve fractions. To create 45 frames, I increase the fractions by 1/45 for each frame. Dissolve fraction determines the weight of source image for the final image while taking the average of the source images. Warp fraction determines how close the shape of final image will be to the source image. Here is a gif with 45 frames for transforming Larry David to Can:</p>
         <div class="clear-float"></div>
