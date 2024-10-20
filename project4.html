@@ -121,14 +121,9 @@
         </div>
         <div class="clear-float"></div>
         <h2>Recover Homographies</h2>
-    <p>A homography is defined by a 3x3 matrix that maps augmented coordinates (x, y, 1) to another set of augmented coordinates (x', y', w). Since the third coordinate is always 1, we can set the scaling factor w to 1. Therefore, we define the homography as:</p>
+    <p>To recover homographies, we want to find the projective transformation that transforms coordinates of a point with an augmented coordinate (x, y, 1) to another augmented coordinates with the same center of projection (x', y', w). When scaling factor is 0, we have the following equation:</p>
     <div class="equation">
         \[
-        \begin{bmatrix}
-        wx' \\
-        wy' \\
-        w
-        \end{bmatrix} =
         \begin{bmatrix}
         a & b & c \\
         d & e & f \\
@@ -138,17 +133,22 @@
         x \\
         y \\
         1
-        \end{bmatrix}
+        \end{bmatrix}  =
+        \begin{bmatrix}
+        wx' \\
+        wy' \\
+        w
+        \end{bmatrix} =
         \]
     </div>
-    <p>We can write the equations as:</p>
+    <p>If we expand out the equations and divide wx' and wy' by w:</p>
     <div class="equation">
                 \[
         x' = \frac{ax + by + c}{gx + hy + 1}, \\
         y' = \frac{dx + ey + f}{gx + hy + 1}
         \]
     </div>
-    <p>For multiple points, we obtain the following linear system:</p>
+    <p>We can write the same equations for different corresponding points, if we stack them together:</p>
     <div class="equation">
         \[
         \begin{bmatrix}
@@ -175,8 +175,7 @@
         \end{bmatrix}
         \]
           </div>
-    <p> Thus, we can use a linear algebra solver to find a, b, c, d, e, and f, and calculate the transformation matrix.</p>
-    <p> Once we have the tranformation matrix for every triangle, we use inverse warping to warp original images to the average shape. Since I use inverse warping, the corresponding pixels in the source image can be between pixels so I used RegularGridInterpolator to interpolate the pixel values for dissolving. Applying warping to both of the images, and taking the point-wise average of them gives us the average face. This is basically morphing with warp and morph fraction of 0.5. </p>
+    <p> However, ideally, we should use more than 4 correspondence points to make homography recovery stable and less prone to error. Using more than 4 correspondence points would make the equation overdetermined and we solve this by least-squares solver to recover the homographies.</p>
 </html>
         <div class="image-grid">
         <div class="image-container">
