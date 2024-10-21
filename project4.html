@@ -211,23 +211,6 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <p> Here is the mean face of the population:</p>
-        <div class="image-gr">
-        <div class="image-container">
-            <img src="proj3images/avgface.jpg" alt="taj.jpg">
-        </div>
-        </div>
-        <div class="clear-float"></div>
-        <p> After computing the mean face of the population, I warped Can's face into the average face, and warped the mean face into Can's face:</p>
-        <div class="image-gri">
-        <div class="image-container">
-            <img src="proj3images/warped_avg.png" alt="taj.jpg">
-        </div>
-        <div class="image-container">
-            <img src="proj3images/warpedcan_avg.png" alt="taj.jpg">
-        </div>
-        </div>
-        <div class="clear-float"></div>
         <h2>Blend the images into a mosaic</h2>
             <p> To blend the images into a mosaic, firstly, I warped one of the images based on the correspondence points. Before warping, I calculate the final image's shape and align the warped image with the original image by calculating if there is any offsets. Then, I created indicator masks for both the original and warped image in the final image's shape. These masks set pixels to 1 if there is a corresponding pixel in the original or warped image. I found the overlapping pixels between the two images using these masks. After finding the overlapping pixels, I used a Laplacian stack for blending. For a Laplacian stack, we need a mask for the images to blend. I separated the mask into two parts. The first part is the non-overlapping pixels for the original image. Since there is no overlap between the images at these pixels, I used the indicator mask I created for the images at these pixels. For the overlapping pixels, the computation is more complicated. I used cv2.distanceTransform to calculate distance to non-overlapping pixels from both images for each overlapping pixel. Then, I found the ratio of distance2/(distance2+distance1) for each overlapping pixel where distance1 indicates the distance to the closest non-overlapping pixel in the original image. By combining these two parts, I create the mask for the Laplacian stack: </p>
         <div class="image-grid">
