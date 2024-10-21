@@ -190,12 +190,11 @@
         \]
           </div>
     <p> However, ideally, we should use more than 4 correspondence points to make homography recovery stable and less prone to error. Using more than 4 correspondence points would make the equation overdetermined and we solve this by least-squares solver to recover the homographies.</p>
-        <h2>Warp the Images</h2>
-            <p> To produce the morphing sequence, I applied the previous procedure for finding the mid-way face with different warp and dissolve fractions. To create 45 frames, I increase the fractions by 1/45 for each frame. Dissolve fraction determines the weight of source image for the final image while taking the average of the source images. Warp fraction determines how close the shape of final image will be to the source image. Here is a gif with 45 frames for transforming Larry David to Can:</p>
+        <h2>Warp the Images/ Image Rectification</h2>
+            <p> After calculating the homography, I use inverse warping to warp original images to the desired shape. Since I use inverse warping, the corresponding pixels in the source image can be between pixels so I used RegularGridInterpolator to interpolate the pixel values.</p>
         <div class="clear-float"></div>
         <p> I also applied the morphing sequence to my father and myself. It turns out we look pretty alike:</p>
-        <h2>Image Rectification</h2>
-            <p> For image rectification I used the inverse warping with homography I calculated earlier. Instead of selecting corresponding points between two images, I chose the edges of a rectangle or a square shape from an image and I manually defined the corresponding points so that these edges would form a rectified rectangular shape. Here are the corresponding points I have chosen and the resultant rectified image:</p>
+        <p> For image rectification I used the inverse warping with homography I calculated earlier. Instead of selecting corresponding points between two images, I chose the edges of a rectangle or a square shape from an image and I manually defined the corresponding points so that these edges would form a rectified rectangular shape. Here are the corresponding points I have chosen and the resultant rectified image:</p>
         <div class="clear-float"></div>
         <div class="image-gri">
         <div class="image-container">
