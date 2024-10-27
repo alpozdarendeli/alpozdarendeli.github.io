@@ -304,11 +304,17 @@
             <div class="image-gr">
         <div class="image-container">
             <img src="proj4images/harriscor.png" alt="taj.jpg">
-            <p class="image-subtitle">Manual Stitching</p>
         </div>
         </div>
         <div class="clear-float"></div>
-    <h2>Extracting Feature Descriptors</h2>
+    <h2>Adaptive Non-Maximal Suppression</h2>
+    <p>Even though Harris Point detector detects corner-like features, clearly, there are too much points and they are abundant. Thus, I use Adaptive Non-Maximal Suppression to extract features. To get correspondence points that are far away from each other and have strong corner features, we sort the distance based on the strength of their corner response. For each point, we calculate the distance to the closest point who has a stronger corner response. Then, we sort the points based on these distances and limit the number of features to be extracted to 300. Here is the result: </p>
+                <div class="image-gr">
+        <div class="image-container">
+            <img src="proj4images/anms.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
     <h2>Matching Feature Descriptors</h2>
     <h2>Robust method (RANSAC) to Compute Homography</h2>
     <h2>Produce Mosaics</h2>
