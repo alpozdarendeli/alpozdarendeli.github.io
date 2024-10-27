@@ -303,7 +303,7 @@
     <p>To detect the corner features, I used the given Harris Point detector. For one of my images, here is the points that Harris Point detector classified as likely to be corner features:</p>
             <div class="image-gr">
         <div class="image-container">
-            <img src="proj4images/harriscor.png" alt="taj.jpg">
+            <img src="proj4images/harris.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
@@ -311,7 +311,7 @@
     <p>Even though Harris Point detector detects corner-like features, clearly, there are too much points and they are abundant. Thus, I use Adaptive Non-Maximal Suppression to extract features. To get correspondence points that are far away from each other and have strong corner features, we sort the distance based on the strength of their corner response. For each point, we calculate the distance to the closest point who has a stronger corner response. Then, we sort the points based on these distances and limit the number of features to be extracted to 300. Here is the result: </p>
                 <div class="image-gr">
         <div class="image-container">
-            <img src="proj4images/anms.png" alt="taj.jpg">
+            <img src="proj4images/limitedharris.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
@@ -325,7 +325,7 @@
             <p class="image-subtitle">Manual Stitching</p>
         </div>
         <div class="image-container">
-            <img src="proj4images/deneme2.png" alt="taj_sharp.jpg">
+            <img src="proj4images/auto1.png" alt="taj_sharp.jpg">
             <p class="image-subtitle">Automatic Stitching</p>
         </div>
         </div>
@@ -336,7 +336,7 @@
             <p class="image-subtitle">Manual Stitching</p>
         </div>
         <div class="image-container">
-            <img src="proj4images/deneme1.png" alt="taj_sharp.jpg">
+            <img src="proj4images/auto2.png" alt="taj_sharp.jpg">
             <p class="image-subtitle">Automatic Stitching</p>
         </div>
         </div>
@@ -347,7 +347,7 @@
             <p class="image-subtitle">Manual Stitching</p>
         </div>
         <div class="image-container">
-            <img src="proj4images/deneme.png" alt="taj_sharp.jpg">
+            <img src="proj4images/auto3.png" alt="taj_sharp.jpg">
             <p class="image-subtitle">Automatic Stitching</p>
         </div>
         </div>
