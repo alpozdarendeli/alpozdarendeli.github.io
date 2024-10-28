@@ -315,7 +315,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-    <h2>Matching Feature Descriptors</h2>
+    <h2>Extracting Feature Descriptors</h2>
     <p> After identifying the features, now we have to extract feature descriptors. For each feature, we extract 40x40 windows, and downsample to get 8x8 patches. Before this step, low filter Gaussian filter is applied. After getting the patches, each patch is normalized and reshaped to form 64 element feature descriptors for each feature. Here are some examples:</p>
     <div class="image-gri">
         <div class="image-container">
@@ -326,7 +326,19 @@
         </div>
         </div>
         <div class="clear-float"></div>
+    <h2>Matching Feature Descriptors</h2>
+    <p>After extracting the feature descriptors for each image, we need to match them. I created k-d trees for each image. I query the closest 2 pairwise feature vectors for each feature in one of the images. I calculated the L2 norm distance ratio of these 2 vectors to the original features. Using Lowe's trick, I only keep the closest feature vectores that have less a certain threshold distance ratio and also checked with the other tree to ensure that original feature vector is also the closest feature vector for the chosen feature. This greatly reduced the outliers, and here is the matches without the outliers: </p>
+    <div class="image-gri">
+        <div class="image-container">
+            <img src="proj4images/features1.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj4images/features2.png" alt="taj_sharp.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
     <h2>Robust method (RANSAC) to Compute Homography</h2>
+    
     <h2>Produce Mosaics</h2>
         <p>After computing homographies with RANSAC, I ran the same code that I used for part A to produce mosaics for the same 3 pictures. Here are the side-by-side manually and automatically stitched results for these images:</p>
         <div class="image-gri">
