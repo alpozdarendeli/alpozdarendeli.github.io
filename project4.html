@@ -338,7 +338,7 @@
         </div>
         <div class="clear-float"></div>
     <h2>Robust method (RANSAC) to Compute Homography</h2>
-    <p>To further reduce the outliers and inconsistencies, I implement the RANSAC algorithm. For 1000 iterations, I choose 4 matched point pairs and calculate homography based on them. Then, I calculated the inliners -- points that their transformed points are with a certain error threshold of their matched point in the other image-- for each computed homography. I determined the homography that yielded the most number of inliners, and recalculated the homography based on all inline features.</p>
+    <p>To further reduce the outliers and inconsistencies, I implement the RANSAC algorithm. For 1000 iterations, I choose 4 matched point pairs and calculate homography based on them. Then, I calculated the inliners -- points that their transformed points are with a certain error threshold of their matched point in the other image-- for each computed homography. I determined the homography that yielded the most number of inliners, and recalculated the homography based on its all inline features.</p>
     
     <h2>Produce Mosaics</h2>
         <p>After computing homographies with RANSAC, I ran the same code that I used for part A to produce mosaics for the same 3 pictures. Here are the side-by-side manually and automatically stitched results for these images:</p>
