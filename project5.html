@@ -300,10 +300,34 @@
         </div>
     <h1>Part B: Diffusion Models from Scratch</h1>
     <h2>Training a Single-Step Denoising UNet</h2>
-    <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-sept denoising UNet. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. I train UNet to minimize the loss between denoised image from UNet given the noised image and the original clean image. Here are the sample results after training for 1 and 5 epochs: </p>
-            <div class="image-gr">
+    <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-sept denoising UNet. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
+    <div class="image-gr">
         <div class="image-container">
-            <img src="proj4images/harris.png" alt="taj.jpg">
+            <img src="proj5images/partbimage4.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
+    <p> I train UNet to minimize the loss between denoised image from UNet given the noised image and the original clean image. Here are the sample results after training for 1 and 5 epochs:</p>
+    <div class="image-gri">
+        <div class="image-container">
+            <img src="proj5images/partbimage1.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="proj5images/partbimage2" alt="taj_sharp.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
+    <p> In the training, I train the model for sigma = 0.5. Let's test how well it will perform for other sigma values:</p>
+        <div class="image-gr">
+        <div class="image-container">
+            <img src="proj5images/partbimage3.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
+    <p>Here is the training loss curve during the whole training process:</p>
+    <div class="image-gr">
+        <div class="image-container">
+            <img src="proj5images/partbimage5.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
