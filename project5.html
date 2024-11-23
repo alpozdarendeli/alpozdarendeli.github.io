@@ -331,9 +331,10 @@
         </div>
         </div>
         <div class="clear-float"></div>
-    <h2>Adaptive Non-Maximal Suppression</h2>
-    <p>Even though Harris Point detector detects corner-like features, clearly, there are too much points and they are abundant. Thus, I use Adaptive Non-Maximal Suppression to extract features. To get correspondence points that are far away from each other and have strong corner features, we sort the distance based on the strength of their corner response. For each point, we calculate the distance to the closest point who has a stronger corner response. Then, we sort the points based on these distances and limit the number of features to be extracted to 300. Here is the result: </p>
-                <div class="image-gr">
+    <h2>Training a Diffusion Model</h2>
+    <p>In this part, I will train a UNet model that iteratively denoises an image. For this, I will implement DDPM. </p>
+    <p>Following the diagram and using FCBlocks, I inject time t into the UNet model for conditioning. </p>
+    <div class="image-gr">
         <div class="image-container">
             <img src="proj4images/limitedharris.png" alt="taj.jpg">
         </div>
