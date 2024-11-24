@@ -303,6 +303,20 @@
             </div>
         </div>
         <div class="clear-float"></div>
+    <h2> 1.7 Image-to-image Translation </h2>
+    <p>In this section, I follow the SDEdit algorithm. I noise the original image a little bit first, then, force it back to the image manifold without conditioning. As a result, I get an image similar to the original image. For this section, I will use the following test images, one of them being the Campanile photo.</p>
+                        <div class="image-grid">
+            <div class="image-container">
+                <img src="images5/campanile.png" alt="taj_sharp.jpg">
+            </div>
+                        <div class="image-container">
+                <img src="images5/kopruu.png" alt="taj_sharp.jpg">
+            </div>
+                        <div class="image-container">
+                <img src="images5/kedi.png" alt="taj_sharp.jpg">
+            </div>
+        </div>
+        <div class="clear-float"></div>
             <h1>Part B: Diffusion Models from Scratch</h1>
     <h2>Training a Single-Step Denoising UNet</h2>
     <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-sept denoising UNet. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
