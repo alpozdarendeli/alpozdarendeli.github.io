@@ -177,62 +177,37 @@
         </div>
         <div class="clear-float"></div>
         <h2>1.2 Classical Denoising</h2>
-<p>For classical denoisingm I take a noisy image and try to denoise it by Gaussian filtering. Here are the results for different timestamps:</p>
-        <h2>Recover Homographies</h2>
-    <p>To recover homographies, we want to find the projective transformation that transforms coordinates of a point with an augmented coordinate (x, y, 1) to another augmented coordinates with the same center of projection (x', y', w). When we set the scaling factor to 1, we have the following equation:</p>
-    <div class="equation">
-        \[
-        \begin{bmatrix}
-        a & b & c \\
-        d & e & f \\
-        g & h & 1
-        \end{bmatrix}
-        \begin{bmatrix}
-        x \\
-        y \\
-        1
-        \end{bmatrix}  =
-        \begin{bmatrix}
-        wx' \\
-        wy' \\
-        w
-        \end{bmatrix} 
-        \]
-    </div>
-    <p>If we expand out the equations and divide wx' and wy' by w:</p>
-    <div class="equation">
-                \[
-        x' = \frac{ax + by + c}{gx + hy + 1} \\
-        y' = \frac{dx + ey + f}{gx + hy + 1}
-        \]
-    </div>
-    <p>If we multiply both sides by the denominator and keep x' and y' at one side, we would get equations for x' and y' in terms of other variables, including themselves. We can write the same equations for different corresponding points, if we stack them together:</p>
-    <div class="equation">
-        \[
-        \begin{bmatrix}
-        x_1 & y_1 & 1 & 0 & 0 & 0 & -x_1 x'_1 & -y_1 x'_1 \\
-        0 & 0 & 0 & x_1 & y_1 & 1 & -x_1 y'_1 & -y_1 y'_1 \\
-        x_2 & y_2 & 1 & 0 & 0 & 0 & -x_2 x'_2 & -y_2 x'_2 \\
-        0 & 0 & 0 & x_2 & y_2 & 1 & -x_2 y'_2 & -y_2 y'_2
-        \end{bmatrix}
-        \begin{bmatrix}
-        a \\
-        b \\
-        c \\
-        d \\
-        e \\
-        f \\
-        g \\
-        h
-        \end{bmatrix} =
-        \begin{bmatrix}
-        x'_1 \\
-        y'_1 \\
-        x'_2 \\
-        y'_2
-        \end{bmatrix}
-        \]
-          </div>
+<p>For classical denoising I take a noisy image and try to denoise it by Gaussian filtering. Here are the results for different timestamps:</p>
+        <div class="image-grid">
+            <div class="image-container">
+                <img src="images5/noise1.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Noisy Campanile at t=250</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/noise2.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Noisy Campanile at t=500</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/noise3.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Noisy Campanile at t=750</p>
+            </div>
+        </div>
+        <div class="clear-float"></div>
+                <div class="image-grid">
+            <div class="image-container">
+                <img src="images5/odn1.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">One-Step Denoised Campanile at t=250</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/odn2.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">One-Step Denoised Campanile at t=500</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/odn3.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">One-Step Denoised Campanile at t=750</p>
+            </div>
+        </div>
+        <div class="clear-float"></div>
     <p> However, ideally, we should use more than 4 correspondence points to make homography recovery stable and less prone to error. Using more than 4 correspondence points would make the equation overdetermined and we solve this by least-squares solver to recover the homographies. For this project, I used the given correspondence tool to select the correspondence points.</p>
         <h2>Warp the Images/Image Rectification</h2>
             <p> After calculating the homography, I use inverse warping to warp original images to the desired shape. Since I use inverse warping, the corresponding pixels in the source image can be lie between pixels so I used RegularGridInterpolator to interpolate the pixel values.</p>
