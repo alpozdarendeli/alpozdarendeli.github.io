@@ -642,9 +642,39 @@
             </div>
         </div>
         <div class="clear-float"></div>
+    <h2> 1.8 Visual Anagrams </h2>
+    <p>In this section, I will implement visual diagrams. Visual anagrams are images such that the image looks like a prompt upright, but looks like another prompt when it is turned upside down. I implement visual anagrams by denoising the image at a timestep t with a prompt and get a noise estimate e_1. Then, I turned the image upside down with the other prompt to get a noise estimate e_2. Finally, I turned e_2 upside down and took its average with e_1 with to get the final noise estimate. The denoising step is done with this final noise estimate. Here are my results, and prompts: </p>
+    <div class="image-gri">
+            <div class="image-container">
+                <img src="images5/flip1.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">"an oil painting of people around a campfire"</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/flip2.png" alt="taj_sharp.jpg">
+                            <p class="image-subtitle">"an oil painting of an old man"</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/flip3.png" alt="taj_sharp.jpg">
+                            <p class="image-subtitle">"an oil painting of an octopus in the wavy sea"</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/flip4.png" alt="taj_sharp.jpg">
+                            <p class="image-subtitle">"an oil painting of a curly hair man"</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/flip5.png" alt="taj_sharp.jpg">
+                            <p class="image-subtitle">"a painting of a santa claus"</p>
+            </div>
+                               <div class="image-container">
+                <img src="images5/flip6.png" alt="taj_sharp.jpg">
+                            <p class="image-subtitle">"a painting of a deer"</p>
+            </div>
+        </div>
+        <div class="clear-float"></div>
     <h1>Part B: Diffusion Models from Scratch</h1>
     <h2>Training a Single-Step Denoising UNet</h2>
     <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-sept denoising UNet. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
+    
     <div class="image-gr">
         <div class="image-container">
             <img src="images5/partbimage4.png" alt="taj.jpg">
