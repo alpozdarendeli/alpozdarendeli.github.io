@@ -40,6 +40,12 @@
             gap: 15px;
             margin-bottom: 20px;
         }
+        .image-griddd {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
         .image {
             display: flex;
             justify-content: center;
@@ -259,7 +265,7 @@
         <div class="clear-float"></div>
         <h2>1.5 Diffusion Model Sampling </h2>
         <p> For this part, I use iterative denoising to generate images from scratch. I pass in random noise, and the function denoises pure noise. Here are 5 samples: </p>
-                        <div class="image-grid">
+                        <div class="image-griddd">
             <div class="image-container">
                 <img src="images5/sample1.png" alt="taj_sharp.jpg">
             </div>
