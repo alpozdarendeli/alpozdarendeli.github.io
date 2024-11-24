@@ -551,6 +551,97 @@
         </div>
         <div class="clear-float"></div>
     <h2>1.7.3 Text-Conditional Image-to-image Translation</h2>
+    <p>In this section, I will do the same thing as the previous section but with SDEdit algorithm. Differently from the original SDEdit, I will change the prompt from "a high quality photo" to the prompt of my choosing to guide the projection with text prompt. Here are the results with different noise levels:</p>
+                        <div class="image-g">
+            <div class="image-container">
+                <img src="images5/w1-1.png" alt="taj_sharp.jpg">
+                                <p class="image-subtitle">i_start=1</p>
+
+            </div>
+                        <div class="image-container">
+                <img src="images5/w1-3.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=3</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w1-5.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=5</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w1-7.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=7</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w1-10.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=10</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w1-20.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=20</p>
+            </div>
+                                <div class="image-container">
+                <img src="images5/w1.png" alt="taj_sharp.jpg">
+                                    <p class="image-subtitle">Original UP</p>
+                                </div>
+                    <div class="image-container">
+                        <img src="images5/w2-1.png" alt="taj_sharp.jpg">
+                                <p class="image-subtitle">i_start=1</p>
+
+            </div>
+                        <div class="image-container">
+                <img src="images5/w2-3.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=3</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w2-5.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=5</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w2-7.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=7</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w2-10.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=10</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w2-20.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=20</p>
+            </div>
+           <div class="image-container">
+                <img src="images5/w2.png" alt="taj_sharp.jpg">
+               <p class="image-subtitle">Original Handwriting Picture</p>
+            </div>
+        <div class="image-container">
+                            <img src="images5/w3-1.png" alt="taj_sharp.jpg">
+                                <p class="image-subtitle">i_start=1</p>
+
+            </div>
+                        <div class="image-container">
+                <img src="images5/w3-3.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=3</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w3-5.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=5</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w3-7.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=7</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w3-10.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=10</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/w3-20.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">i_start=20</p>
+            </div>
+                            <div class="image-container">
+                <img src="images5/w3.png" alt="taj_sharp.jpg">
+                                <p class="image-subtitle">Original Handwriting Image 2</p>
+            </div>
+        </div>
+        <div class="clear-float"></div>
     <h1>Part B: Diffusion Models from Scratch</h1>
     <h2>Training a Single-Step Denoising UNet</h2>
     <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-sept denoising UNet. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
