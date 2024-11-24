@@ -257,92 +257,26 @@
             </div>
         </div>
         <div class="clear-float"></div>
-        <p>For the first image, I have manually chosen the corresponding points to be [[200,200],[500,200],[500,500],[200,500]] to form a square. For the second iamge, I have manually chosen the corresponding points to be [[200,200],[800,200],[800,400],[200,400]] to form a rectangle.</p>
-        <h2>Blend the images into a mosaic</h2>
-            <p> To blend the images into a mosaic, firstly, I warped one of the images based on the correspondence points. Before warping, I calculate the final image's shape and align the warped image with the original image by calculating if there is any offsets. Then, I created indicator masks for both the original and warped image in the final image's shape. These masks set pixels to 1 if there is a corresponding pixel in the original or warped image. I found the overlapping pixels between the two images using these masks. After finding the overlapping pixels, I used a Laplacian stack for blending. For a Laplacian stack, we need a mask for the images to blend. I separated the mask into two parts. The first part is the non-overlapping pixels for the original image. Since there is no overlap between the images at these pixels, I used the indicator mask I created for the images at these pixels. For the overlapping pixels, the computation is more complicated. I used cv2.distanceTransform to calculate distance to non-overlapping pixels from both images for each overlapping pixel. Then, I found the ratio of distance2/(distance2+distance1) for each overlapping pixel where distance1 indicates the distance to the closest non-overlapping pixel in the original image. By combining these two parts, I create the mask for the Laplacian stack: </p>
-        <div class="image-grid">
-        <div class="image-container">
-            <img src="proj4images/mask_1_non_overlap.png" alt="taj.jpg">
-            <p class="image-subtitle"> Non-overlap part of the mask</p>
-        </div>
-        <div class="image-container">
-            <img src="proj4images/mask_1_overlap.png" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Overlap part of the mask</p>
-        </div>
-        <div class="image-container">
-            <img src="proj4images/mask_1_full.png" alt="taj_sharp.jpg">
-            <p class="image-subtitle">Full mask</p>
-        </div>
-        </div>
-        <p> After creating the mask, I used a Laplacian stack with original and warped images padded to the final image's shape to create the mosaic:
-        <div class="image-gri">
-        <div class="image-container">
-            <img src="proj4images/IMG_5854.png" alt="taj.jpg">
-        </div>
-        <div class="image-container">
-            <img src="proj4images/IMG_5855.png" alt="taj_sharp.jpg">
-        </div>
+        <h2>1.5 Diffusion Model Sampling <h2>
+        <p> For this part, I use iterative denoising to generate images from scratch. I pass in random noise, and the function denoises pure noise. Here are 5 samples: </p>
+                        <div class="image-grid">
+            <div class="image-container">
+                <img src="images5/sample1.png" alt="taj_sharp.jpg">
+            </div>
+                        <div class="image-container">
+                <img src="images5/sample2.png" alt="taj_sharp.jpg">
+            </div>
+                        <div class="image-container">
+                <img src="images5/sample3.png" alt="taj_sharp.jpg">
+            </div>
+                        <div class="image-container">
+                <img src="images5/sample4.png" alt="taj_sharp.jpg">
+            </div>
+                        <div class="image-container">
+                <img src="images5/sample5.png" alt="taj_sharp.jpg">
+            </div>
         </div>
         <div class="clear-float"></div>
-        <div class="image">
-        <div class="image-container">
-        <img src="proj4images/mosaic1.png" alt="taj.jpg">
-        </div>
-        </div>
-        <p> Here are other examples of mosaicing with their original images, mask, and the final blended image:</p>
-        <div class="image-gri">
-        <div class="image-container">
-            <img src="proj4images/img3-1.png" alt="taj.jpg">
-        </div>
-        <div class="image-container">
-            <img src="proj4images/img3-3.png" alt="taj_sharp.jpg">
-        </div>
-        </div>
-        <div class="clear-float"></div>
-        <div class="image-grid">
-        <div class="image-container">
-            <img src="proj4images/mask3-1.png" alt="taj.jpg">
-        </div>
-        <div class="image-container">
-            <img src="proj4images/mask3-2.png" alt="taj.jpg">
-        </div>
-        <div class="image-container">
-            <img src="proj4images/mask3-3.png" alt="taj_sharp.jpg">
-        </div>
-        </div>        
-        <div class="clear-float"></div>
-        <div class="image">
-        <div class="image-container">
-        <img src="proj4images/img3_ful.png" alt="taj.jpg">
-        </div>
-        </div>
-        <div class="clear-float"></div>
-        <div class="image-gri">
-        <div class="image-container">
-            <img src="proj4images/img2-2.png" alt="taj.jpg">
-        </div>
-        <div class="image-container">
-            <img src="proj4images/img2-1.png" alt="taj_sharp.jpg">
-        </div>
-        </div>
-        <div class="clear-float"></div>
-        <div class="image-grid">
-        <div class="image-container">
-            <img src="proj4images/mask21.png" alt="taj.jpg">
-        </div>
-        <div class="image-container">
-            <img src="proj4images/mask22.png" alt="taj.jpg">
-        </div>
-        <div class="image-container">
-            <img src="proj4images/mask23.png" alt="taj_sharp.jpg">
-        </div>
-        </div>
-        <div class="clear-float"></div>
-        <div class="image">
-        <div class="image-container">
-        <img src="proj4images/manual2.png" alt="taj.jpg">
-        </div>
-        </div>
     <h1>Part B: Diffusion Models from Scratch</h1>
     <h2>Training a Single-Step Denoising UNet</h2>
     <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-sept denoising UNet. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
