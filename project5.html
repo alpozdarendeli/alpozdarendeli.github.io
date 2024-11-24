@@ -161,21 +161,6 @@
             </div>
         </div>
         <div class="clear-float"></div>
-                <div class="image-grid">
-            <div class="image-container">
-                <img src="images5/cdns1.png" alt="taj_sharp.jpg">
-                <p class="image-subtitle">Classical Denoised Campanile at t=250</p>
-            </div>
-                        <div class="image-container">
-                <img src="images5/cdns2.png" alt="taj_sharp.jpg">
-                <p class="image-subtitle">Classical Denoised Campanile at t=500</p>
-            </div>
-                        <div class="image-container">
-                <img src="images5/cdns.png" alt="taj_sharp.jpg">
-                <p class="image-subtitle">Classical Denoised Campanile at t=750</p>
-            </div>
-        </div>
-        <div class="clear-float"></div>
         <h2>1.2 Classical Denoising</h2>
 <p>For classical denoising I take a noisy image and try to denoise it by Gaussian filtering. Here are the results for different timestamps:</p>
         <div class="image-grid">
@@ -193,7 +178,39 @@
             </div>
         </div>
         <div class="clear-float"></div>
+                        <div class="image-grid">
+            <div class="image-container">
+                <img src="images5/cdns1.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Classical Denoised Campanile at t=250</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/cdns2.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Classical Denoised Campanile at t=500</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/cdns.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Classical Denoised Campanile at t=750</p>
+            </div>
+        </div>
+        <div class="clear-float"></div>
+    <h2>1.3 One-Step Denoising</h2>
+    <p> For one-step denoising, I use a pretrained denoiser stage_1.unet to find the noise in the images. Then, I remove this image to recover a clean image:</p>
                 <div class="image-grid">
+            <div class="image-container">
+                <img src="images5/noise1.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Noisy Campanile at t=250</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/noise2.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Noisy Campanile at t=500</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/noise3.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Noisy Campanile at t=750</p>
+            </div>
+        </div>
+        <div class="clear-float"></div>
+                    <div class="image-grid">
             <div class="image-container">
                 <img src="images5/odn1.png" alt="taj_sharp.jpg">
                 <p class="image-subtitle">One-Step Denoised Campanile at t=250</p>
