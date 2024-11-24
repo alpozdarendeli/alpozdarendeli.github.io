@@ -73,7 +73,7 @@
         }
         .image-g {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(7, 1fr);
             gap: 15px;
             margin-bottom: 20px;
         }
@@ -304,20 +304,7 @@
         </div>
         <div class="clear-float"></div>
     <h2> 1.7 Image-to-image Translation </h2>
-    <p>In this section, I follow the SDEdit algorithm. I noise the original image a little bit first, then, force it back to the image manifold without conditioning. As a result, I get an image similar to the original image. For this section, I will use the following test images, one of them being the Campanile photo.</p>
-                        <div class="image-grid">
-            <div class="image-container">
-                <img src="images5/campanile.png" alt="taj_sharp.jpg">
-            </div>
-                        <div class="image-container">
-                <img src="images5/kopruu.png" alt="taj_sharp.jpg">
-            </div>
-                        <div class="image-container">
-                <img src="images5/kedi.png" alt="taj_sharp.jpg">
-            </div>
-        </div>
-        <div class="clear-float"></div>
-    <p>Here are the edits of the test image, at different noise levels 1, 3, 5, 7, 10, 20 with "a high quality photo":</p>
+    <p>In this section, I follow the SDEdit algorithm. I noise the original image a little bit first, then, force it back to the image manifold without conditioning. As a result, I get an image similar to the original image. For this section, I will use the 3 test images, one of them being the Campanile photo.Here are the edits of the test images, at different noise levels 1, 3, 5, 7, 10, 20 with "a high quality photo":</p>
                 <div class="image-g">
             <div class="image-container">
                 <img src="images5/1-1.png" alt="taj_sharp.jpg">
@@ -343,6 +330,10 @@
                         <div class="image-container">
                 <img src="images5/1-20.png" alt="taj_sharp.jpg">
                                                             <p class="image-subtitle">i_start=20</p>
+            </div>
+                                <div class="image-container">
+                <img src="images5/campanile.png" alt="taj_sharp.jpg">
+                                    <p class="image-subtitle">Original Campanile</p>
             </div>
                                     <img src="images5/1-1.png" alt="taj_sharp.jpg">
                                 <p class="image-subtitle">i_start=1</p>
@@ -392,6 +383,10 @@
                 <img src="images5/2-20.png" alt="taj_sharp.jpg">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
+           <div class="image-container">
+                <img src="images5/kopruu.png" alt="taj_sharp.jpg">
+               <p class="image-subtitle">Original Golden Gate</p>
+            </div>
                             <img src="images5/3-1.png" alt="taj_sharp.jpg">
                                 <p class="image-subtitle">i_start=1</p>
 
@@ -415,6 +410,10 @@
                         <div class="image-container">
                 <img src="images5/3-20.png" alt="taj_sharp.jpg">
                                                             <p class="image-subtitle">i_start=20</p>
+            </div>
+                            <div class="image-container">
+                <img src="images5/kedi.png" alt="taj_sharp.jpg">
+                                <p class="image-subtitle">Original cat</p>
             </div>
         </div>
         <div class="clear-float"></div>
