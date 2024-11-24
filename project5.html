@@ -77,6 +77,12 @@
             gap: 15px;
             margin-bottom: 20px;
         }
+        .image-gi {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
         .image-container {
             background-color: #fff;
             padding: 10px;
@@ -488,7 +494,60 @@
         </div>
         <div class="clear-float"></div>
     <h2> 1.7.2 Inpainting </h2>
-    <p></p>
+    <p>Based on the Repaint paper, I implement inpainting in this section. Given a mask, when I run the diffusion denoising loop, I replace everything except the mask area with the original images but with the added noise based on timestep t. Here are my results for inpainting: </p>
+        <div class="image-gi">
+            <div class="image-container">
+                <img src="images5/img1.png" alt="taj_sharp.jpg">
+                                <p class="image-subtitle">Original</p>
+
+            </div>
+                        <div class="image-container">
+                <img src="images5/mask1.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">Mask</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/toreplace1.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">To Replace</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/replaced1.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">Final</p>
+            </div>
+                            <img src="images5/img2.png" alt="taj_sharp.jpg">
+                                <p class="image-subtitle">Original</p>
+
+            </div>
+                        <div class="image-container">
+                <img src="images5/mask2.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">Mask</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/toreplace2.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">To Replace</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/replaced2.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">Final</p>
+            </div>
+                        <img src="images5/img3.png" alt="taj_sharp.jpg">
+                                <p class="image-subtitle">Original</p>
+
+            </div>
+                        <div class="image-container">
+                <img src="images5/mask3.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">Mask</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/toreplace3.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">To Replace</p>
+            </div>
+                        <div class="image-container">
+                <img src="images5/replaced3.png" alt="taj_sharp.jpg">
+                                                            <p class="image-subtitle">Final</p>
+            </div>
+            </div>
+        </div>
+        <div class="clear-float"></div>
     <h2>1.7.3 Text-Conditional Image-to-image Translation</h2>
     <h1>Part B: Diffusion Models from Scratch</h1>
     <h2>Training a Single-Step Denoising UNet</h2>
