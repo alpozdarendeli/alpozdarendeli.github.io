@@ -90,11 +90,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 3px;
-        }
+
         .image-subtitle {
             margin-top: 8px;
             font-style: italic;
@@ -128,15 +124,15 @@
     
     <div class="project-overview">
         <h2>Part 0: Setup</h2>
-            <p> For the setup part, I use DeepFloyd IF as the diffusion model. To test the setup, I used the given prompts to generate the following outputs:
+            <p>  For the setup part, I use DeepFloyd IF as the diffusion model. Deepfloyd is a two-stage model. In the first stage, 64 x 64 images are produced and second stage takes these images and produces final images of size 256 x 256. To test the setup, I used the given prompts to generate the following outputs: </p>
         <div class="image-grid">
             <div class="image-container">
                 <img src="images5/parta1_1.png" alt="taj.jpg">
-                <p class="image-subtitle"> an oil painting of a snowy mountain village</p>
+                <p class="image-subtitle"> a man wearing a hat</p>
             </div>
             <div class="image-container">
                 <img src="images5/parta1_4.png" alt="taj.jpg">
-                <p class="image-subtitle"> a man wearing a hat</p>
+                <p class="image-subtitle">an oil painting of a snowy mountain village</p>
             </div>
             <div class="image-container">
                 <img src="images5/parta1_5.png" alt="taj.jpg">
@@ -158,8 +154,12 @@
         <div class="clear-float"></div>
         <p>With increasing num_inference_steps, the images become more detailed and better reflect the prompts.</p>
         <h2>1.1 Implementing the Forward Process</h2>
-        <p>Now, I implement the forward process. For the forward process, given a clean image, I get a noisy image for a timestep t by sampling noise from a Gaussian. Also, I scale the image to 64 x 64 dimensions. The original Campanile image is shown below at different noise levels.<p>
+        <p>Now, I implement the forward process. For the forward process, given a clean image, I get a noisy image for a timestep t by sampling noise from a Gaussian. In addition to these, I also scale the image. The original Campanile image is shown below at different noise levels. Larger t represents larger noise.</p>
         <div class="image-grid">
+            <div class="image-container">
+                <img src="images5/campanile.png" alt="taj_sharp.jpg">
+                <p class="image-subtitle">Noisy Campanile at t=750</p>
+            </div>
             <div class="image-container">
                 <img src="images5/noise1.png" alt="taj_sharp.jpg">
                 <p class="image-subtitle">Noisy Campanile at t=250</p>
@@ -175,7 +175,7 @@
         </div>
         <div class="clear-float"></div>
         <h2>1.2 Classical Denoising</h2>
-<p>For classical denoising I take a noisy image and try to denoise it by Gaussian filtering. Here are the results for different timestamps:</p>
+<p>In this section, I use classical denoising to denoise the noisy images produced in the previous part. For classical denoising, I take a noisy image and try to denoise it by Gaussian filtering. Here are the results for different timestamps:</p>
         <div class="image-grid">
             <div class="image-container">
                 <img src="images5/noise1.png" alt="taj_sharp.jpg">
@@ -207,7 +207,7 @@
         </div>
         <div class="clear-float"></div>
     <h2>1.3 One-Step Denoising</h2>
-    <p> For one-step denoising, I use a pretrained denoiser stage_1.unet to find the noise in the images. Then, I remove this image to recover a clean image:</p>
+    <p> For one-step denoising, I use a pretrained denoiser stage_1.unet to find the noise in the images. This UNet is already trained on a very large dataset but it was trained text conditioning so I use the embedding of the given prompt "a high quality photo” for conditioning. Then, I remove this image to recover a clean image for noisy images produced in part 1.1:</p>
                 <div class="image-grid">
             <div class="image-container">
                 <img src="images5/noise1.png" alt="taj_sharp.jpg">
@@ -238,8 +238,8 @@
             </div>
         </div>
         <div class="clear-float"></div>
-    <h2>Iterative Denoising</h2>
-    <p> For iterative denoising, I create a new list of timesteps,strided_timesteps, to skip some steps. The stride of steps will be 30. In the following, denoised image is displayed at every fifth step and final clean image prediction is shown in comparison to other techniques:<p>
+    <h2> 1. 4 Iterative Denoising</h2>
+    <p> In the previous part, performance gets worse with more noisy images. To combat this, I will implement iterative denoising. For iterative denoising, I create a new list of timesteps,strided_timesteps, to skip some steps. The stride of steps will be 30. I add noise to the test image at timestep[10] and run the implemented iterative_denoise function on this image with i_start algorithm being 10. In the following, denoised image is displayed at every fifth step and final clean image prediction is shown in comparison to other techniques:<p>
                     <div class="image-grid">
             <div class="image-container">
                 <img src="images5/f1.png" alt="taj_sharp.jpg">
@@ -268,10 +268,13 @@
                         <div class="image-container">
                 <img src="images5/f9.png" alt="taj_sharp.jpg">
             </div>
+            <div class="image-container">
+                <img src="images5/campanile.png" alt="taj_sharp.jpg">
+            </div>
         </div>
         <div class="clear-float"></div>
         <h2>1.5 Diffusion Model Sampling </h2>
-        <p> For this part, I use iterative denoising to generate images from scratch. I pass in random noise, and the function denoises pure noise. Here are 5 samples: </p>
+        <p> For this part, I use iterative_denoise function I defined earlier to generate images from scratch by passing 0 as the i_start argument. I also pass in random noise, and the function denoises pure noise. Here are 5 samples with the prompt “a high quality photo”:</p>
                         <div class="image-griddd">
             <div class="image-container">
                 <img src="images5/sample1.png" alt="taj_sharp.jpg">
@@ -291,7 +294,7 @@
         </div>
         <div class="clear-float"></div>
         <h2>1.6 Classifier-Free Guidance (CFG)</h2>
-        <p> The quality of the results in the previous section were not great. To significantly improve image quality, I will use CFG in this section. For CFG, I compute both conditional and unconditional noise estimate. In CFG, we have a hyperparameter, named scale in the function, that determines its strength. When scale is 0, CFG is essentially unconditional noise estimate but when scale is bigger than 1, I am able to produce much more quality images. Here are 5 samples from CFG with scale=7:</p>
+        <p>The quality of the results in the previous section were not great. To significantly improve image quality, I will use CFG in this section. For CFG, I compute both conditional and unconditional noise estimate. In CFG, we have a hyperparameter, named scale in the function, that determines its strength. When scale is 0, CFG is essentially unconditional noise estimate but when scale is bigger than 1, CFG can produce much more quality images. Here are 5 samples from CFG with scale=7 and prompt “a high quality photo”:</p>
                                         <div class="image-griddd">
             <div class="image-container">
                 <img src="images5/cfg1.png" alt="taj_sharp.jpg">
@@ -311,7 +314,7 @@
         </div>
         <div class="clear-float"></div>
     <h2> 1.7 Image-to-image Translation </h2>
-    <p>In this section, I follow the SDEdit algorithm. I noise the original image a little bit first, then, force it back to the image manifold without conditioning. As a result, I get an image similar to the original image. For this section, I will use the 3 test images, one of them being the Campanile photo.Here are the edits of the test images, at different noise levels 1, 3, 5, 7, 10, 20 with "a high quality photo":</p>
+    <p>In this section, I follow the SDEdit algorithm. I noise the original image a little bit first, then, force it back to the image manifold without conditioning. As a result, I get an image similar to the original image. For this section, I will use the 3 test images, one of them being the Campanile photo. Here are the edits of the test images, at different noise levels 1, 3, 5, 7, 10, 20 with "a high quality photo":</p>
                 <div class="image-g">
             <div class="image-container">
                 <img src="images5/1-1.png" alt="taj_sharp.jpg">
