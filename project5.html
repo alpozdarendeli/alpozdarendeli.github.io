@@ -413,7 +413,7 @@
         </div>
         <div class="clear-float"></div>
     <h2>1.7.1 Editing Hand-Drawn and Web Images </h2>
-    <p> The technique I used in the previous section also performs pretty well for nonrealistic images that is projected it to the natural image manifold. To test for these, I will use 1 image from web and 2 images by handwriting:</p>
+    <p> The technique I used in the previous section also performs pretty well for nonrealistic images that is projected it to the natural image manifold. To test for these, I will use 1 image from web and 2 images by my hand drawing:</p>
                     <div class="image-g">
             <div class="image-container">
                 <img src="images5/w1-1.png" alt="taj_sharp.jpg">
@@ -471,7 +471,7 @@
             </div>
            <div class="image-container">
                 <img src="images5/w2.png" alt="taj_sharp.jpg">
-               <p class="image-subtitle">Original Handwriting Picture</p>
+               <p class="image-subtitle">Original Hand Drawing 1</p>
             </div>
         <div class="image-container">
                             <img src="images5/w3-1.png" alt="taj_sharp.jpg">
@@ -500,12 +500,12 @@
             </div>
                             <div class="image-container">
                 <img src="images5/w3.png" alt="taj_sharp.jpg">
-                                <p class="image-subtitle">Original Handwriting Image 2</p>
+                                <p class="image-subtitle">Original Hand Drawing 2</p>
             </div>
         </div>
         <div class="clear-float"></div>
     <h2> 1.7.2 Inpainting </h2>
-    <p>Based on the Repaint paper, I implement inpainting in this section. Given a mask, when I run the diffusion denoising loop, I replace everything except the mask area with the original images but with the added noise based on timestep t. Here are my results for inpainting: </p>
+    <p>Based on the Repaint paper, I implement inpainting in this section using the same procedure. Given a mask, when I run the diffusion denoising loop, I replace everything except the mask area with the original images but with the added noise based on timestep t. So, new content is only produced in the pixels where mask has value 1. Here are my results for inpainting: </p>
         <div class="image-gi">
             <div class="image-container">
                 <img src="images5/img1.png" alt="taj_sharp.jpg">
@@ -562,7 +562,7 @@
         </div>
         <div class="clear-float"></div>
     <h2>1.7.3 Text-Conditional Image-to-image Translation</h2>
-    <p>In this section, I will do the same thing as the previous section but with SDEdit algorithm. Differently from the original SDEdit, I will change the prompt from "a high quality photo" to the prompt of my choosing to guide the projection with text prompt. Here are the results with different noise levels:</p>
+    <p>In this section, I will do text conditional image to image translation. It is pretty much the same with SDEdit. Differently from the original SDEdit, I will change the prompt from "a high quality photo" to the prompt of my choosing to guide the projection with text prompt. Here are the results with different noise levels and different prompts:</p>
                         <div class="image-g">
             <div class="image-container">
                 <img src="images5/c1-1.png" alt="taj_sharp.jpg">
@@ -591,7 +591,7 @@
             </div>
                                 <div class="image-container">
                 <img src="images5/campanile.png" alt="taj_sharp.jpg">
-                                    <p class="image-subtitle">Original UP</p>
+                                    <p class="image-subtitle">Original Campanile</p>
                                 </div>
                     <div class="image-container">
                         <img src="images5/c2-1.png" alt="taj_sharp.jpg">
@@ -620,7 +620,7 @@
             </div>
            <div class="image-container">
                 <img src="images5/c2.png" alt="taj_sharp.jpg">
-               <p class="image-subtitle">Original Handwriting Picture</p>
+               <p class="image-subtitle">Original Cat</p>
             </div>
         <div class="image-container">
                             <img src="images5/c3-1.png" alt="taj_sharp.jpg">
@@ -649,12 +649,12 @@
             </div>
                             <div class="image-container">
                 <img src="images5/c3.png" alt="taj_sharp.jpg">
-                                <p class="image-subtitle">Original Handwriting Image 2</p>
+                                <p class="image-subtitle">Original Red-Eyed Frog</p>
             </div>
         </div>
         <div class="clear-float"></div>
     <h2> 1.8 Visual Anagrams </h2>
-    <p>In this section, I will implement visual diagrams. Visual anagrams are images such that the image looks like a prompt upright, but looks like another prompt when it is turned upside down. I implement visual anagrams by denoising the image at a timestep t with a prompt and get a noise estimate e_1. Then, I turned the image upside down with the other prompt to get a noise estimate e_2. Finally, I turned e_2 upside down and took its average with e_1 with to get the final noise estimate. The denoising step is done with this final noise estimate. Here are my results, and prompts: </p>
+    <p>In this section, I will implement visual diagrams. Visual anagrams are images such that the image looks like a prompt —prompt1— upright, but looks like another prompt —prompt2— when it is turned upside down. I implement visual anagrams by denoising the image at a timestep t with prompt1 and get a noise estimate e_1. Then, I turned the image upside down, denoise the flipped image with prompt2 to get a noise estimate e_2. Finally, I turned e_2 upside down and took its average with e_1 with to get the final noise estimate. The denoising step is done with this final noise estimate. Here are my results, and prompts:</p>
     <div class="image-gri">
             <div class="image-container">
                 <img src="images5/flip1.png" alt="taj_sharp.jpg">
@@ -683,7 +683,7 @@
         </div>
         <div class="clear-float"></div>
     <h2>1.9 Hybrid Images </h2>
-    <p> In this section, I will implement hybrid images implementation. Hybrids images appear as a one prompt from afar, and another from a closer range. To create hybrid images, I will use a similar technique to the previous section. I will first estimate the noise with two different prompts, and will pass them through low-pass filter. Then, I will combine the low frequency component of one noise, and the high frequency component of another. Their combination will form the final noise estimate. Here are my results:</p>
+    <p> In this section, I will implement hybrid images implementation. Hybrids images appear as a prompt from afar, and as another prompt from a closer range. To create hybrid images, I will use a similar technique to the previous section. I will first estimate the noise with two different prompts, and will pass them through low-pass filter. Then, I will combine the low frequency component of one noise with the high frequency component of the other noise. Their combination will form the final noise estimate. Here are my results by using Gaussian blur with kernel size 33 and sigma 2:</p>
     <div class="image-grid">
         <div class="image-container">
             <img src="images5/hybrid1.png" alt="taj.jpg">
@@ -701,24 +701,24 @@
         <div class="clear-float"></div>
     <h1>Part B: Diffusion Models from Scratch</h1>
     <h2>Training a Single-Step Denoising UNet</h2>
-    <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-sept denoising UNet. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
+    <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-step denoising UNet. This denoiser will optimize for producing a clean image given a noisy image. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
     <div class="image-gr">
         <div class="image-container">
             <img src="images5/partbimage4.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
-    <p> I train UNet to minimize the loss between denoised image from UNet given the noised image and the original clean image. Here are the sample results after training for 1 and 5 epochs:</p>
+    <p> I train UNet to minimize the loss between denoised image from UNet given the noised image and the original clean image. I shuffle the training dataset before creating its data loader. In this part, I will be using hidden dimension of 128 and learning rate of 1e-4 for Adam optimizer.  Here are the sample results after training for 1 and 5 epochs:</p>
     <div class="image-gri">
         <div class="image-container">
             <img src="images5/partbimage1.png" alt="taj.jpg">
         </div>
         <div class="image-container">
-            <img src="images5/partbimage2" alt="taj_sharp.jpg">
+            <img src="images5/partbimage2.png" alt="taj_sharp.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
-    <p> In the training, I train the model for sigma = 0.5. Let's test how well it will perform for other sigma values:</p>
+    <p> In the training, I train the model for sigma = 0.5. Let's test how well it will perform for other sigma values that it wasn’t exactly trained for:</p>
         <div class="image-gr">
         <div class="image-container">
             <img src="images5/partbimage3.png" alt="taj.jpg">
@@ -733,10 +733,12 @@
         </div>
         <div class="clear-float"></div>
     <h2>Training a Diffusion Model</h2>
-    <p>In this part, I will train a UNet model that iteratively denoises an image. For this, I will implement DDPM. </p>
-    <p>Following the diagram and using FCBlocks, I inject time t into the UNet model for conditioning. </p>
-  
-    </div>
+    <p>In this part, I will train a UNet model that iteratively denoises an image. For this, I will implement DDPM. For this part, our optimization problem is not the same as the previous part., even though they are mathematically equivalent In this part, I UNet predicts the added noise rather than the clean image itself. In order to get a quality result, we need to iteratively denoise the image. Thus, following the diagram and using FCBlocks, I inject time t into the UNet model architecture for conditioning. To train the model, I pick a random image from the training set data loader, pick a random t, and train the denoiser for computing the noise  of the image at timestep t. In This section, I use hidden dimension of 64, initial learning rate of 1e-3 for Adam optimizer, and gamma of 0.1 ** (1.0/num_epochs) for exponential learning rate decay scheduler. </p>
+    <p>Also, during training I sample the model for 5 and 20 epochs:</p>
+    <h2>2.4 Adding Class-Conditioning to UNet</h2>
+    <p>In order to improve our results from the previous section, I will add class-conditioning to UNet in this section by adding 2 more FCBlocks to the UNet architecture. Class-conditioning vector— one-hot vector c— will be set to 0 %10 of the time by implementing p_uncond = 0. 1. Training hyper parameters are basically the same as the previous section. Here is the training curve for the training process:</p>
+    <p>Now, I sample the class-conditioned UNet for 5 and 20 epochs Here is the result for 4 instances of each digit at 5 and 20 epochs:</p>
+</div>
 </body>
 </html>
     </div>
