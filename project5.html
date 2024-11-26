@@ -704,31 +704,31 @@
     <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-step denoising UNet. This denoiser will optimize for producing a clean image given a noisy image. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
     <div class="image-gr">
         <div class="image-container">
-            <img src="images5/partbimage4.png" alt="taj.jpg">
+            <img src="images5/ima4.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
     <p> I train UNet to minimize the loss between denoised image from UNet given the noised image and the original clean image. I shuffle the training dataset before creating its data loader. In this part, I will be using hidden dimension of 128 and learning rate of 1e-4 for Adam optimizer.  Here are the sample results after training for 1 and 5 epochs:</p>
     <div class="image-gri">
         <div class="image-container">
-            <img src="images5/partbimage1.png" alt="taj.jpg">
+            <img src="images5/ima1.png" alt="taj.jpg">
         </div>
         <div class="image-container">
-            <img src="images5/partbimage2.png" alt="taj_sharp.jpg">
+            <img src="images5/ima2.png" alt="taj_sharp.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
     <p> In the training, I train the model for sigma = 0.5. Let's test how well it will perform for other sigma values that it wasn’t exactly trained for:</p>
         <div class="image-gr">
         <div class="image-container">
-            <img src="images5/partbimage3.png" alt="taj.jpg">
+            <img src="images5/ima3.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
     <p>Here is the training loss curve during the whole training process:</p>
     <div class="image-gr">
         <div class="image-container">
-            <img src="images5/partbimage5.png" alt="taj.jpg">
+            <img src="images5/ima5.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
@@ -736,17 +736,17 @@
     <p>In this part, I will train a UNet model that iteratively denoises an image. For this, I will implement DDPM. For this part, our optimization problem is not the same as the previous part., even though they are mathematically equivalent In this part, I UNet predicts the added noise rather than the clean image itself. In order to get a quality result, we need to iteratively denoise the image. Thus, following the diagram and using FCBlocks, I inject time t into the UNet model architecture for conditioning. To train the model, I pick a random image from the training set data loader, pick a random t, and train the denoiser for computing the noise  of the image at timestep t. In This section, I use hidden dimension of 64, initial learning rate of 1e-3 for Adam optimizer, and gamma of 0.1 ** (1.0/num_epochs) for exponential learning rate decay scheduler. </p>
                 <div class="image-gr">
         <div class="image-container">
-            <img src="images5/partbtimecurve.png" alt="taj.jpg">
+            <img src="images5/time3.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
     <p>Also, during training I sample the model for 5 and 20 epochs:</p>
             <div class="image-gri">
         <div class="image-container">
-            <img src="images5/partbtime1.png" alt="taj.jpg">
+            <img src="images5/time1.png" alt="taj.jpg">
         </div>
         <div class="image-container">
-            <img src="images5/partbtime2.png" alt="taj.jpg">
+            <img src="images5/time2.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
@@ -754,14 +754,14 @@
     <p>In order to improve our results from the previous section, I will add class-conditioning to UNet in this section by adding 2 more FCBlocks to the UNet architecture. Class-conditioning vector— one-hot vector c— will be set to 0 %10 of the time by implementing p_uncond = 0. 1. Training hyper parameters are basically the same as the previous section. Here is the training curve for the training process:</p>
             <div class="image-gr">
         <div class="image-container">
-            <img src="images5/partbclasscurve.png" alt="taj.jpg">
+            <img src="images5/class3.png" alt="taj.jpg">
         </div>
         </div>
         <div class="clear-float"></div>
     <p>Now, I sample the class-conditioned UNet for 5 and 20 epochs Here is the result for 4 instances of each digit at 5 and 20 epochs:</p>
     <div class="image-gri">
         <div class="image-container">
-            <img src="images5/partbclass1.png" alt="taj.jpg">
+            <img src="images5/class1.png" alt="taj.jpg">
         </div>
         <div class="image-container">
             <img src="images5/partbclass2.png" alt="taj.jpg">
