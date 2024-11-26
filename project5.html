@@ -734,10 +734,40 @@
         <div class="clear-float"></div>
     <h2>Training a Diffusion Model</h2>
     <p>In this part, I will train a UNet model that iteratively denoises an image. For this, I will implement DDPM. For this part, our optimization problem is not the same as the previous part., even though they are mathematically equivalent In this part, I UNet predicts the added noise rather than the clean image itself. In order to get a quality result, we need to iteratively denoise the image. Thus, following the diagram and using FCBlocks, I inject time t into the UNet model architecture for conditioning. To train the model, I pick a random image from the training set data loader, pick a random t, and train the denoiser for computing the noise  of the image at timestep t. In This section, I use hidden dimension of 64, initial learning rate of 1e-3 for Adam optimizer, and gamma of 0.1 ** (1.0/num_epochs) for exponential learning rate decay scheduler. </p>
+                <div class="image-gr">
+        <div class="image-container">
+            <img src="images5/partbtimecurve.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
     <p>Also, during training I sample the model for 5 and 20 epochs:</p>
+            <div class="image-gri">
+        <div class="image-container">
+            <img src="images5/partbtime1.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="images5/partbtime2.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
     <h2>2.4 Adding Class-Conditioning to UNet</h2>
     <p>In order to improve our results from the previous section, I will add class-conditioning to UNet in this section by adding 2 more FCBlocks to the UNet architecture. Class-conditioning vector— one-hot vector c— will be set to 0 %10 of the time by implementing p_uncond = 0. 1. Training hyper parameters are basically the same as the previous section. Here is the training curve for the training process:</p>
+            <div class="image-gr">
+        <div class="image-container">
+            <img src="images5/partbclasscurve.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
     <p>Now, I sample the class-conditioned UNet for 5 and 20 epochs Here is the result for 4 instances of each digit at 5 and 20 epochs:</p>
+    <div class="image-gri">
+        <div class="image-container">
+            <img src="images5/partbclass1.png" alt="taj.jpg">
+        </div>
+        <div class="image-container">
+            <img src="images5/partbclass2.png" alt="taj.jpg">
+        </div>
+        </div>
+        <div class="clear-float"></div>
 </div>
 </body>
 </html>
