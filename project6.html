@@ -126,16 +126,13 @@
     </style>
 </head>
 <body>
-    <h1>Project 5: Fun With Diffusion Models!</h1>
-    <h2>Alp Eren Ozdarendeli</h2>
-
-    <div class="Background">
-        <h1>Part A</h2>
-    </div>
-    
+    <h1>Final Project: NeRF</h1>
+    <h2>Alp Eren Ozdarendeli</h2>    
     <div class="project-overview">
-        <h2>Part 0: Setup</h2>
-            <p>  For the setup part, I use DeepFloyd IF as the diffusion model. For Part A, I used the seed 180. Deepfloyd is a two-stage model. In the first stage, 64 x 64 images are produced and second stage takes these images and produces final images of size 256 x 256. To test the setup, I used the given prompts to generate the following outputs: </p>
+        <h2>Part 1: Fit a Neural Field to a 2D Image</h2>
+            <p> In this section, I implement Neural Radiance Field in 2 dimensions. In 2 dimensions, we don't have the concept of radiance so essentially Neural Radiance Field in 2 dimensions reduces to Neural Field, in which we represent 2D by mapping (u,v) to (R,G,B) - converting the pixel coordinate to RGB values. For this, I created Multilayer Perceptron and Sinusoidal Positional Encoding with given architecture. Also, I created a dataloader that that randomly samples certain number of pixels from the image at each iteration. To determine the correct hyperparameters, I have explored different values for learning rate and max frequency L for the given image:</p>
+            <p>Here are my results for the given image, sampled at every 400 iterations:</p>
+            <p>I also ran my training loop for another image of my choosing. As I only tested for hyperparameters learning rate and maximum frequency, I chose learning rate as maximum frequency as for this training. Here are my results for the image, and my training curve: </p>
         <div class="image-grid">
             <div class="image-container">
                 <img src="images5/parta1_1.png" alt="taj.jpg">
