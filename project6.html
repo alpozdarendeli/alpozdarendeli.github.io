@@ -279,7 +279,7 @@
         <div class="clear-float"></div>
         <h2>Part 2.4: Neural Radiance Field</h2>
         <p>In this part, I implement the NeRF architecture. It is similar to MLP but there are some changes as we have samples in 3D, and want to predict density and color of the samples. One of the main changes are now the MLP is deeper because the task we are trying to implement is harder. Also, we are not only going to output color but also density for the inputs, which are 3D world coordinates and ray direction. For this, I will use direction as the condition to output colors. Lastly, I inject the input to the middle of the MLP after getting it through PE I defined earlier to make model not forget about the input as the neural network got deeper. For this part, I used the given architecture:</p>
-                        <div class="image-grid">
+                        <div class="image-gr">
             <div class="image-container">
                 <img src="proj5images/mlp_nerf.png" alt="taj.jpg">
             </div>
