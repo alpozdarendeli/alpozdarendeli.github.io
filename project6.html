@@ -137,7 +137,7 @@
                 <p class="image-subtitle"> Baseline PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/l5_psnrr.png.png" alt="taj.jpg">
+                <img src="proj5images/l5_psnrr.png" alt="taj.jpg">
                 <p class="image-subtitle">L=5 PSNR Curve</p>
             </div>
             <div class="image-container">
@@ -156,6 +156,7 @@
                 <img src="proj5images/l20f.png" alt="taj.jpg">
                 <p class="image-subtitle">L=20 Final Image</p>
             </div>
+                    </div>
         <div class="clear-float"></div>
         <p> From the images, it is clear that reducing the max frequency from 10 to 5 resulted in worse performance. Also, the increase from 10 to 20 did not improve the model's performance visibly, PSNR curves seemed to converge to similar value. Thus, I decided to use L=10. </p>
         <p> As another hyperparameter, I varying the learning rate. Here are my results for the  baseline, LR=0.02, L=0.005:
@@ -184,6 +185,7 @@
                 <img src="proj5images/lr2f.png" alt="taj.jpg">
                 <p class="image-subtitle">LR = 0.02Final Image</p>
             </div>
+                    </div>
         <div class="clear-float"></div>
         <p>Here are my results for the given image, sampled at every 400 iterations. I trained the model for 2001 iterations. For this training, I used the baseline hyperparameters, layers=4, hidden dim=256, L=10, LR=1e-2:</p>
         <p> Here is the training curve: </p>
