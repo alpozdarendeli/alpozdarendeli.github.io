@@ -254,4 +254,27 @@
                 <p class="image-subtitle">T=2000</p>
             </div>
                     </div>
+        <h2>Part 2: Fit a Neural Radiance Field from Multi-view Images</h2>
+        <p> In this part, I defined the required functions, transform(c2w, x_c), pixel_to_camera(c2w, x_c), pixel_to_ray(K, c2w, x_c). transform function takes in camera coordinates and obtains the corresponding world coordinates using c2w matrix. pixel_to_camera takes in pixel coordinates and obtains camera coordinates, using the intrinsic matrix K. pixel_to_ray takes in world coordinates, and by using the other functions, obtains rays with origin and normalized directions.</p>
+        <h2>Part 2.1: Create Rays from Cameras</h2>
+        <p> In this part, I create two functions for sampling, sample_rays(self, numberofrays, numberofimages) and sample_along_rays(rays_o, rays_d, perturb). I defined the sample_rays function under RaysData class. Similar to Part 1, sample_rays randomly samples numberofrays from numberofimages. sample_along_rays is used for sampling points along the obtained rays, and optionally perturbed in training so that every location along the ray would be covered.</p>
+        <h2>Part 2.2: Sampling</h2>
+        <p> In this part, I will use a neural radiance field to represent 3D. For this, I will use inverse rendering for multi-view calibrated images.</p>
+        <h2>Part 2.3: Putting the Dataloading All Together</h2>
+        <p>In this part, I put everything I did so far together to visualize the given tests:</p>
+                <div class="image-grid">
+            <div class="image-container">
+                <img src="proj5images/sa1.png" alt="taj.jpg">
+                <p class="image-subtitle"> Cameras, 100 Rays, Samples</p>
+            </div>
+            <div class="image-container">
+                <img src="proj5images/sa2.png" alt="taj.jpg">
+                <p class="image-subtitle">Random rays from the first image</p>
+            </div>
+                                <div class="image-container">
+                <img src="proj5images/sa2.png" alt="taj.jpg">
+                <p class="image-subtitle">Random rays from the top left corner of the image</p>
+            </div>
+        <div class="clear-float"></div>
+        
 
