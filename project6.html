@@ -130,10 +130,38 @@
     <h2>Alp Eren Ozdarendeli</h2>    
     <div class="project-overview">
         <h2>Part 1: Fit a Neural Field to a 2D Image</h2>
-            <p> In this section, I implement Neural Radiance Field in 2 dimensions. In 2 dimensions, we don't have the concept of radiance so essentially Neural Radiance Field in 2 dimensions reduces to Neural Field, in which we represent 2D by mapping (u,v) to (R,G,B) - converting the pixel coordinate to RGB values. For this, I created Multilayer Perceptron and Sinusoidal Positional Encoding with given architecture. For Multilayer Perceptron, I used 4 hidden layers(size 256) with RELU and a linear layer(size) with sigmoid. Also, I created a dataloader that  randomly samples certain number of pixels from the image at each iteration. To determine the correct hyperparameters, I have explored different values for learning rate and max frequency L for the given image.  As the baseline, I used the hyperparameters layers=4, hidden dim=256, L=10, LR=1e-2. Firstly, I explored the effect of learning rate. Here are my results for the  baseline, LR=1e-1, LR=1e-3: </p>
-                    <div class="image-grid">
+            <p> In this section, I implement Neural Radiance Field in 2 dimensions. In 2 dimensions, we don't have the concept of radiance so essentially Neural Radiance Field in 2 dimensions reduces to Neural Field, in which we represent 2D by mapping (u,v) to (R,G,B) - converting the pixel coordinate to RGB values. For this, I created Multilayer Perceptron and Sinusoidal Positional Encoding with given architecture. For Multilayer Perceptron, I used 4 hidden layers(size 256) with RELU and a linear layer(size 3) with sigmoid. Also, I created a dataloader that randomly samples certain number of pixels from the image at each iteration. To determine the correct hyperparameters, I have explored different values for learning rate and max frequency L for the given image.  As the baseline, I used the hyperparameters layers=4, hidden dim=256, L=10, LR=1e-2. Firstly, I explored the effect of max frequency L Here are my results for the baseline, L=20, LR=5: </p>
+                <div class="image-grid">
             <div class="image-container">
+                <img src="proj5images/baselinef.png" alt="taj.jpg">
+                <p class="image-subtitle"> Baseline PSNR Curve</p>
+            </div>
+            <div class="image-container">
+                <img src="proj5images/l5.png" alt="taj.jpg">
+                <p class="image-subtitle">L=5 PSNR Curve</p>
+            </div>
+            <div class="image-container">
+                <img src="proj5images/l20.png" alt="taj.jpg">
+                <p class="image-subtitle">L=20 PSNR Curve</p>
+            </div>
+                                <div class="image-container">
                 <img src="proj5images/baselinecurve.png" alt="taj.jpg">
+                <p class="image-subtitle"> Baseline Final Image</p>
+            </div>
+            <div class="image-container">
+                <img src="proj5images/l5f.png" alt="taj.jpg">
+                <p class="image-subtitle">L=5 Final Image</p>
+            </div>
+            <div class="image-container">
+                <img src="proj5images/l20f.png" alt="taj.jpg">
+                <p class="image-subtitle">L=20 Final Image</p>
+            </div>
+        <div class="clear-float"></div>
+        <p> As another hyperparameter, I varied the max frequency L. Here are my results for the  baseline, L=5, L=20:
+        </div>
+                            <div class="image-grid">
+            <div class="image-container">
+                <img src="proj5images/baseline_psnrr.png" alt="taj.jpg">
                 <p class="image-subtitle"> Baseline</p>
             </div>
             <div class="image-container">
@@ -144,22 +172,7 @@
                 <img src="proj5images/lr0.001.png" alt="taj.jpg">
                 <p class="image-subtitle">Learning Rate = 0.001</p>
             </div>
-        </div>
-        <div class="clear-float"></div>
-        <p> As another hyperparameter, I varied the max frequency L. Here are my results for the  baseline, L=5, L=20:
-                            <div class="image-grid">
-            <div class="image-container">
-                <img src="proj5images/baselinecurve.png" alt="taj.jpg">
-                <p class="image-subtitle"> Baseline</p>
-            </div>
-            <div class="image-container">
-                <img src="proj5images/l5.png" alt="taj.jpg">
-                <p class="image-subtitle">L=5</p>
-            </div>
-            <div class="image-container">
-                <img src="proj5images/l20.png" alt="taj.jpg">
-                <p class="image-subtitle">L=20</p>
-            </div>
+                                <div class="clear-float"></div>
         </div>
         <p>Here are my results for the given image, sampled at every 400 iterations. I trained the model for 2001 iterations. For this training, I used the baseline hyperparameters, layers=4, hidden dim=256, L=10, LR=1e-2:</p>
         <p> Here is the training curve: </p>
