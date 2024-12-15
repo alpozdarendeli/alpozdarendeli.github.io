@@ -157,23 +157,34 @@
                 <p class="image-subtitle">L=20 Final Image</p>
             </div>
         <div class="clear-float"></div>
-        <p> As another hyperparameter, I varied the max frequency L. Here are my results for the  baseline, L=5, L=20:
-        </div>
-                            <div class="image-grid">
+        <p> From the images, it is clear that reducing the max frequency from 10 to 5 resulted in worse performance. Also, the increase from 10 to 20 did not improve the model's performance visibly, PSNR curves seemed to converge to similar value. Thus, I decided to use L=10. </p>
+        <p> As another hyperparameter, I varying the learning rate. Here are my results for the  baseline, LR=0.02, L=0.005:
+                <div class="image-grid">
             <div class="image-container">
                 <img src="proj5images/baseline_psnrr.png" alt="taj.jpg">
-                <p class="image-subtitle"> Baseline</p>
+                <p class="image-subtitle"> Baseline PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/lr0.1.png" alt="taj.jpg">
-                <p class="image-subtitle">Learning Rate = 0.1</p>
+                <img src="proj5images/l5_psnrr.png.png" alt="taj.jpg">
+                <p class="image-subtitle">L=5 PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/lr0.001.png" alt="taj.jpg">
-                <p class="image-subtitle">Learning Rate = 0.001</p>
+                <img src="proj5images/l20_psnrr.png" alt="taj.jpg">
+                <p class="image-subtitle">L=20 PSNR Curve</p>
             </div>
-                                <div class="clear-float"></div>
-        </div>
+            <div class="image-container">
+                <img src="proj5images/baselinef.png" alt="taj.jpg">
+                <p class="image-subtitle"> Baseline Final Image</p>
+            </div>
+            <div class="image-container">
+                <img src="proj5images/l5f.png" alt="taj.jpg">
+                <p class="image-subtitle">L=5 Final Image</p>
+            </div>
+            <div class="image-container">
+                <img src="proj5images/l20f.png" alt="taj.jpg">
+                <p class="image-subtitle">L=20 Final Image</p>
+            </div>
+        <div class="clear-float"></div>
         <p>Here are my results for the given image, sampled at every 400 iterations. I trained the model for 2001 iterations. For this training, I used the baseline hyperparameters, layers=4, hidden dim=256, L=10, LR=1e-2:</p>
         <p> Here is the training curve: </p>
         <p>I also ran my training loop for another image of my choosing, a crocodile. As I only tested for hyperparameters learning rate and maximum frequency, I chose learning rate as maximum frequency as for this training. Here are my results for the image, and my training curve: </p>
