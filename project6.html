@@ -130,7 +130,7 @@
     <h2>Alp Eren Ozdarendeli</h2>    
     <div class="project-overview">
         <h2>Part 1: Fit a Neural Field to a 2D Image</h2>
-            <p> In this section, I implement Neural Radiance Field in 2 dimensions. In 2 dimensions, we don't have the concept of radiance so essentially Neural Radiance Field in 2 dimensions reduces to Neural Field, in which we represent 2D by mapping (u,v) to (R,G,B) - converting the pixel coordinate to RGB values. For this, I created Multilayer Perceptron and Sinusoidal Positional Encoding with given architecture. For Multilayer Perceptron, I used 4 hidden layers(size 256) with RELU and a linear layer(size 3) with sigmoid. Also, I created a dataloader that randomly samples certain number of pixels from the image at each iteration. To determine the correct hyperparameters, I have explored different values for learning rate and max frequency L for the given image.  As the baseline, I used the hyperparameters layers=4, hidden dim=256, L=10, LR=1e-2. Firstly, I explored the effect of max frequency L Here are my results for the baseline, L=20, LR=5: </p>
+            <p> In this section, I implement Neural Radiance Field in 2 dimensions. In 2 dimensions, we don't have the concept of radiance so essentially Neural Radiance Field in 2 dimensions reduces to Neural Field, in which we represent 2D by mapping (u,v) to (R,G,B) - converting the pixel coordinate to RGB values. For this, I created Multilayer Perceptron and Sinusoidal Positional Encoding with given architecture. For Multilayer Perceptron, I used 4 hidden layers(size 256) with RELU and a linear layer(size 3) with sigmoid. Also, I created a dataloader that randomly samples certain number of pixels from the image at each iteration. To determine the correct hyperparameters, I have explored different values for learning rate and max frequency L for the given image.  As the baseline, I used the hyperparameters layers=4, hidden dim=256, L=10, LR=1e-2. Firstly, I explored the effect of max frequency L. Here are my results for the baseline, L=20, LR=5: </p>
                 <div class="image-grid">
             <div class="image-container">
                 <img src="proj5images/baseline_psnrr.png" alt="taj.jpg">
@@ -159,7 +159,7 @@
                     </div>
         <div class="clear-float"></div>
         <p> From the images, it is clear that reducing the max frequency from 10 to 5 resulted in worse performance. Also, the increase from 10 to 20 did not improve the model's performance visibly, PSNR curves seemed to converge to similar value. Thus, I decided to use L=10. </p>
-        <p> As another hyperparameter, I varying the learning rate. Here are my results for the  baseline, LR=0.02, L=0.005:
+        <p> As another hyperparameter, I varying the learning rate. Here are my results for the  baseline, LR=0.02, L=0.005:</p>
                 <div class="image-grid">
             <div class="image-container">
                 <img src="proj5images/baseline_psnrr.png" alt="taj.jpg">
@@ -187,6 +187,7 @@
             </div>
                     </div>
         <div class="clear-float"></div>
+        <p> Training curves look pretty similar, but halving the learning rate caused a slight drop in performance. Also, for learning rate 2e-2, I think the final image has worse quality than the final image for the baseline.</p>
         <p>Here are my results for the given image, sampled at every 400 iterations. I trained the model for 2001 iterations. For this training, I used the following hyperparameters, layers=4, hidden dim=256, L=10, LR=1e-2:</p>
         <div class="image-grid">
             <div class="image-container">
