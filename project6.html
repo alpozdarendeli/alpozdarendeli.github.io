@@ -19,14 +19,14 @@
     <a href="project3.html">Project 3</a>
     <a href="project4.html">Project 4</a>
     <a href="project5.html">Project 5</a>
-    <a href="project6.html">Project 6</a>
+    <a href="project6.html" class="active">Project 6</a>
 </nav>
     <h1>Final Project: NeRF</h1>
     <h2>Alp Eren Ozdarendeli</h2>    
     <div class="project-overview">
         <h2>Part 1: Fit a Neural Field to a 2D Image</h2>
             <p> In this section, I implement Neural Radiance Field in 2 dimensions. In 2 dimensions, we don't have the concept of radiance so essentially Neural Radiance Field in 2 dimensions reduces to Neural Field, in which we represent 2D by mapping (u,v) to (R,G,B) - converting the pixel coordinate to RGB values. For this, I created Multilayer Perceptron and Sinusoidal Positional Encoding with given architecture. For Multilayer Perceptron, I used 4 hidden layers(size 256) with RELU and a linear layer(size 3) with sigmoid. Also, I created a dataloader that randomly samples certain number of pixels from the image at each iteration. To determine the correct hyperparameters, I have explored different values for learning rate and max frequency L for the given image.  As the baseline, I used the hyperparameters layers=4, hidden dim=256, L=10, LR=1e-2. Firstly, I explored the effect of max frequency L. Here are my results for the baseline, L=20, LR=5: </p>
-                <div class="image-grid">
+                <div class="image-grid cols-3">
             <div class="image-container">
                 <img src="proj5images/baseline_psnrr.png" alt="Baseline PSNR Curve">
                 <p class="image-subtitle"> Baseline PSNR Curve</p>
@@ -55,7 +55,7 @@
         <div class="clear-float"></div>
         <p> From the images, it is clear that reducing the max frequency from 10 to 5 resulted in worse performance. Also, the increase from 10 to 20 did not improve the model's performance visibly, PSNR curves seemed to converge to similar value. Thus, I decided to use L=10. </p>
         <p> As another hyperparameter, I varying the learning rate. Here are my results for the  baseline, LR=0.02, L=0.005:</p>
-                <div class="image-grid">
+                <div class="image-grid cols-3">
             <div class="image-container">
                 <img src="proj5images/baseline_psnrr.png" alt="Baseline PSNR Curve">
                 <p class="image-subtitle"> Baseline PSNR Curve</p>
@@ -84,7 +84,7 @@
         <div class="clear-float"></div>
         <p> Training curves look pretty similar, but halving the learning rate caused a slight drop in performance. Also, for learning rate 2e-2, I think the final image has worse quality than the final image for the baseline.</p>
         <p>Here are my results for the given image, sampled at every 400 iterations. I trained the model for 2001 iterations. For this training, I used the following hyperparameters, layers=4, hidden dim=256, L=10, LR=1e-2:</p>
-        <div class="image-grid">
+        <div class="image-grid cols-3">
             <div class="image-container">
                 <img src="proj5images/baseline_psnrr.png" alt="Training PSNR Curve">
                 <p class="image-subtitle"> Training PSNR Curve</p>
@@ -116,7 +116,7 @@
                     </div>
         <div class="clear-float"></div>
         <p>I also ran my training loop for another image of my choosing, a crocodile. For this training, I used the following hyperparameters, layers=4, hidden dim=256, L=10, LR=5e-3:. Here are my results for the image, and my training curve: </p>    
-                <div class="image-grid">
+                <div class="image-grid cols-3">
                             <div class="image-container">
                 <img src="proj5images/images.jpeg" alt="Original Image">
                 <p class="image-subtitle"> Original Image</p>
@@ -158,7 +158,7 @@
         <p> In this part, I defined the required functions, transform(c2w, x_c), pixel_to_camera(c2w, x_c), pixel_to_ray(K, c2w, x_c). transform function takes in camera coordinates and obtains the corresponding world coordinates using c2w matrix. pixel_to_camera takes in pixel coordinates and obtains camera coordinates, using the intrinsic matrix K. pixel_to_ray takes in world coordinates, and by using the other functions, obtains rays with origin and normalized directions.</p>
         <h2>Part 2.3: Putting the Dataloading All Together</h2>
         <p>In this part, I put everything I did so far together to visualize the given tests:</p>
-                <div class="image-grid">
+                <div class="image-grid cols-3">
             <div class="image-container">
                 <img src="proj5images/sa1.png" alt="Cameras, 100 Rays, Samples">
                 <p class="image-subtitle"> Cameras, 100 Rays, Samples</p>
@@ -175,7 +175,7 @@
         <div class="clear-float"></div>
         <h2>Part 2.4: Neural Radiance Field</h2>
         <p>In this part, I implement the NeRF architecture. It is similar to MLP but there are some changes as we have samples in 3D, and want to predict density and color of the samples. One of the main changes are now the MLP is deeper because the task we are trying to implement is harder. Also, we are not only going to output color but also density for the inputs, which are 3D world coordinates and ray direction. For this, I will use the direction as the condition to output colors. Lastly, I inject the input to the middle of the MLP after getting it through PE I defined earlier to make model not forget about the input as the neural network got deeper. For this part, I used the given architecture:</p>
-                        <div class="image-gr">
+                        <div class="image-grid cols-1">
             <div class="image-container">
                 <img src="proj5images/mlp_nerf.png" alt="Illustration of mlp nerf">
             </div>
@@ -183,20 +183,20 @@
         <div class="clear-float"></div>
                 <h2>Part 2.5:  Volume Rendering</h2>
         <p> In order to obtain render colors, I used the given volume rendering equation, which combined the batches of samples from each ray:</p>
-                                <div class="image-gr">
+                                <div class="image-grid cols-1">
             <div class="image-container">
                 <img src="proj5images/volrend.png" alt="Illustration of volrend">
             </div>
          </div>
         <div class="clear-float"></div>
         <p>Here is the visualized training, predictions shown for each 100 iterations. I used the given hyperparameters, and trained the model for 1000 iterations. Also, I provide the PSNR curve on the validation set (every 10 iterations) and the training set.</p>
-                        <div class="image-gr">
+                        <div class="image-grid cols-1">
         <div class="image-container">
             <img src="proj5images/psnrn.png" alt="Illustration of psnrn">
         </div>
         </div>
         <div class="clear-float"></div>
-                        <div class="image-gi">
+                        <div class="image-grid cols-4">
                                     <div class="image-container">
             <img src="proj5images/validation0.png" alt="Illustration of validation0">
         </div>
@@ -233,7 +233,7 @@
         </div>
         <div class="clear-float"></div>
         <p>Combining everything together, here is a spherical rendering of lego using the provided camera extrinsics:</p>
-                <div class="image-gr">
+                <div class="image-grid cols-1">
         <div class="image-container">
             <img src="proj5images/leg.gif" alt="Illustration of leg">
         </div>
@@ -241,11 +241,14 @@
         <div class="clear-float"></div>
         <h2>B&W: Background Coloring</h2>
         <p>For bells and whistles, I implement the background color. The background color is added to the rendered scene by treating it as the color seen when a ray passes through all objects without being blocked:</p>
-        <div class="image-gr">
+        <div class="image-grid cols-1">
         <div class="image-container">
             <img src="proj5images/lego_backgroun.gif" alt="Illustration of lego backgroun">
         </div>
         </div>
         <div class="clear-float"></div>
+    <footer>
+        <a href="index.html" class="footer-link">Back to Home</a>
+    </footer>
 </body>
 </html>
