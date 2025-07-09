@@ -173,3 +173,18 @@ h1 {
         align-items: center;
     }
 }
+
+#hero {
+    text-align: center;
+    font-size: 1.25em;
+    padding: 40px 20px;
+    background-color: var(--card-bg);
+    margin-bottom: 30px;
+}
+
+#hero img.portrait {
+    max-width: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto 0;
+}
