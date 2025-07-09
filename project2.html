@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 2: Fun with Filters and Frequencies!</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,32 +28,6 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .image-gri {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .image-gr {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-            justify-items: center; 
-            align-items: center; 
-        }
-        .image-g {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 15px;
             margin-bottom: 20px;
         }
         .image-container {
@@ -97,7 +72,7 @@
         <h2>Part 1: Fun with Filter</h2>
             <h2>Part 1.1: Finite Difference Operator</h2>
             <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created by np.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. The gradient magnitude is calculated by taking the square root of the sum of squared partial derivatives in the x and y directions. This is essentially calculating the L2 norm of the gradient vector at each pixel. In order to binarize the gradient magnitude, I have chosen a threshold of 0.29 per pixel.</p>
-            <div class="image-grid">
+            <div class="grid-3">
             <div class="image-container">
                 <img src="proj2images/d_x.jpg" alt="d_x.jpg">
                 <p class="image-subtitle">d_x</p>
@@ -119,7 +94,7 @@
         <h2>Part 1.2: Derivative of Gaussian (DoG) Filter</h2>
         <p> I have blurred the original image by doing convolution with a 2D Gaussian kernel, with sigma = 1 and kernel size 6. 2D Gaussian kernel is created by firstly creating a 1D Gaussian filter with cv2.getGaussianKernel() and doing outer product with its transpose. Then, I applied the same procedure from part 1.1 to get the partial derivatives and gradient magnitude of the blurred image.</p>
         <p>The results with Gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background of the image is less apparent with the Gaussian filter, and gradient magnitude is significantly lower.</p>
-        <div class="image-grid">
+        <div class="grid-3">
             <div class="image-container">
                 <img src="proj2images/im_blurred.jpg" alt="im_blurred.jpg">
                 <p class="image-subtitle">Image with Gaussian Filter</p>
@@ -144,7 +119,7 @@
         <div class="clear-float"></div>
         <p> This time, I convolved with the derivative of Gaussian instead of convolving the image twice with partial derivatives and the Gaussian filter.</p>
         <p> The results are visibly the same because of convolution operation's associativity property. I used the same threshold for the binary gradient magnitude and obtained the same edge image. </p>
-                <div class="image-grid">
+                <div class="grid-3">
             <div class="image-container">
                 <img src="proj2images/dog_dx.jpg" alt="im_blurred.jpg">
                 <p class="image-subtitle">Dx of DoG</p>
@@ -167,7 +142,7 @@
             <h2>Part 2.1: Image "Sharpening</h2>
             <p>For this part, my goal is to sharpen images. In order to sharpen an image, I apply Gaussian filter to get the low frequencies of the image. When the low frequencies are substracted from the original image, I get the high frequencies of the image. By adding the high frequencies to the original image, original image can be sharpened. I combines these operations into a single convolution operation which can be formulized convolving each channel of the image with (1 + alpha) * unit_impulse - alpha * gauss_kernel where alpha is the coefficient of the sharpening. </p>
         <div class="clear-float"></div>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj2images/taj.jpg" alt="taj.jpg">
             <p class="image-subtitle">Taj Mahal</p>
@@ -178,7 +153,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj2images/ataturk.jpg" alt="ataturk.jpg">
             <p class="image-subtitle">Mustafa Kemal Ataturk</p>
@@ -200,7 +175,7 @@
         </div>
         <div class="clear-float"></div>
         <p>For evaluation, I attempted to sharpen an image after blurring it. I observed that sharpening process was not able to sharpen the blurred image to its original quality, regardless of the value of the coefficient alpha. When an image is blurred, it becomes more noisy than the original and lose some of its details that even sharpening cannot recover. </p>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj2images/tt_arena.jpg" alt="tt_arena.jpg">
             <p class="image-subtitle">Rams park</p>
@@ -217,7 +192,7 @@
         <div class="clear-float"></div>
         <h2>Part 2.2: Hybrid Images</h2>
             <p>For this part, my goal is to create hybrid images that can be interpreted differently from different distances. In order to do this, I capture low frequency and high frequency of different images by passing the images through a Gaussian filter. High frequencies are captured by subtracting the image passed through the filter from its original image. The hybrid image is the average of both filtered images. I used color to enhance the effect of combining the images.</p>
-        <div class="image-grid">
+        <div class="grid-3">
         <div class="image-container">
             <img src="proj2images/DerekPicture.jpg" alt="DerekPicture.jpg">
             <p class="image-subtitle">Derek</p>
@@ -232,7 +207,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-            <div class="image-grid">
+            <div class="grid-3">
         <div class="image-container">
             <img src="proj2images/darwin.jpg" alt="darwin.jpg">
             <p class="image-subtitle">Darwin</p>
@@ -247,7 +222,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <div class="image-grid">
+        <div class="grid-3">
         <div class="image-container">
             <img src="proj2images/tann.jpg" alt="tann.jpg">
             <p class="image-subtitle">Tan</p>
@@ -264,7 +239,7 @@
         <div class="clear-float"></div>
     </div>
     <p>Two-Tan was my favorite result so far. Here is its frequency analysis with Fourier transformation:</p>
-    <div class="image-grid">
+    <div class="grid-3">
         <div class="image-container">
             <img src="proj2images/grayscale_tan.jpg" alt="grayscale_tan.jpg">
             <p class="image-subtitle">Tan FFT</p>
@@ -288,7 +263,7 @@
         </div>
         <div class="clear-float"></div>
     <p>For a failed one, I tried to make a hybrid of Gheorghe Hagi and Didier Drogba. Unfortunately, it wasn't very successful but I will use them again for another technique. </p>
-    <div class="image-grid">
+    <div class="grid-3">
         <div class="image-container">
             <img src="proj2images/hagi.jpg" alt="grayscale_tan.jpg">
             <p class="image-subtitle">Gheorghe Hagi</p>
@@ -306,7 +281,7 @@
     <h2>Part 2.3: Gaussian and Laplacian Stacks</h2>
             <p>For this part, my goal is to blend images. In order to blend, I created Gaussian stacks and Laplacian stacks for the images. The Laplacian stacks are formed by substracting the consecutive images in their Gaussian stacks. The last level of the Laplacian stack is the last level of the Gaussian stack so the Laplacian and Gaussian stacks have the same number of levels.</p>
         <h2>Apple Gauss Stack</h2>
-<div class="image-g">
+<div class="grid-6">
     <div class="image-container">
         <img src="proj2images/gauss_app0.jpg" alt="Apple Gauss Level 0">
         <p class="image-subtitle">Level 0</p>
@@ -334,7 +309,7 @@
 </div>
 
 <h2>Apple Laplace Stack</h2>
-<div class="image-g">
+<div class="grid-6">
     <div class="image-container">
         <img src="proj2images/lap_app0.jpg" alt="Apple Laplace Level 0">
         <p class="image-subtitle">Level 0</p>
@@ -362,7 +337,7 @@
 </div>
 
 <h2>Orange Gauss Stack</h2>
-<div class="image-g">
+<div class="grid-6">
     <div class="image-container">
         <img src="proj2images/gauss_or0.jpg" alt="Orange Gauss Level 0">
         <p class="image-subtitle">Level 0</p>
@@ -390,7 +365,7 @@
 </div>
 
 <h2>Orange Laplace Stack</h2>
-<div class="image-g">
+<div class="grid-6">
     <div class="image-container">
         <img src="proj2images/lap_or0.jpg" alt="Orange Laplace Level 0">
         <p class="image-subtitle">Level 0</p>
@@ -418,7 +393,7 @@
 </div>
     <div class="clear-float"></div>
     <h2>Oraple</h2>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj2images/oraple.jpg" alt="taj.jpg">
             <p class="image-subtitle">Oraple!</p>
@@ -433,7 +408,7 @@
     <p>In order to blend, I used Laplacian stacks of the images and the Gaussian stack for the mask. We apply Gaussian filter to the mask at each layer so that blending is smoother. After creating the Laplacian stack for the images and Gaussian stack for the mask, I create a blend stack for the images by merging them using the formula blend[i] = mask_gauss[i] * apple_laplace[i] + (1 - mask_gauss[i]) * orange_laplace[i] In this process, the Gaussian mask is applied to one image, while its inverse (1 - mask) is applied to the other for each level in the Laplacian pyramid. After creating a stack of blended images at each level, I collapse them to produce the final blended image. This enables a smooth transition between the images.</p>
     <h2>Hagi & Drogba</h2>
     <p> Finally, I was able to blend Didier Drogba and Gheorghe Hagi onto the same image.</p>
-    <div class="image-gri">
+    <div class="grid-2">
         <div class="image-container">
             <img src="proj2images/hagi.jpg" alt="grayscale_tan.jpg">
             <p class="image-subtitle">Gheorghe Hagi</p>
@@ -453,14 +428,14 @@
         </div>
         <div class="clear-float"></div>
     <p> Here is its blending process.</p>
-     <div class="image-gr">
+     <div class="grid-1">
         <div class="image-container">
             <img src="proj2images/drogba_hagi_blend.jpg" alt="grayscale_tan.jpg">
             <p class="image-subtitle">Drogba & Hagi Blend Process</p>
         </div>
         </div>
     <h2>Spidermeme Recreation</h2>
-    <div class="image-gri">
+    <div class="grid-2">
         <div class="image-container">
             <img src="proj2images/spiderman.jpg" alt="grayscale_tan.jpg">
             <p class="image-subtitle">Spiderman</p>
@@ -481,7 +456,7 @@
         <div class="clear-float"></div>
     <h2>Early Halloween</h2>
     <p>I think I could have achieved a better blending with a better mask but still it is early Halloween!</p>
-    <div class="image-gri">
+    <div class="grid-2">
         <div class="image-container">
             <img src="proj2images/jokerr_750.jpg" alt="grayscale_two_face.jpg">
             <p class="image-subtitle">Joker</p>

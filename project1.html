@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 1: Images of the Russian Empire -- Colorizing the Prokudin-Gorskii Photo Collection</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,11 +29,6 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 20px;
-        }
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
         }
         .image-container {
             background-color: #fff;
@@ -75,7 +71,7 @@
     </div>
 
     <h2>Images</h2>
-    <div class="image-grid">
+    <div class="grid-3">
         <div class="image-container">
             <img src="images/cathedral_output.jpg" alt="cathedral.jpg - gshift: [5, 2] rshift: [12, 3]">
             <p class="image-description"><i>cathedral.jpg</i> gshift: [5, 2] rshift: [12, 3]</p>
