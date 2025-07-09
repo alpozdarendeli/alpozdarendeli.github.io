@@ -173,3 +173,18 @@ h1 {
         align-items: center;
     }
 }
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-link:hover {
+    color: var(--accent-hover);
+}
