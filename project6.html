@@ -133,27 +133,27 @@
             <p> In this section, I implement Neural Radiance Field in 2 dimensions. In 2 dimensions, we don't have the concept of radiance so essentially Neural Radiance Field in 2 dimensions reduces to Neural Field, in which we represent 2D by mapping (u,v) to (R,G,B) - converting the pixel coordinate to RGB values. For this, I created Multilayer Perceptron and Sinusoidal Positional Encoding with given architecture. For Multilayer Perceptron, I used 4 hidden layers(size 256) with RELU and a linear layer(size 3) with sigmoid. Also, I created a dataloader that randomly samples certain number of pixels from the image at each iteration. To determine the correct hyperparameters, I have explored different values for learning rate and max frequency L for the given image.  As the baseline, I used the hyperparameters layers=4, hidden dim=256, L=10, LR=1e-2. Firstly, I explored the effect of max frequency L. Here are my results for the baseline, L=20, LR=5: </p>
                 <div class="image-grid">
             <div class="image-container">
-                <img src="proj5images/baseline_psnrr.png" alt="taj.jpg">
+                <img src="proj5images/baseline_psnrr.png" alt="Baseline PSNR Curve">
                 <p class="image-subtitle"> Baseline PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/l5_psnrr.png" alt="taj.jpg">
+                <img src="proj5images/l5_psnrr.png" alt="L=5 PSNR Curve">
                 <p class="image-subtitle">L=5 PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/l20_psnrr.png" alt="taj.jpg">
+                <img src="proj5images/l20_psnrr.png" alt="L=20 PSNR Curve">
                 <p class="image-subtitle">L=20 PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/baselinef.png" alt="taj.jpg">
+                <img src="proj5images/baselinef.png" alt="Baseline Final Image">
                 <p class="image-subtitle"> Baseline Final Image</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/l5f.png" alt="taj.jpg">
+                <img src="proj5images/l5f.png" alt="L=5 Final Image">
                 <p class="image-subtitle">L=5 Final Image</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/l20f.png" alt="taj.jpg">
+                <img src="proj5images/l20f.png" alt="L=20 Final Image">
                 <p class="image-subtitle">L=20 Final Image</p>
             </div>
                     </div>
@@ -162,27 +162,27 @@
         <p> As another hyperparameter, I varying the learning rate. Here are my results for the  baseline, LR=0.02, L=0.005:</p>
                 <div class="image-grid">
             <div class="image-container">
-                <img src="proj5images/baseline_psnrr.png" alt="taj.jpg">
+                <img src="proj5images/baseline_psnrr.png" alt="Baseline PSNR Curve">
                 <p class="image-subtitle"> Baseline PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/lr11.png" alt="taj.jpg">
+                <img src="proj5images/lr11.png" alt="LR= 0.005 PSNR Curve">
                 <p class="image-subtitle">LR= 0.005 PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/lr0011.png" alt="taj.jpg">
+                <img src="proj5images/lr0011.png" alt="LR=0.02 PSNR Curve">
                 <p class="image-subtitle">LR=0.02 PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/baselinef.png" alt="taj.jpg">
+                <img src="proj5images/baselinef.png" alt="Baseline Final Image">
                 <p class="image-subtitle"> Baseline Final Image</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/lr0.005f.png" alt="taj.jpg">
+                <img src="proj5images/lr0.005f.png" alt="LR=0.005 Final Image">
                 <p class="image-subtitle">LR=0.005 Final Image</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/lr2f.png" alt="taj.jpg">
+                <img src="proj5images/lr2f.png" alt="LR = 0.02 Final Image">
                 <p class="image-subtitle">LR = 0.02 Final Image</p>
             </div>
                     </div>
@@ -191,31 +191,31 @@
         <p>Here are my results for the given image, sampled at every 400 iterations. I trained the model for 2001 iterations. For this training, I used the following hyperparameters, layers=4, hidden dim=256, L=10, LR=1e-2:</p>
         <div class="image-grid">
             <div class="image-container">
-                <img src="proj5images/baseline_psnrr.png" alt="taj.jpg">
+                <img src="proj5images/baseline_psnrr.png" alt="Training PSNR Curve">
                 <p class="image-subtitle"> Training PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/br1.png" alt="taj.jpg">
+                <img src="proj5images/br1.png" alt="T=0">
                 <p class="image-subtitle">T=0</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/br2.png" alt="taj.jpg">
+                <img src="proj5images/br2.png" alt="T=400">
                 <p class="image-subtitle">T=400</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/br3.png" alt="taj.jpg">
+                <img src="proj5images/br3.png" alt="T=800">
                 <p class="image-subtitle">T=800</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/br4.png" alt="taj.jpg">
+                <img src="proj5images/br4.png" alt="T=1200">
                 <p class="image-subtitle">T=1200</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/br5.png" alt="taj.jpg">
+                <img src="proj5images/br5.png" alt="T=1600">
                 <p class="image-subtitle">T=1600</p>
             </div>
                         <div class="image-container">
-                <img src="proj5images/br6.png" alt="taj.jpg">
+                <img src="proj5images/br6.png" alt="T=2000">
                 <p class="image-subtitle">T=2000</p>
             </div>
                     </div>
@@ -223,35 +223,35 @@
         <p>I also ran my training loop for another image of my choosing, a crocodile. For this training, I used the following hyperparameters, layers=4, hidden dim=256, L=10, LR=5e-3:. Here are my results for the image, and my training curve: </p>    
                 <div class="image-grid">
                             <div class="image-container">
-                <img src="proj5images/images.jpeg" alt="taj.jpg">
+                <img src="proj5images/images.jpeg" alt="Original Image">
                 <p class="image-subtitle"> Original Image</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/crocodile.png" alt="taj.jpg">
+                <img src="proj5images/crocodile.png" alt="Training PSNR Curve">
                 <p class="image-subtitle"> Training PSNR Curve</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/croc1.png" alt="taj.jpg">
+                <img src="proj5images/croc1.png" alt="T=0">
                 <p class="image-subtitle">T=0</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/croc2.png" alt="taj.jpg">
+                <img src="proj5images/croc2.png" alt="T=400">
                 <p class="image-subtitle">T=400</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/croc3.png" alt="taj.jpg">
+                <img src="proj5images/croc3.png" alt="T=800">
                 <p class="image-subtitle">T=800</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/croc4.png" alt="taj.jpg">
+                <img src="proj5images/croc4.png" alt="T=1200">
                 <p class="image-subtitle">T=1200</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/croc5.png" alt="taj.jpg">
+                <img src="proj5images/croc5.png" alt="T=1600">
                 <p class="image-subtitle">T=1600</p>
             </div>
                         <div class="image-container">
-                <img src="proj5images/croc6.png" alt="taj.jpg">
+                <img src="proj5images/croc6.png" alt="T=2000">
                 <p class="image-subtitle">T=2000</p>
             </div>
                     </div>
@@ -265,15 +265,15 @@
         <p>In this part, I put everything I did so far together to visualize the given tests:</p>
                 <div class="image-grid">
             <div class="image-container">
-                <img src="proj5images/sa1.png" alt="taj.jpg">
+                <img src="proj5images/sa1.png" alt="Cameras, 100 Rays, Samples">
                 <p class="image-subtitle"> Cameras, 100 Rays, Samples</p>
             </div>
             <div class="image-container">
-                <img src="proj5images/sa2.png" alt="taj.jpg">
+                <img src="proj5images/sa2.png" alt="Random rays from the first image">
                 <p class="image-subtitle">Random rays from the first image</p>
             </div>
                                 <div class="image-container">
-                <img src="proj5images/sa3.png" alt="taj.jpg">
+                <img src="proj5images/sa3.png" alt="Random rays from the top left corner of the image">
                 <p class="image-subtitle">Random rays from the top left corner of the image</p>
             </div>
                     </div>
@@ -282,7 +282,7 @@
         <p>In this part, I implement the NeRF architecture. It is similar to MLP but there are some changes as we have samples in 3D, and want to predict density and color of the samples. One of the main changes are now the MLP is deeper because the task we are trying to implement is harder. Also, we are not only going to output color but also density for the inputs, which are 3D world coordinates and ray direction. For this, I will use the direction as the condition to output colors. Lastly, I inject the input to the middle of the MLP after getting it through PE I defined earlier to make model not forget about the input as the neural network got deeper. For this part, I used the given architecture:</p>
                         <div class="image-gr">
             <div class="image-container">
-                <img src="proj5images/mlp_nerf.png" alt="taj.jpg">
+                <img src="proj5images/mlp_nerf.png" alt="Illustration of mlp nerf">
             </div>
          </div>
         <div class="clear-float"></div>
@@ -290,57 +290,57 @@
         <p> In order to obtain render colors, I used the given volume rendering equation, which combined the batches of samples from each ray:</p>
                                 <div class="image-gr">
             <div class="image-container">
-                <img src="proj5images/volrend.png" alt="taj.jpg">
+                <img src="proj5images/volrend.png" alt="Illustration of volrend">
             </div>
          </div>
         <div class="clear-float"></div>
         <p>Here is the visualized training, predictions shown for each 100 iterations. I used the given hyperparameters, and trained the model for 1000 iterations. Also, I provide the PSNR curve on the validation set (every 10 iterations) and the training set.</p>
                         <div class="image-gr">
         <div class="image-container">
-            <img src="proj5images/psnrn.png" alt="taj.jpg">
+            <img src="proj5images/psnrn.png" alt="Illustration of psnrn">
         </div>
         </div>
         <div class="clear-float"></div>
                         <div class="image-gi">
                                     <div class="image-container">
-            <img src="proj5images/validation0.png" alt="taj.jpg">
+            <img src="proj5images/validation0.png" alt="Illustration of validation0">
         </div>
                                     <div class="image-container">
-            <img src="proj5images/validation100.png" alt="taj.jpg">
+            <img src="proj5images/validation100.png" alt="Illustration of validation100">
         </div>
                                     <div class="image-container">
-            <img src="proj5images/validation200.png" alt="taj.jpg">
+            <img src="proj5images/validation200.png" alt="Illustration of validation200">
         </div>
                                     <div class="image-container">
-            <img src="proj5images/validation300.png" alt="taj.jpg">
+            <img src="proj5images/validation300.png" alt="Illustration of validation300">
         </div>
                                     <div class="image-container">
-            <img src="proj5images/validation400.png" alt="taj.jpg">
+            <img src="proj5images/validation400.png" alt="Illustration of validation400">
         </div>
                                     <div class="image-container">
-            <img src="proj5images/validation500.png" alt="taj.jpg">
+            <img src="proj5images/validation500.png" alt="Illustration of validation500">
         </div>
                                     <div class="image-container">
-            <img src="proj5images/validation600.png" alt="taj.jpg">
+            <img src="proj5images/validation600.png" alt="Illustration of validation600">
         </div>
                                     <div class="image-container">
-            <img src="proj5images/validation700.png" alt="taj.jpg">
+            <img src="proj5images/validation700.png" alt="Illustration of validation700">
         </div>
                                     <div class="image-container">
-            <img src="proj5images/validation800.png" alt="taj.jpg">
+            <img src="proj5images/validation800.png" alt="Illustration of validation800">
         </div>
                                                                 <div class="image-container">
-            <img src="proj5images/validation900.png" alt="taj.jpg">
+            <img src="proj5images/validation900.png" alt="Illustration of validation900">
         </div>
                                                                 <div class="image-container">
-            <img src="proj5images/validation990.png" alt="taj.jpg">
+            <img src="proj5images/validation990.png" alt="Illustration of validation990">
         </div>
         </div>
         <div class="clear-float"></div>
         <p>Combining everything together, here is a spherical rendering of lego using the provided camera extrinsics:</p>
                 <div class="image-gr">
         <div class="image-container">
-            <img src="proj5images/leg.gif" alt="taj.jpg">
+            <img src="proj5images/leg.gif" alt="Illustration of leg">
         </div>
         </div>
         <div class="clear-float"></div>
@@ -348,7 +348,7 @@
         <p>For bells and whistles, I implement the background color. The background color is added to the rendered scene by treating it as the color seen when a ray passes through all objects without being blocked:</p>
         <div class="image-gr">
         <div class="image-container">
-            <img src="proj5images/lego_backgroun.gif" alt="taj.jpg">
+            <img src="proj5images/lego_backgroun.gif" alt="Illustration of lego backgroun">
         </div>
         </div>
         <div class="clear-float"></div>
