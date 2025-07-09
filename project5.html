@@ -24,15 +24,15 @@
             <p>  For the setup part, I use DeepFloyd IF as the diffusion model. For Part A, I used the seed 180. Deepfloyd is a two-stage model. In the first stage, 64 x 64 images are produced and second stage takes these images and produces final images of size 256 x 256. To test the setup, I used the given prompts to generate the following outputs: </p>
         <div class="image-grid">
             <div class="image-container">
-                <img src="images5/parta1_1.png" alt="taj.jpg">
+                <img src="images5/parta1_1.png" alt="a man wearing a hat">
                 <p class="image-subtitle"> a man wearing a hat</p>
             </div>
             <div class="image-container">
-                <img src="images5/parta1_4.png" alt="taj.jpg">
+                <img src="images5/parta1_4.png" alt="an oil painting of a snowy mountain village">
                 <p class="image-subtitle">an oil painting of a snowy mountain village</p>
             </div>
             <div class="image-container">
-                <img src="images5/parta1_5.png" alt="taj.jpg">
+                <img src="images5/parta1_5.png" alt="a rocket ship">
                 <p class="image-subtitle"> a rocket ship</p>
             </div>
         </div>
@@ -40,11 +40,11 @@
             <p> The generated images actually represent the prompts pretty well. To test the effect of num_inference_steps on the outputs, I test the prompt 'an oil painting of a snowy mountain village' with num_inference_steps 7 and 46 in addition to 20 given above. Here are outputs with num_inference_steps 7 and 46 respectively:</p>
             <div class="image-gri">
             <div class="image-container">
-                <img src="images5/parta1_2.png" alt="taj.jpg">
+                <img src="images5/parta1_2.png" alt="an oil painting of a snowy mountain village (num_inference_steps = 7)">
                 <p class="image-subtitle"> an oil painting of a snowy mountain village (num_inference_steps = 7)</p>
             </div>
             <div class="image-container">
-                <img src="images5/parta1_3.png" alt="taj_sharp.jpg">
+                <img src="images5/parta1_3.png" alt="an oil painting of a snowy mountain village (num_inference_steps = 46)">
                 <p class="image-subtitle">an oil painting of a snowy mountain village (num_inference_steps = 46)</p>
             </div>
         </div>
@@ -54,15 +54,15 @@
         <p>Now, I implement the forward process. For the forward process, given a clean image, I get a noisy image for a timestep t by sampling noise from a Gaussian. In addition to these, I also scale the image. The original Campanile image is shown below at different noise levels. Larger t represents larger noise.</p>
         <div class="image-grid">
             <div class="image-container">
-                <img src="images5/noise1.png" alt="taj_sharp.jpg">
+                <img src="images5/noise1.png" alt="Noisy Campanile at t=250">
                 <p class="image-subtitle">Noisy Campanile at t=250</p>
             </div>
                         <div class="image-container">
-                <img src="images5/noise2.png" alt="taj_sharp.jpg">
+                <img src="images5/noise2.png" alt="Noisy Campanile at t=500">
                 <p class="image-subtitle">Noisy Campanile at t=500</p>
             </div>
                         <div class="image-container">
-                <img src="images5/noise3.png" alt="taj_sharp.jpg">
+                <img src="images5/noise3.png" alt="Noisy Campanile at t=750">
                 <p class="image-subtitle">Noisy Campanile at t=750</p>
             </div>
         </div>
@@ -71,30 +71,30 @@
 <p>In this section, I use classical denoising to denoise the noisy images produced in the previous part. For classical denoising, I take a noisy image and try to denoise it by Gaussian filtering. Here are the results for different timestamps:</p>
         <div class="image-grid">
             <div class="image-container">
-                <img src="images5/noise1.png" alt="taj_sharp.jpg">
+                <img src="images5/noise1.png" alt="Noisy Campanile at t=250">
                 <p class="image-subtitle">Noisy Campanile at t=250</p>
             </div>
                         <div class="image-container">
-                <img src="images5/noise2.png" alt="taj_sharp.jpg">
+                <img src="images5/noise2.png" alt="Noisy Campanile at t=500">
                 <p class="image-subtitle">Noisy Campanile at t=500</p>
             </div>
                         <div class="image-container">
-                <img src="images5/noise3.png" alt="taj_sharp.jpg">
+                <img src="images5/noise3.png" alt="Noisy Campanile at t=750">
                 <p class="image-subtitle">Noisy Campanile at t=750</p>
             </div>
         </div>
         <div class="clear-float"></div>
                         <div class="image-grid">
             <div class="image-container">
-                <img src="images5/cdns1.png" alt="taj_sharp.jpg">
+                <img src="images5/cdns1.png" alt="Classical Denoised Campanile at t=250">
                 <p class="image-subtitle">Classical Denoised Campanile at t=250</p>
             </div>
                         <div class="image-container">
-                <img src="images5/cdns2.png" alt="taj_sharp.jpg">
+                <img src="images5/cdns2.png" alt="Classical Denoised Campanile at t=500">
                 <p class="image-subtitle">Classical Denoised Campanile at t=500</p>
             </div>
                         <div class="image-container">
-                <img src="images5/cdns.png" alt="taj_sharp.jpg">
+                <img src="images5/cdns.png" alt="Classical Denoised Campanile at t=750">
                 <p class="image-subtitle">Classical Denoised Campanile at t=750</p>
             </div>
         </div>
@@ -103,30 +103,30 @@
     <p> For one-step denoising, I use a pretrained denoiser stage_1.unet to find the noise in the images. This UNet is already trained on a very large dataset but it was trained text conditioning so I use the embedding of the given prompt "a high quality photo” for conditioning. Then, I remove this image to recover a clean image for noisy images produced in part 1.1:</p>
                 <div class="image-grid">
             <div class="image-container">
-                <img src="images5/noise1.png" alt="taj_sharp.jpg">
+                <img src="images5/noise1.png" alt="Noisy Campanile at t=250">
                 <p class="image-subtitle">Noisy Campanile at t=250</p>
             </div>
                         <div class="image-container">
-                <img src="images5/noise2.png" alt="taj_sharp.jpg">
+                <img src="images5/noise2.png" alt="Noisy Campanile at t=500">
                 <p class="image-subtitle">Noisy Campanile at t=500</p>
             </div>
                         <div class="image-container">
-                <img src="images5/noise3.png" alt="taj_sharp.jpg">
+                <img src="images5/noise3.png" alt="Noisy Campanile at t=750">
                 <p class="image-subtitle">Noisy Campanile at t=750</p>
             </div>
         </div>
         <div class="clear-float"></div>
                     <div class="image-grid">
             <div class="image-container">
-                <img src="images5/odn1.png" alt="taj_sharp.jpg">
+                <img src="images5/odn1.png" alt="One-Step Denoised Campanile at t=250">
                 <p class="image-subtitle">One-Step Denoised Campanile at t=250</p>
             </div>
                         <div class="image-container">
-                <img src="images5/odn2.png" alt="taj_sharp.jpg">
+                <img src="images5/odn2.png" alt="One-Step Denoised Campanile at t=500">
                 <p class="image-subtitle">One-Step Denoised Campanile at t=500</p>
             </div>
                         <div class="image-container">
-                <img src="images5/odn3.png" alt="taj_sharp.jpg">
+                <img src="images5/odn3.png" alt="One-Step Denoised Campanile at t=750">
                 <p class="image-subtitle">One-Step Denoised Campanile at t=750</p>
             </div>
         </div>
@@ -135,34 +135,34 @@
     <p> In the previous part, performance gets worse with more noisy images. To combat this, I will implement iterative denoising. For iterative denoising, I create a new list of timesteps,strided_timesteps, to skip some steps. The stride of steps will be 30. I add noise to the test image at timestep[10] and run the implemented iterative_denoise function on this image with i_start algorithm being 10. In the following, denoised image is displayed at every fifth step and final clean image prediction is shown in comparison to other techniques:<p>
                     <div class="image-grid">
             <div class="image-container">
-                <img src="images5/f1.png" alt="taj_sharp.jpg">
+                <img src="images5/f1.png" alt="Illustration of f1">
             </div>
                         <div class="image-container">
-                <img src="images5/f2.png" alt="taj_sharp.jpg">
+                <img src="images5/f2.png" alt="Illustration of f2">
             </div>
                         <div class="image-container">
-                <img src="images5/f3.png" alt="taj_sharp.jpg">
+                <img src="images5/f3.png" alt="Illustration of f3">
             </div>
                         <div class="image-container">
-                <img src="images5/f4.png" alt="taj_sharp.jpg">
+                <img src="images5/f4.png" alt="Illustration of f4">
             </div>
                         <div class="image-container">
-                <img src="images5/f5.png" alt="taj_sharp.jpg">
+                <img src="images5/f5.png" alt="Illustration of f5">
             </div>
                         <div class="image-container">
-                <img src="images5/f6.png" alt="taj_sharp.jpg">
+                <img src="images5/f6.png" alt="Illustration of f6">
             </div>
                         <div class="image-container">
-                <img src="images5/f7.png" alt="taj_sharp.jpg">
+                <img src="images5/f7.png" alt="Illustration of f7">
             </div>
                         <div class="image-container">
-                <img src="images5/f8.png" alt="taj_sharp.jpg">
+                <img src="images5/f8.png" alt="Illustration of f8">
             </div>
                         <div class="image-container">
-                <img src="images5/f9.png" alt="taj_sharp.jpg">
+                <img src="images5/f9.png" alt="Illustration of f9">
             </div>
             <div class="image-container">
-                <img src="images5/campanile.png" alt="taj_sharp.jpg">
+                <img src="images5/campanile.png" alt="Illustration of campanile">
             </div>
         </div>
         <div class="clear-float"></div>
@@ -170,19 +170,19 @@
         <p> For this part, I use iterative_denoise function I defined earlier to generate images from scratch by passing 0 as the i_start argument. I also pass in random noise, and the function denoises pure noise. Here are 5 samples with the prompt “a high quality photo”:</p>
                         <div class="image-griddd">
             <div class="image-container">
-                <img src="images5/sample1.png" alt="taj_sharp.jpg">
+                <img src="images5/sample1.png" alt="Illustration of sample1">
             </div>
                         <div class="image-container">
-                <img src="images5/sample2.png" alt="taj_sharp.jpg">
+                <img src="images5/sample2.png" alt="Illustration of sample2">
             </div>
                         <div class="image-container">
-                <img src="images5/sample3.png" alt="taj_sharp.jpg">
+                <img src="images5/sample3.png" alt="Illustration of sample3">
             </div>
                         <div class="image-container">
-                <img src="images5/sample4.png" alt="taj_sharp.jpg">
+                <img src="images5/sample4.png" alt="Illustration of sample4">
             </div>
                         <div class="image-container">
-                <img src="images5/sample5.png" alt="taj_sharp.jpg">
+                <img src="images5/sample5.png" alt="Illustration of sample5">
             </div>
         </div>
         <div class="clear-float"></div>
@@ -190,19 +190,19 @@
         <p>The quality of the results in the previous section were not great. To significantly improve image quality, I will use CFG in this section. For CFG, I compute both conditional and unconditional noise estimate. In CFG, we have a hyperparameter, named scale in the function, that determines its strength. When scale is 0, CFG is essentially unconditional noise estimate but when scale is bigger than 1, CFG can produce much more quality images. Here are 5 samples from CFG with scale=7 and prompt “a high quality photo”:</p>
                                         <div class="image-griddd">
             <div class="image-container">
-                <img src="images5/cfg1.png" alt="taj_sharp.jpg">
+                <img src="images5/cfg1.png" alt="Illustration of cfg1">
             </div>
                         <div class="image-container">
-                <img src="images5/cfg2.png" alt="taj_sharp.jpg">
+                <img src="images5/cfg2.png" alt="Illustration of cfg2">
             </div>
                         <div class="image-container">
-                <img src="images5/cfg3.png" alt="taj_sharp.jpg">
+                <img src="images5/cfg3.png" alt="Illustration of cfg3">
             </div>
                         <div class="image-container">
-                <img src="images5/cfg4.png" alt="taj_sharp.jpg">
+                <img src="images5/cfg4.png" alt="Illustration of cfg4">
             </div>
                         <div class="image-container">
-                <img src="images5/cfg5.png" alt="taj_sharp.jpg">
+                <img src="images5/cfg5.png" alt="Illustration of cfg5">
             </div>
         </div>
         <div class="clear-float"></div>
@@ -210,90 +210,90 @@
     <p>In this section, I follow the SDEdit algorithm. I noise the original image a little bit first, then, force it back to the image manifold without conditioning. As a result, I get an image similar to the original image. For this section, I will use the 3 test images, one of them being the Campanile photo. Here are the edits of the test images, at different noise levels 1, 3, 5, 7, 10, 20 with "a high quality photo":</p>
                 <div class="image-g">
             <div class="image-container">
-                <img src="images5/1-1.png" alt="taj_sharp.jpg">
+                <img src="images5/1-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/1-3.png" alt="taj_sharp.jpg">
+                <img src="images5/1-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/1-5.png" alt="taj_sharp.jpg">
+                <img src="images5/1-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/1-7.png" alt="taj_sharp.jpg">
+                <img src="images5/1-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/1-10.png" alt="taj_sharp.jpg">
+                <img src="images5/1-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/1-20.png" alt="taj_sharp.jpg">
+                <img src="images5/1-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
                                 <div class="image-container">
-                <img src="images5/campanile.png" alt="taj_sharp.jpg">
+                <img src="images5/campanile.png" alt="Original Campanile">
                                     <p class="image-subtitle">Original Campanile</p>
                                 </div>
                     <div class="image-container">
-                        <img src="images5/2-1.png" alt="taj_sharp.jpg">
+                        <img src="images5/2-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/2-3.png" alt="taj_sharp.jpg">
+                <img src="images5/2-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/2-5.png" alt="taj_sharp.jpg">
+                <img src="images5/2-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/2-7.png" alt="taj_sharp.jpg">
+                <img src="images5/2-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/2-10.png" alt="taj_sharp.jpg">
+                <img src="images5/2-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/2-20.png" alt="taj_sharp.jpg">
+                <img src="images5/2-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
            <div class="image-container">
-                <img src="images5/kopruu.png" alt="taj_sharp.jpg">
+                <img src="images5/kopruu.png" alt="Original Golden Gate">
                <p class="image-subtitle">Original Golden Gate</p>
             </div>
         <div class="image-container">
-                            <img src="images5/3-1.png" alt="taj_sharp.jpg">
+                            <img src="images5/3-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/3-3.png" alt="taj_sharp.jpg">
+                <img src="images5/3-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/3-5.png" alt="taj_sharp.jpg">
+                <img src="images5/3-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/3-7.png" alt="taj_sharp.jpg">
+                <img src="images5/3-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/3-10.png" alt="taj_sharp.jpg">
+                <img src="images5/3-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/3-20.png" alt="taj_sharp.jpg">
+                <img src="images5/3-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
                             <div class="image-container">
-                <img src="images5/kedi.png" alt="taj_sharp.jpg">
+                <img src="images5/kedi.png" alt="Original cat">
                                 <p class="image-subtitle">Original cat</p>
             </div>
         </div>
@@ -302,90 +302,90 @@
     <p> The technique I used in the previous section also performs pretty well for nonrealistic images that is projected it to the natural image manifold. To test for these, I will use 1 image from web and 2 images by my hand drawing:</p>
                     <div class="image-g">
             <div class="image-container">
-                <img src="images5/w1-1.png" alt="taj_sharp.jpg">
+                <img src="images5/w1-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/w1-3.png" alt="taj_sharp.jpg">
+                <img src="images5/w1-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w1-5.png" alt="taj_sharp.jpg">
+                <img src="images5/w1-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w1-7.png" alt="taj_sharp.jpg">
+                <img src="images5/w1-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w1-10.png" alt="taj_sharp.jpg">
+                <img src="images5/w1-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w1-20.png" alt="taj_sharp.jpg">
+                <img src="images5/w1-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
                                 <div class="image-container">
-                <img src="images5/w1.png" alt="taj_sharp.jpg">
+                <img src="images5/w1.png" alt="Original UP">
                                     <p class="image-subtitle">Original UP</p>
                                 </div>
                     <div class="image-container">
-                        <img src="images5/w2-1.png" alt="taj_sharp.jpg">
+                        <img src="images5/w2-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/w2-3.png" alt="taj_sharp.jpg">
+                <img src="images5/w2-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w2-5.png" alt="taj_sharp.jpg">
+                <img src="images5/w2-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w2-7.png" alt="taj_sharp.jpg">
+                <img src="images5/w2-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w2-10.png" alt="taj_sharp.jpg">
+                <img src="images5/w2-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w2-20.png" alt="taj_sharp.jpg">
+                <img src="images5/w2-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
            <div class="image-container">
-                <img src="images5/w2.png" alt="taj_sharp.jpg">
+                <img src="images5/w2.png" alt="Original Hand Drawing 1">
                <p class="image-subtitle">Original Hand Drawing 1</p>
             </div>
         <div class="image-container">
-                            <img src="images5/w3-1.png" alt="taj_sharp.jpg">
+                            <img src="images5/w3-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/w3-3.png" alt="taj_sharp.jpg">
+                <img src="images5/w3-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w3-5.png" alt="taj_sharp.jpg">
+                <img src="images5/w3-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w3-7.png" alt="taj_sharp.jpg">
+                <img src="images5/w3-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w3-10.png" alt="taj_sharp.jpg">
+                <img src="images5/w3-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/w3-20.png" alt="taj_sharp.jpg">
+                <img src="images5/w3-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
                             <div class="image-container">
-                <img src="images5/w3.png" alt="taj_sharp.jpg">
+                <img src="images5/w3.png" alt="Original Hand Drawing 2">
                                 <p class="image-subtitle">Original Hand Drawing 2</p>
             </div>
         </div>
@@ -394,54 +394,54 @@
     <p>Based on the Repaint paper, I implement inpainting in this section using the same procedure. Given a mask, when I run the diffusion denoising loop, I replace everything except the mask area with the original images but with the added noise based on timestep t. So, new content is only produced in the pixels where mask has value 1. Here are my results for inpainting: </p>
         <div class="image-gi">
             <div class="image-container">
-                <img src="images5/img1.png" alt="taj_sharp.jpg">
+                <img src="images5/img1.png" alt="Original">
                                 <p class="image-subtitle">Original</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/mask1.png" alt="taj_sharp.jpg">
+                <img src="images5/mask1.png" alt="Mask">
                                                             <p class="image-subtitle">Mask</p>
             </div>
                         <div class="image-container">
-                <img src="images5/toreplace1.png" alt="taj_sharp.jpg">
+                <img src="images5/toreplace1.png" alt="To Replace">
                                                             <p class="image-subtitle">To Replace</p>
             </div>
                         <div class="image-container">
-                <img src="images5/replaced1.png" alt="taj_sharp.jpg">
+                <img src="images5/replaced1.png" alt="Final">
                                                             <p class="image-subtitle">Final</p>
             </div>
             <div class="image-container">
-                            <img src="images5/img2.png" alt="taj_sharp.jpg">
+                            <img src="images5/img2.png" alt="Original">
                                 <p class="image-subtitle">Original</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/mask2.png" alt="taj_sharp.jpg">
+                <img src="images5/mask2.png" alt="Mask">
                                                             <p class="image-subtitle">Mask</p>
             </div>
                         <div class="image-container">
-                <img src="images5/toreplace2.png" alt="taj_sharp.jpg">
+                <img src="images5/toreplace2.png" alt="To Replace">
                                                             <p class="image-subtitle">To Replace</p>
             </div>
                         <div class="image-container">
-                <img src="images5/replaced2.png" alt="taj_sharp.jpg">
+                <img src="images5/replaced2.png" alt="Final">
                                                             <p class="image-subtitle">Final</p>
             </div>
             <div class="image-container">
-                        <img src="images5/img3.png" alt="taj_sharp.jpg">
+                        <img src="images5/img3.png" alt="Original">
                                 <p class="image-subtitle">Original</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/mask3.png" alt="taj_sharp.jpg">
+                <img src="images5/mask3.png" alt="Mask">
                                                             <p class="image-subtitle">Mask</p>
             </div>
                         <div class="image-container">
-                <img src="images5/toreplace3.png" alt="taj_sharp.jpg">
+                <img src="images5/toreplace3.png" alt="To Replace">
                                                             <p class="image-subtitle">To Replace</p>
             </div>
                         <div class="image-container">
-                <img src="images5/replaced3.png" alt="taj_sharp.jpg">
+                <img src="images5/replaced3.png" alt="Final">
                                                             <p class="image-subtitle">Final</p>
             </div>
             </div>
@@ -451,90 +451,90 @@
     <p>In this section, I will do text conditional image to image translation. It is pretty much the same with SDEdit. Differently from the original SDEdit, I will change the prompt from "a high quality photo" to the prompt of my choosing to guide the projection with text prompt. Here are the results with different noise levels and different prompts:</p>
                         <div class="image-g">
             <div class="image-container">
-                <img src="images5/c1-1.png" alt="taj_sharp.jpg">
+                <img src="images5/c1-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/c1-3.png" alt="taj_sharp.jpg">
+                <img src="images5/c1-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c1-5.png" alt="taj_sharp.jpg">
+                <img src="images5/c1-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c1-7.png" alt="taj_sharp.jpg">
+                <img src="images5/c1-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c1-10.png" alt="taj_sharp.jpg">
+                <img src="images5/c1-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c1-20.png" alt="taj_sharp.jpg">
+                <img src="images5/c1-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
                                 <div class="image-container">
-                <img src="images5/campanile.png" alt="taj_sharp.jpg">
+                <img src="images5/campanile.png" alt="Original Campanile">
                                     <p class="image-subtitle">Original Campanile</p>
                                 </div>
                     <div class="image-container">
-                        <img src="images5/c2-1.png" alt="taj_sharp.jpg">
+                        <img src="images5/c2-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/c2-3.png" alt="taj_sharp.jpg">
+                <img src="images5/c2-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c2-5.png" alt="taj_sharp.jpg">
+                <img src="images5/c2-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c2-7.png" alt="taj_sharp.jpg">
+                <img src="images5/c2-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c2-10.png" alt="taj_sharp.jpg">
+                <img src="images5/c2-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c2-20.png" alt="taj_sharp.jpg">
+                <img src="images5/c2-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
            <div class="image-container">
-                <img src="images5/c2.png" alt="taj_sharp.jpg">
+                <img src="images5/c2.png" alt="Original Cat">
                <p class="image-subtitle">Original Cat</p>
             </div>
         <div class="image-container">
-                            <img src="images5/c3-1.png" alt="taj_sharp.jpg">
+                            <img src="images5/c3-1.png" alt="i_start=1">
                                 <p class="image-subtitle">i_start=1</p>
 
             </div>
                         <div class="image-container">
-                <img src="images5/c3-3.png" alt="taj_sharp.jpg">
+                <img src="images5/c3-3.png" alt="i_start=3">
                                                             <p class="image-subtitle">i_start=3</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c3-5.png" alt="taj_sharp.jpg">
+                <img src="images5/c3-5.png" alt="i_start=5">
                                                             <p class="image-subtitle">i_start=5</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c3-7.png" alt="taj_sharp.jpg">
+                <img src="images5/c3-7.png" alt="i_start=7">
                                                             <p class="image-subtitle">i_start=7</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c3-10.png" alt="taj_sharp.jpg">
+                <img src="images5/c3-10.png" alt="i_start=10">
                                                             <p class="image-subtitle">i_start=10</p>
             </div>
                         <div class="image-container">
-                <img src="images5/c3-20.png" alt="taj_sharp.jpg">
+                <img src="images5/c3-20.png" alt="i_start=20">
                                                             <p class="image-subtitle">i_start=20</p>
             </div>
                             <div class="image-container">
-                <img src="images5/c3.png" alt="taj_sharp.jpg">
+                <img src="images5/c3.png" alt="Original Red-Eyed Frog">
                                 <p class="image-subtitle">Original Red-Eyed Frog</p>
             </div>
         </div>
@@ -543,27 +543,27 @@
     <p>In this section, I will implement visual diagrams. Visual anagrams are images such that the image looks like a prompt —prompt1— upright, but looks like another prompt —prompt2— when it is turned upside down. I implement visual anagrams by denoising the image at a timestep t with prompt1 and get a noise estimate e_1. Then, I turned the image upside down, denoise the flipped image with prompt2 to get a noise estimate e_2. Finally, I turned e_2 upside down and took its average with e_1 with to get the final noise estimate. The denoising step is done with this final noise estimate. Here are my results, and prompts:</p>
     <div class="image-gri">
             <div class="image-container">
-                <img src="images5/flip1.png" alt="taj_sharp.jpg">
+                <img src="images5/flip1.png" alt=""an oil painting of people around a campfire"">
                 <p class="image-subtitle">"an oil painting of people around a campfire"</p>
             </div>
                         <div class="image-container">
-                <img src="images5/flip2.png" alt="taj_sharp.jpg">
+                <img src="images5/flip2.png" alt=""an oil painting of an old man"">
                             <p class="image-subtitle">"an oil painting of an old man"</p>
             </div>
                         <div class="image-container">
-                <img src="images5/flip3.png" alt="taj_sharp.jpg">
+                <img src="images5/flip3.png" alt=""an oil painting of an octopus in the wavy sea"">
                             <p class="image-subtitle">"an oil painting of an octopus in the wavy sea"</p>
             </div>
                         <div class="image-container">
-                <img src="images5/flip4.png" alt="taj_sharp.jpg">
+                <img src="images5/flip4.png" alt=""an oil painting of a curly hair man"">
                             <p class="image-subtitle">"an oil painting of a curly hair man"</p>
             </div>
                         <div class="image-container">
-                <img src="images5/flip5.png" alt="taj_sharp.jpg">
+                <img src="images5/flip5.png" alt=""a painting of a santa claus"">
                             <p class="image-subtitle">"a painting of a santa claus"</p>
             </div>
                                <div class="image-container">
-                <img src="images5/flip6.png" alt="taj_sharp.jpg">
+                <img src="images5/flip6.png" alt=""a painting of a deer"">
                             <p class="image-subtitle">"a painting of a deer"</p>
             </div>
         </div>
@@ -572,15 +572,15 @@
     <p> In this section, I will implement hybrid images implementation. Hybrids images appear as a prompt from afar, and as another prompt from a closer range. To create hybrid images, I will use a similar technique to the previous section. I will first estimate the noise with two different prompts, and will pass them through low-pass filter. Then, I will combine the low frequency component of one noise with the high frequency component of the other noise. Their combination will form the final noise estimate. Here are my results by using Gaussian blur with kernel size 33 and sigma 2:</p>
     <div class="image-grid">
         <div class="image-container">
-            <img src="images5/hybrid1.png" alt="taj.jpg">
+            <img src="images5/hybrid1.png" alt="'a lithograph of a skull' and 'a lithograph of waterfalls'">
             <p class="image-subtitle">'a lithograph of a skull' and 'a lithograph of waterfalls'</p>
         </div>
                 <div class="image-container">
-            <img src="images5/hybrid2.png" alt="taj.jpg">
+            <img src="images5/hybrid2.png" alt=""a lithography of frog" and "a lithography of autumn leaves"">
                     <p class="image-subtitle">"a lithography of frog" and "a lithography of autumn leaves"</p>
         </div>
                 <div class="image-container">
-            <img src="images5/hybrid3.png" alt="taj.jpg">
+            <img src="images5/hybrid3.png" alt=""a lithography of Batman symbol" and "a lithography of a city with skyscrapers"">
                     <p class="image-subtitle">"a lithography of Batman symbol" and "a lithography of a city with skyscrapers"</p>
         </div>
         </div>
@@ -590,31 +590,31 @@
     <p>For the second part of the project, I implement diffusion models from scratch. As a first step, I train single-step denoising UNet. This denoiser will optimize for producing a clean image given a noisy image. Firstly, I follow the model diagram for UNet to define its architecture. To train a denoiser with UNet, I use the image dataset from MNIST. Given a clean image, I add a random noise with sigma coefficient to create a noised image. Here are examples of noised images with different sigmas: </p>
     <div class="image-gr">
         <div class="image-container">
-            <img src="images5/ima4.png" alt="taj.jpg">
+            <img src="images5/ima4.png" alt="Illustration of ima4">
         </div>
         </div>
         <div class="clear-float"></div>
     <p> I train UNet to minimize the loss between denoised image from UNet given the noised image and the original clean image. I shuffle the training dataset before creating its data loader. In this part, I will be using hidden dimension of 128 and learning rate of 1e-4 for Adam optimizer.  Here are the sample results after training for 1 and 5 epochs:</p>
     <div class="image-gri">
         <div class="image-container">
-            <img src="images5/ima1.png" alt="taj.jpg">
+            <img src="images5/ima1.png" alt="Illustration of ima1">
         </div>
         <div class="image-container">
-            <img src="images5/ima2.png" alt="taj_sharp.jpg">
+            <img src="images5/ima2.png" alt="Illustration of ima2">
         </div>
         </div>
         <div class="clear-float"></div>
     <p> In the training, I train the model for sigma = 0.5. Here is how the model performs for other sigma values that it wasn’t exactly trained for:</p>
         <div class="image-gr">
         <div class="image-container">
-            <img src="images5/ima3.png" alt="taj.jpg">
+            <img src="images5/ima3.png" alt="Illustration of ima3">
         </div>
         </div>
         <div class="clear-float"></div>
     <p>Here is the training loss curve during the whole training process:</p>
     <div class="image-gr">
         <div class="image-container">
-            <img src="images5/ima5.png" alt="taj.jpg">
+            <img src="images5/ima5.png" alt="Illustration of ima5">
         </div>
         </div>
         <div class="clear-float"></div>
@@ -622,17 +622,17 @@
     <p>In this part, I will train a UNet model that iteratively denoises an image. For this, I will implement DDPM. For this part, our optimization problem is not the same as the previous part., even though they are mathematically equivalent In this part, I UNet predicts the added noise rather than the clean image itself. In order to get a quality result, we need to iteratively denoise the image. Thus, following the diagram and using FCBlocks, I inject time t into the UNet model architecture for conditioning. To train the model, I pick a random image from the training set data loader, pick a random t, and train the denoiser for computing the noise  of the image at timestep t. In This section, I use hidden dimension of 64, initial learning rate of 1e-3 for Adam optimizer, and gamma of 0.1 ** (1.0/num_epochs) for exponential learning rate decay scheduler. </p>
                 <div class="image-gr">
         <div class="image-container">
-            <img src="images5/time3.png" alt="taj.jpg">
+            <img src="images5/time3.png" alt="Illustration of time3">
         </div>
         </div>
         <div class="clear-float"></div>
     <p>Also, during training I sample the model for 5 and 20 epochs:</p>
             <div class="image-gri">
         <div class="image-container">
-            <img src="images5/time1.png" alt="taj.jpg">
+            <img src="images5/time1.png" alt="Illustration of time1">
         </div>
         <div class="image-container">
-            <img src="images5/time2.png" alt="taj.jpg">
+            <img src="images5/time2.png" alt="Illustration of time2">
         </div>
         </div>
         <div class="clear-float"></div>
@@ -640,17 +640,17 @@
     <p>In order to improve our results from the previous section, I will add class-conditioning to UNet in this section by adding 2 more FCBlocks to the UNet architecture. Class-conditioning vector— one-hot vector c— will be set to 0 %10 of the time by implementing p_uncond = 0. 1. Training hyper parameters are basically the same as the previous section. Here is the training curve for the training process:</p>
             <div class="image-gr">
         <div class="image-container">
-            <img src="images5/class3.png" alt="taj.jpg">
+            <img src="images5/class3.png" alt="Illustration of class3">
         </div>
         </div>
         <div class="clear-float"></div>
     <p>Now, I sample the class-conditioned UNet for 5 and 20 epochs Here is the result for 4 instances of each digit at 5 and 20 epochs:</p>
     <div class="image-gri">
         <div class="image-container">
-            <img src="images5/class1.png" alt="taj.jpg">
+            <img src="images5/class1.png" alt="Illustration of class1">
         </div>
         <div class="image-container">
-            <img src="images5/class2.png" alt="taj.jpg">
+            <img src="images5/class2.png" alt="Illustration of class2">
         </div>
         </div>
         <div class="clear-float"></div>
