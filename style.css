@@ -7,6 +7,12 @@
     --accent-color: #3498db;
     --accent-hover: #2980b9;
     --body-text: #333333;
+    --bg-color-dark: #1e1e1e;
+    --card-bg-dark: #2c2c2c;
+    --primary-text-dark: #ecf0f1;
+    --accent-color-dark: #3498db;
+    --accent-hover-dark: #2980b9;
+    --body-text-dark: #f0f0f0;
 }
 
 body {
@@ -208,4 +214,57 @@ footer {
 
 .footer-link:hover {
     color: var(--accent-hover);
+}
+
+.toggle-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.toggle-button:hover {
+    background-color: var(--accent-hover);
+}
+
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--body-text-dark);
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: var(--primary-text-dark);
+}
+
+body.dark-mode .project-overview,
+body.dark-mode .image-container {
+    background-color: var(--card-bg-dark);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .navbar {
+    background-color: #222;
+}
+
+body.dark-mode .navbar a:hover {
+    background-color: #444;
+}
+
+body.dark-mode .project-link,
+body.dark-mode .toggle-button {
+    background-color: var(--accent-color-dark);
+}
+
+body.dark-mode .project-link:hover,
+body.dark-mode .toggle-button:hover,
+body.dark-mode .footer-link:hover {
+    background-color: var(--accent-hover-dark);
+    color: #fff;
+}
+
+body.dark-mode .footer-link {
+    color: var(--accent-color-dark);
 }
