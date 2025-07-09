@@ -26,12 +26,13 @@ h1 {
     margin-bottom: 20px;
 }
 
-.image-grid {
+.grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-bottom: 20px;
 }
+
 
 .image-container {
     background-color: #fff;
@@ -71,14 +72,14 @@ h1 {
     margin-bottom: 20px;
 }
 
-.image-gri {
+.grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     margin-bottom: 20px;
 }
 
-.image-gr {
+.grid-1 {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 15px;
@@ -87,42 +88,25 @@ h1 {
     align-items: center;
 }
 
-.image-g {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-gi {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-grrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-grrid img {
-    width: 40%;
-    height: 40%;
-    object-fit: contain;
-}
-
-.image-griddd {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-griddd, .image-grrid, .image-gi, .image-g {
+.grid-3 img,
+.grid-2 img,
+.grid-1 img {
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .project-link {
