@@ -33,22 +33,22 @@
             <p> Here are the pictures I used for this project: </p>
             <div class="image-grid cols-2">
             <div class="image-container">
-                <img src="proj4images/IMG_5854.png" alt="Illustration of IMG 5854">
+                <a href="proj4images/IMG_5854.png" class="lightbox"><img src="proj4images/IMG_5854.png" alt="Illustration of IMG 5854"></a>
             </div>
             <div class="image-container">
-                <img src="proj4images/IMG_5855.png" alt="Illustration of IMG 5855">
+                <a href="proj4images/IMG_5855.png" class="lightbox"><img src="proj4images/IMG_5855.png" alt="Illustration of IMG 5855"></a>
             </div>
             <div class="image-container">
-                <img src="proj4images/img3-1.png" alt="Illustration of img3-1">
+                <a href="proj4images/img3-1.png" class="lightbox"><img src="proj4images/img3-1.png" alt="Illustration of img3-1"></a>
             </div>
             <div class="image-container">
-                <img src="proj4images/img3-3.png" alt="Illustration of img3-3">
+                <a href="proj4images/img3-3.png" class="lightbox"><img src="proj4images/img3-3.png" alt="Illustration of img3-3"></a>
             </div>
             <div class="image-container">
-                <img src="proj4images/img2-2.png" alt="Illustration of img2-2">
+                <a href="proj4images/img2-2.png" class="lightbox"><img src="proj4images/img2-2.png" alt="Illustration of img2-2"></a>
             </div>
             <div class="image-container">
-                <img src="proj4images/img2-1.png" alt="Illustration of img2-1">
+                <a href="proj4images/img2-1.png" class="lightbox"><img src="proj4images/img2-1.png" alt="Illustration of img2-1"></a>
             </div>
         </div>
         <div class="clear-float"></div>
@@ -114,16 +114,16 @@
         <div class="clear-float"></div>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/yastikp.png" alt="Illustration of yastikp">
+            <a href="proj4images/yastikp.png" class="lightbox"><img src="proj4images/yastikp.png" alt="Illustration of yastikp"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/yastikkare.png" alt="Illustration of yastikkare">
+            <a href="proj4images/yastikkare.png" class="lightbox"><img src="proj4images/yastikkare.png" alt="Illustration of yastikkare"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/tip.png" alt="Illustration of tip">
+            <a href="proj4images/tip.png" class="lightbox"><img src="proj4images/tip.png" alt="Illustration of tip"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/tikare.png" alt="Illustration of tikare">
+            <a href="proj4images/tikare.png" class="lightbox"><img src="proj4images/tikare.png" alt="Illustration of tikare"></a>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -132,85 +132,85 @@
             <p> To blend the images into a mosaic, firstly, I warped one of the images based on the correspondence points. Before warping, I calculate the final image's shape and align the warped image with the original image by calculating if there is any offsets. Then, I created indicator masks for both the original and warped image in the final image's shape. These masks set pixels to 1 if there is a corresponding pixel in the original or warped image. I found the overlapping pixels between the two images using these masks. After finding the overlapping pixels, I used a Laplacian stack for blending. For a Laplacian stack, we need a mask for the images to blend. I separated the mask into two parts. The first part is the non-overlapping pixels for the original image. Since there is no overlap between the images at these pixels, I used the indicator mask I created for the images at these pixels. For the overlapping pixels, the computation is more complicated. I used cv2.distanceTransform to calculate distance to non-overlapping pixels from both images for each overlapping pixel. Then, I found the ratio of distance2/(distance2+distance1) for each overlapping pixel where distance1 indicates the distance to the closest non-overlapping pixel in the original image. By combining these two parts, I create the mask for the Laplacian stack: </p>
         <div class="image-grid cols-3">
         <div class="image-container">
-            <img src="proj4images/mask_1_non_overlap.png" alt="Non-overlap part of the mask">
+            <a href="proj4images/mask_1_non_overlap.png" class="lightbox"><img src="proj4images/mask_1_non_overlap.png" alt="Non-overlap part of the mask"></a>
             <p class="image-subtitle"> Non-overlap part of the mask</p>
         </div>
         <div class="image-container">
-            <img src="proj4images/mask_1_overlap.png" alt="Overlap part of the mask">
+            <a href="proj4images/mask_1_overlap.png" class="lightbox"><img src="proj4images/mask_1_overlap.png" alt="Overlap part of the mask"></a>
             <p class="image-subtitle">Overlap part of the mask</p>
         </div>
         <div class="image-container">
-            <img src="proj4images/mask_1_full.png" alt="Full mask">
+            <a href="proj4images/mask_1_full.png" class="lightbox"><img src="proj4images/mask_1_full.png" alt="Full mask"></a>
             <p class="image-subtitle">Full mask</p>
         </div>
         </div>
         <p> After creating the mask, I used a Laplacian stack with original and warped images padded to the final image's shape to create the mosaic:
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/IMG_5854.png" alt="Illustration of IMG 5854">
+            <a href="proj4images/IMG_5854.png" class="lightbox"><img src="proj4images/IMG_5854.png" alt="Illustration of IMG 5854"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/IMG_5855.png" alt="Illustration of IMG 5855">
+            <a href="proj4images/IMG_5855.png" class="lightbox"><img src="proj4images/IMG_5855.png" alt="Illustration of IMG 5855"></a>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image">
         <div class="image-container">
-        <img src="proj4images/mosaic1.png" alt="Illustration of mosaic1">
+        <a href="proj4images/mosaic1.png" class="lightbox"><img src="proj4images/mosaic1.png" alt="Illustration of mosaic1"></a>
         </div>
         </div>
         <p> Here are other examples of mosaicing with their original images, mask, and the final blended image:</p>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/img3-1.png" alt="Illustration of img3-1">
+            <a href="proj4images/img3-1.png" class="lightbox"><img src="proj4images/img3-1.png" alt="Illustration of img3-1"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/img3-3.png" alt="Illustration of img3-3">
+            <a href="proj4images/img3-3.png" class="lightbox"><img src="proj4images/img3-3.png" alt="Illustration of img3-3"></a>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image-grid cols-3">
         <div class="image-container">
-            <img src="proj4images/mask3-1.png" alt="Illustration of mask3-1">
+            <a href="proj4images/mask3-1.png" class="lightbox"><img src="proj4images/mask3-1.png" alt="Illustration of mask3-1"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/mask3-2.png" alt="Illustration of mask3-2">
+            <a href="proj4images/mask3-2.png" class="lightbox"><img src="proj4images/mask3-2.png" alt="Illustration of mask3-2"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/mask3-3.png" alt="Illustration of mask3-3">
+            <a href="proj4images/mask3-3.png" class="lightbox"><img src="proj4images/mask3-3.png" alt="Illustration of mask3-3"></a>
         </div>
         </div>        
         <div class="clear-float"></div>
         <div class="image">
         <div class="image-container">
-        <img src="proj4images/img3_ful.png" alt="Illustration of img3 ful">
+        <a href="proj4images/img3_ful.png" class="lightbox"><img src="proj4images/img3_ful.png" alt="Illustration of img3 ful"></a>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/img2-2.png" alt="Illustration of img2-2">
+            <a href="proj4images/img2-2.png" class="lightbox"><img src="proj4images/img2-2.png" alt="Illustration of img2-2"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/img2-1.png" alt="Illustration of img2-1">
+            <a href="proj4images/img2-1.png" class="lightbox"><img src="proj4images/img2-1.png" alt="Illustration of img2-1"></a>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image-grid cols-3">
         <div class="image-container">
-            <img src="proj4images/mask21.png" alt="Illustration of mask21">
+            <a href="proj4images/mask21.png" class="lightbox"><img src="proj4images/mask21.png" alt="Illustration of mask21"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/mask22.png" alt="Illustration of mask22">
+            <a href="proj4images/mask22.png" class="lightbox"><img src="proj4images/mask22.png" alt="Illustration of mask22"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/mask23.png" alt="Illustration of mask23">
+            <a href="proj4images/mask23.png" class="lightbox"><img src="proj4images/mask23.png" alt="Illustration of mask23"></a>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image">
         <div class="image-container">
-        <img src="proj4images/manual2.png" alt="Illustration of manual2">
+        <a href="proj4images/manual2.png" class="lightbox"><img src="proj4images/manual2.png" alt="Illustration of manual2"></a>
         </div>
         </div>
     <h1>Part B</h1>
@@ -218,7 +218,7 @@
     <p>To detect the corner features, I used the given Harris Point detector. For one of my images, here is the points that Harris Point detector classified as likely to be corner features:</p>
             <div class="image-grid cols-1">
         <div class="image-container">
-            <img src="proj4images/harris.png" alt="Illustration of harris">
+            <a href="proj4images/harris.png" class="lightbox"><img src="proj4images/harris.png" alt="Illustration of harris"></a>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -226,7 +226,7 @@
     <p>Even though Harris Point detector detects corner-like features, clearly, there are too much points and they are abundant. Thus, I use Adaptive Non-Maximal Suppression to extract features. To get correspondence points that are far away from each other and have strong corner features, we sort the distance based on the strength of their corner response. For each point, we calculate the distance to the closest point who has a stronger corner response. Then, we sort the points based on these distances and limit the number of features to be extracted to 300. Here is the result: </p>
                 <div class="image-grid cols-1">
         <div class="image-container">
-            <img src="proj4images/limitedharris.png" alt="Illustration of limitedharris">
+            <a href="proj4images/limitedharris.png" class="lightbox"><img src="proj4images/limitedharris.png" alt="Illustration of limitedharris"></a>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -234,10 +234,10 @@
     <p> After identifying the features, now we have to extract feature descriptors. For each feature, we extract 40x40 windows, and downsample to get 8x8 patches. Before this step, low-pass Gaussian filter is applied. After getting the patches, each patch is normalized and reshaped to form 64 element feature descriptors for each feature. Here are some examples:</p>
     <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/patch1.png" alt="Illustration of patch1">
+            <a href="proj4images/patch1.png" class="lightbox"><img src="proj4images/patch1.png" alt="Illustration of patch1"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/patch2.png" alt="Illustration of patch2">
+            <a href="proj4images/patch2.png" class="lightbox"><img src="proj4images/patch2.png" alt="Illustration of patch2"></a>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -245,10 +245,10 @@
     <p>After extracting the feature descriptors for each image, we need to match them. I created k-d trees for each image. I query the closest 2 pairwise feature vectors for each feature in one of the images. I calculated the L2 norm distance ratio of these 2 vectors to the original features. Using Lowe's trick, I only keep the closest feature vectors that have less a certain threshold distance ratio and also checked with the other tree to ensure that original feature vector is also the closest feature vector for the chosen feature. This greatly reduced the outliers, and here is the filtered matches: </p>
     <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/features1.png" alt="Illustration of features1">
+            <a href="proj4images/features1.png" class="lightbox"><img src="proj4images/features1.png" alt="Illustration of features1"></a>
         </div>
         <div class="image-container">
-            <img src="proj4images/features2.png" alt="Illustration of features2">
+            <a href="proj4images/features2.png" class="lightbox"><img src="proj4images/features2.png" alt="Illustration of features2"></a>
         </div>
         </div>
         <div class="clear-float"></div>
@@ -259,33 +259,33 @@
         <p>After computing homographies with RANSAC, I ran the same code that I used for part A to produce mosaics for the same 3 pictures. Here are the side-by-side manually and automatically stitched results for these images:</p>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/img3_ful.png" alt="Manual Stitching">
+            <a href="proj4images/img3_ful.png" class="lightbox"><img src="proj4images/img3_ful.png" alt="Manual Stitching"></a>
             <p class="image-subtitle">Manual Stitching</p>
         </div>
         <div class="image-container">
-            <img src="proj4images/auto1.png" alt="Automatic Stitching">
+            <a href="proj4images/auto1.png" class="lightbox"><img src="proj4images/auto1.png" alt="Automatic Stitching"></a>
             <p class="image-subtitle">Automatic Stitching</p>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/mosaic1.png" alt="Manual Stitching">
+            <a href="proj4images/mosaic1.png" class="lightbox"><img src="proj4images/mosaic1.png" alt="Manual Stitching"></a>
             <p class="image-subtitle">Manual Stitching</p>
         </div>
         <div class="image-container">
-            <img src="proj4images/auto2.png" alt="Automatic Stitching">
+            <a href="proj4images/auto2.png" class="lightbox"><img src="proj4images/auto2.png" alt="Automatic Stitching"></a>
             <p class="image-subtitle">Automatic Stitching</p>
         </div>
         </div>
         <div class="clear-float"></div>
                 <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj4images/manual2.png" alt="Manual Stitching">
+            <a href="proj4images/manual2.png" class="lightbox"><img src="proj4images/manual2.png" alt="Manual Stitching"></a>
             <p class="image-subtitle">Manual Stitching</p>
         </div>
         <div class="image-container">
-            <img src="proj4images/auto3.png" alt="Automatic Stitching">
+            <a href="proj4images/auto3.png" class="lightbox"><img src="proj4images/auto3.png" alt="Automatic Stitching"></a>
             <p class="image-subtitle">Automatic Stitching</p>
         </div>
         </div>
@@ -295,5 +295,6 @@
     <footer>
         <a href="index.html" class="footer-link">Back to Home</a>
     </footer>
+    <script src="overlay.js"></script>
 </body>
 </html>

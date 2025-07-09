@@ -30,19 +30,19 @@
             <p>In order to calculate partial derivatives, I used finite difference kernels. Dx kernel is created by np.array([[1, -1]]) and Dy kernel is created by np.array([[1], [-1]]. By convolving the image with these finite difference kernels, I have obtained the partial derivatives in horizontal and vertical directions. The gradient magnitude is calculated by taking the square root of the sum of squared partial derivatives in the x and y directions. This is essentially calculating the L2 norm of the gradient vector at each pixel. In order to binarize the gradient magnitude, I have chosen a threshold of 0.29 per pixel.</p>
             <div class="image-grid cols-3">
             <div class="image-container">
-                <img src="proj2images/d_x.jpg" alt="d_x">
+                <a href="proj2images/d_x.jpg" class="lightbox"><img src="proj2images/d_x.jpg" alt="d_x"></a>
                 <p class="image-subtitle">d_x</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/d_y.jpg" alt="d_y">
+                <a href="proj2images/d_y.jpg" class="lightbox"><img src="proj2images/d_y.jpg" alt="d_y"></a>
                 <p class="image-subtitle">d_y</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/magnitude.jpg" alt="Gradient Magnitude">
+                <a href="proj2images/magnitude.jpg" class="lightbox"><img src="proj2images/magnitude.jpg" alt="Gradient Magnitude"></a>
                 <p class="image-subtitle">Gradient Magnitude</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/gradient_magnitude.jpg" alt="Binarized Gradient Magnitude">
+                <a href="proj2images/gradient_magnitude.jpg" class="lightbox"><img src="proj2images/gradient_magnitude.jpg" alt="Binarized Gradient Magnitude"></a>
                 <p class="image-subtitle">Binarized Gradient Magnitude</p>
             </div>
         </div>
@@ -52,23 +52,23 @@
         <p>The results with Gaussian filter are noticably smoother, having thicker edges even though the I used a significantly lower threshold, 0.066. Noise in the background of the image is less apparent with the Gaussian filter, and gradient magnitude is significantly lower.</p>
         <div class="image-grid cols-3">
             <div class="image-container">
-                <img src="proj2images/im_blurred.jpg" alt="Image with Gaussian Filter">
+                <a href="proj2images/im_blurred.jpg" class="lightbox"><img src="proj2images/im_blurred.jpg" alt="Image with Gaussian Filter"></a>
                 <p class="image-subtitle">Image with Gaussian Filter</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/im_blurred_dx.jpg" alt="Dx of Image with Gaussian Filter">
+                <a href="proj2images/im_blurred_dx.jpg" class="lightbox"><img src="proj2images/im_blurred_dx.jpg" alt="Dx of Image with Gaussian Filter"></a>
                 <p class="image-subtitle">Dx of Image with Gaussian Filter</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/im_blurred_dy.jpg" alt="Dy of Image with Gaussian Filter">
+                <a href="proj2images/im_blurred_dy.jpg" class="lightbox"><img src="proj2images/im_blurred_dy.jpg" alt="Dy of Image with Gaussian Filter"></a>
                 <p class="image-subtitle">Dy of Image with Gaussian Filter</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/im_blurred_magnitude.jpg" alt="Gradient Magnitude of Image with Gaussian Filter">
+                <a href="proj2images/im_blurred_magnitude.jpg" class="lightbox"><img src="proj2images/im_blurred_magnitude.jpg" alt="Gradient Magnitude of Image with Gaussian Filter"></a>
                 <p class="image-subtitle">Gradient Magnitude of Image with Gaussian Filter</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="Binarized Gradient Magnitude of Blurred Image">
+                <a href="proj2images/im_blurred_gradient_magnitude.jpg" class="lightbox"><img src="proj2images/im_blurred_gradient_magnitude.jpg" alt="Binarized Gradient Magnitude of Blurred Image"></a>
                 <p class="image-subtitle">Binarized Gradient Magnitude of Blurred Image</p>
             </div>
         </div>
@@ -77,19 +77,19 @@
         <p> The results are visibly the same because of convolution operation's associativity property. I used the same threshold for the binary gradient magnitude and obtained the same edge image. </p>
                 <div class="image-grid cols-3">
             <div class="image-container">
-                <img src="proj2images/dog_dx.jpg" alt="Dx of DoG">
+                <a href="proj2images/dog_dx.jpg" class="lightbox"><img src="proj2images/dog_dx.jpg" alt="Dx of DoG"></a>
                 <p class="image-subtitle">Dx of DoG</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/dog_dy.jpg" alt="Dy of DoG">
+                <a href="proj2images/dog_dy.jpg" class="lightbox"><img src="proj2images/dog_dy.jpg" alt="Dy of DoG"></a>
                 <p class="image-subtitle">Dy of DoG</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/dog_magnitude.jpg" alt="Gradient Magnitude of DoG">
+                <a href="proj2images/dog_magnitude.jpg" class="lightbox"><img src="proj2images/dog_magnitude.jpg" alt="Gradient Magnitude of DoG"></a>
                 <p class="image-subtitle">Gradient Magnitude of DoG</p>
             </div>
             <div class="image-container">
-                <img src="proj2images/dog_gradient_magnitude.jpg" alt="Binarized Gradient Magnitude of DoG">
+                <a href="proj2images/dog_gradient_magnitude.jpg" class="lightbox"><img src="proj2images/dog_gradient_magnitude.jpg" alt="Binarized Gradient Magnitude of DoG"></a>
                 <p class="image-subtitle"> Binarized Gradient Magnitude of DoG</p>
             </div>
         </div>
@@ -100,32 +100,32 @@
         <div class="clear-float"></div>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj2images/taj.jpg" alt="Taj Mahal">
+            <a href="proj2images/taj.jpg" class="lightbox"><img src="proj2images/taj.jpg" alt="Taj Mahal"></a>
             <p class="image-subtitle">Taj Mahal</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/taj_sharp.jpg" alt="Sharpened Taj Mahal, alpha = 1">
+            <a href="proj2images/taj_sharp.jpg" class="lightbox"><img src="proj2images/taj_sharp.jpg" alt="Sharpened Taj Mahal, alpha = 1"></a>
             <p class="image-subtitle">Sharpened Taj Mahal, alpha = 1</p>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj2images/ataturk.jpg" alt="Mustafa Kemal Ataturk">
+            <a href="proj2images/ataturk.jpg" class="lightbox"><img src="proj2images/ataturk.jpg" alt="Mustafa Kemal Ataturk"></a>
             <p class="image-subtitle">Mustafa Kemal Ataturk</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/ataturk_sharp.jpg" alt="Sharpened Mustafa Kemal Ataturk, alpha = 1.2">
+            <a href="proj2images/ataturk_sharp.jpg" class="lightbox"><img src="proj2images/ataturk_sharp.jpg" alt="Sharpened Mustafa Kemal Ataturk, alpha = 1.2"></a>
             <p class="image-subtitle">Sharpened Mustafa Kemal Ataturk, alpha = 1.2</p>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image-container">
-            <img src="proj2images/galatasaray.jpg" alt="Galatasaray players are celebrating defeating Fenerbahce">
+            <a href="proj2images/galatasaray.jpg" class="lightbox"><img src="proj2images/galatasaray.jpg" alt="Galatasaray players are celebrating defeating Fenerbahce"></a>
             <p class="image-subtitle">Galatasaray players are celebrating defeating Fenerbahce</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/galatasaray_sharp.jpg" alt="Sharpened Galatasaray players are celebrating defeating Fenerbahce, alpha = 2">
+            <a href="proj2images/galatasaray_sharp.jpg" class="lightbox"><img src="proj2images/galatasaray_sharp.jpg" alt="Sharpened Galatasaray players are celebrating defeating Fenerbahce, alpha = 2"></a>
             <p class="image-subtitle">Sharpened Galatasaray players are celebrating defeating Fenerbahce, alpha = 2</p>
         </div>
         </div>
@@ -133,15 +133,15 @@
         <p>For evaluation, I attempted to sharpen an image after blurring it. I observed that sharpening process was not able to sharpen the blurred image to its original quality, regardless of the value of the coefficient alpha. When an image is blurred, it becomes more noisy than the original and lose some of its details that even sharpening cannot recover. </p>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj2images/tt_arena.jpg" alt="Rams park">
+            <a href="proj2images/tt_arena.jpg" class="lightbox"><img src="proj2images/tt_arena.jpg" alt="Rams park"></a>
             <p class="image-subtitle">Rams park</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/tt_blur.jpg" alt="Blurred Rams Park">
+            <a href="proj2images/tt_blur.jpg" class="lightbox"><img src="proj2images/tt_blur.jpg" alt="Blurred Rams Park"></a>
             <p class="image-subtitle">Blurred Rams Park</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/tt_blur_sharp.jpg" alt="Sharpened version of Blurred Rams Park, alpha = 1.5">
+            <a href="proj2images/tt_blur_sharp.jpg" class="lightbox"><img src="proj2images/tt_blur_sharp.jpg" alt="Sharpened version of Blurred Rams Park, alpha = 1.5"></a>
             <p class="image-subtitle">Sharpened version of Blurred Rams Park, alpha = 1.5</p>
         </div>
         </div>
@@ -150,45 +150,45 @@
             <p>For this part, my goal is to create hybrid images that can be interpreted differently from different distances. In order to do this, I capture low frequency and high frequency of different images by passing the images through a Gaussian filter. High frequencies are captured by subtracting the image passed through the filter from its original image. The hybrid image is the average of both filtered images. I used color to enhance the effect of combining the images.</p>
         <div class="image-grid cols-3">
         <div class="image-container">
-            <img src="proj2images/DerekPicture.jpg" alt="Derek">
+            <a href="proj2images/DerekPicture.jpg" class="lightbox"><img src="proj2images/DerekPicture.jpg" alt="Derek"></a>
             <p class="image-subtitle">Derek</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/nutmeg.jpg" alt="Nutmeg">
+            <a href="proj2images/nutmeg.jpg" class="lightbox"><img src="proj2images/nutmeg.jpg" alt="Nutmeg"></a>
             <p class="image-subtitle">Nutmeg</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/catderek.jpg" alt="Dermeg? Nutrek? (kernel_size = 30, low_sigma = 7, high_sigma = 5)">
+            <a href="proj2images/catderek.jpg" class="lightbox"><img src="proj2images/catderek.jpg" alt="Dermeg? Nutrek? (kernel_size = 30, low_sigma = 7, high_sigma = 5)"></a>
             <p class="image-subtitle">Dermeg? Nutrek? (kernel_size = 30, low_sigma = 7, high_sigma = 5)</p>
         </div>
         </div>
         <div class="clear-float"></div>
             <div class="image-grid cols-3">
         <div class="image-container">
-            <img src="proj2images/darwin.jpg" alt="Darwin">
+            <a href="proj2images/darwin.jpg" class="lightbox"><img src="proj2images/darwin.jpg" alt="Darwin"></a>
             <p class="image-subtitle">Darwin</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/chimp.jpg" alt="Chimp">
+            <a href="proj2images/chimp.jpg" class="lightbox"><img src="proj2images/chimp.jpg" alt="Chimp"></a>
             <p class="image-subtitle">Chimp</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/darwin_monkey.jpg" alt="Hybrid Darwin (kernel_size = 25, low_sigma = 4, high_sigma = 4)">
+            <a href="proj2images/darwin_monkey.jpg" class="lightbox"><img src="proj2images/darwin_monkey.jpg" alt="Hybrid Darwin (kernel_size = 25, low_sigma = 4, high_sigma = 4)"></a>
             <p class="image-subtitle">Hybrid Darwin (kernel_size = 25, low_sigma = 4, high_sigma = 4)</p>
         </div>
         </div>
         <div class="clear-float"></div>
         <div class="image-grid cols-3">
         <div class="image-container">
-            <img src="proj2images/tann.jpg" alt="Tan">
+            <a href="proj2images/tann.jpg" class="lightbox"><img src="proj2images/tann.jpg" alt="Tan"></a>
             <p class="image-subtitle">Tan</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/two_face.jpg" alt="Two-Face">
+            <a href="proj2images/two_face.jpg" class="lightbox"><img src="proj2images/two_face.jpg" alt="Two-Face"></a>
             <p class="image-subtitle">Two-Face</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/two_tsg.jpg" alt="Two-Tan (kernel_size = 25, low_sigma = 5, high_sigma = 4)">
+            <a href="proj2images/two_tsg.jpg" class="lightbox"><img src="proj2images/two_tsg.jpg" alt="Two-Tan (kernel_size = 25, low_sigma = 5, high_sigma = 4)"></a>
             <p class="image-subtitle">Two-Tan (kernel_size = 25, low_sigma = 5, high_sigma = 4) </p>
         </div>
         </div>
@@ -197,23 +197,23 @@
     <p>Two-Tan was my favorite result so far. Here is its frequency analysis with Fourier transformation:</p>
     <div class="image-grid cols-3">
         <div class="image-container">
-            <img src="proj2images/grayscale_tan.jpg" alt="Tan FFT">
+            <a href="proj2images/grayscale_tan.jpg" class="lightbox"><img src="proj2images/grayscale_tan.jpg" alt="Tan FFT"></a>
             <p class="image-subtitle">Tan FFT</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/grayscale_twoface.jpg" alt="Two-Face FFT">
+            <a href="proj2images/grayscale_twoface.jpg" class="lightbox"><img src="proj2images/grayscale_twoface.jpg" alt="Two-Face FFT"></a>
             <p class="image-subtitle">Two-Face FFT</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/filtered_tan.jpg" alt="Tan FFT after low-pass filter">
+            <a href="proj2images/filtered_tan.jpg" class="lightbox"><img src="proj2images/filtered_tan.jpg" alt="Tan FFT after low-pass filter"></a>
             <p class="image-subtitle">Tan FFT after low-pass filter</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/filtered_two.jpg" alt="Two-Face FFT after high-pass filter">
+            <a href="proj2images/filtered_two.jpg" class="lightbox"><img src="proj2images/filtered_two.jpg" alt="Two-Face FFT after high-pass filter"></a>
             <p class="image-subtitle">Two-Face FFT after high-pass filter</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/hybrid.jpg" alt="Two-Tan FFT">
+            <a href="proj2images/hybrid.jpg" class="lightbox"><img src="proj2images/hybrid.jpg" alt="Two-Tan FFT"></a>
             <p class="image-subtitle">Two-Tan FFT</p>
         </div>
         </div>
@@ -221,15 +221,15 @@
     <p>For a failed one, I tried to make a hybrid of Gheorghe Hagi and Didier Drogba. Unfortunately, it wasn't very successful but I will use them again for another technique. </p>
     <div class="image-grid cols-3">
         <div class="image-container">
-            <img src="proj2images/hagi.jpg" alt="Gheorghe Hagi">
+            <a href="proj2images/hagi.jpg" class="lightbox"><img src="proj2images/hagi.jpg" alt="Gheorghe Hagi"></a>
             <p class="image-subtitle">Gheorghe Hagi</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/drogba.jpg" alt="Didier Drogba">
+            <a href="proj2images/drogba.jpg" class="lightbox"><img src="proj2images/drogba.jpg" alt="Didier Drogba"></a>
             <p class="image-subtitle">Didier Drogba</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/failed.jpg" alt="Failed">
+            <a href="proj2images/failed.jpg" class="lightbox"><img src="proj2images/failed.jpg" alt="Failed"></a>
             <p class="image-subtitle">Failed</p>
         </div>
         </div>
@@ -239,27 +239,27 @@
         <h2>Apple Gauss Stack</h2>
 <div class="image-grid cols-6">
     <div class="image-container">
-        <img src="proj2images/gauss_app0.jpg" alt="Apple Gauss Level 0">
+        <a href="proj2images/gauss_app0.jpg" class="lightbox"><img src="proj2images/gauss_app0.jpg" alt="Apple Gauss Level 0"></a>
         <p class="image-subtitle">Level 0</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_app1.jpg" alt="Apple Gauss Level 1">
+        <a href="proj2images/gauss_app1.jpg" class="lightbox"><img src="proj2images/gauss_app1.jpg" alt="Apple Gauss Level 1"></a>
         <p class="image-subtitle">Level 1</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_app2.jpg" alt="Apple Gauss Level 2">
+        <a href="proj2images/gauss_app2.jpg" class="lightbox"><img src="proj2images/gauss_app2.jpg" alt="Apple Gauss Level 2"></a>
         <p class="image-subtitle">Level 2</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_app3.jpg" alt="Apple Gauss Level 3">
+        <a href="proj2images/gauss_app3.jpg" class="lightbox"><img src="proj2images/gauss_app3.jpg" alt="Apple Gauss Level 3"></a>
         <p class="image-subtitle">Level 3</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_app4.jpg" alt="Apple Gauss Level 4">
+        <a href="proj2images/gauss_app4.jpg" class="lightbox"><img src="proj2images/gauss_app4.jpg" alt="Apple Gauss Level 4"></a>
         <p class="image-subtitle">Level 4</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_app5.jpg" alt="Apple Gauss Level 5">
+        <a href="proj2images/gauss_app5.jpg" class="lightbox"><img src="proj2images/gauss_app5.jpg" alt="Apple Gauss Level 5"></a>
         <p class="image-subtitle">Level 5</p>
     </div>
 </div>
@@ -267,27 +267,27 @@
 <h2>Apple Laplace Stack</h2>
 <div class="image-grid cols-6">
     <div class="image-container">
-        <img src="proj2images/lap_app0.jpg" alt="Apple Laplace Level 0">
+        <a href="proj2images/lap_app0.jpg" class="lightbox"><img src="proj2images/lap_app0.jpg" alt="Apple Laplace Level 0"></a>
         <p class="image-subtitle">Level 0</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_app1.jpg" alt="Apple Laplace Level 1">
+        <a href="proj2images/lap_app1.jpg" class="lightbox"><img src="proj2images/lap_app1.jpg" alt="Apple Laplace Level 1"></a>
         <p class="image-subtitle">Level 1</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_app2.jpg" alt="Apple Laplace Level 2">
+        <a href="proj2images/lap_app2.jpg" class="lightbox"><img src="proj2images/lap_app2.jpg" alt="Apple Laplace Level 2"></a>
         <p class="image-subtitle">Level 2</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_app3.jpg" alt="Apple Laplace Level 3">
+        <a href="proj2images/lap_app3.jpg" class="lightbox"><img src="proj2images/lap_app3.jpg" alt="Apple Laplace Level 3"></a>
         <p class="image-subtitle">Level 3</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_app4.jpg" alt="Apple Laplace Level 4">
+        <a href="proj2images/lap_app4.jpg" class="lightbox"><img src="proj2images/lap_app4.jpg" alt="Apple Laplace Level 4"></a>
         <p class="image-subtitle">Level 4</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_app5.jpg" alt="Apple Laplace Level 5">
+        <a href="proj2images/lap_app5.jpg" class="lightbox"><img src="proj2images/lap_app5.jpg" alt="Apple Laplace Level 5"></a>
         <p class="image-subtitle">Level 5</p>
     </div>
 </div>
@@ -295,27 +295,27 @@
 <h2>Orange Gauss Stack</h2>
 <div class="image-grid cols-6">
     <div class="image-container">
-        <img src="proj2images/gauss_or0.jpg" alt="Orange Gauss Level 0">
+        <a href="proj2images/gauss_or0.jpg" class="lightbox"><img src="proj2images/gauss_or0.jpg" alt="Orange Gauss Level 0"></a>
         <p class="image-subtitle">Level 0</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_or1.jpg" alt="Orange Gauss Level 1">
+        <a href="proj2images/gauss_or1.jpg" class="lightbox"><img src="proj2images/gauss_or1.jpg" alt="Orange Gauss Level 1"></a>
         <p class="image-subtitle">Level 1</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_or2.jpg" alt="Orange Gauss Level 2">
+        <a href="proj2images/gauss_or2.jpg" class="lightbox"><img src="proj2images/gauss_or2.jpg" alt="Orange Gauss Level 2"></a>
         <p class="image-subtitle">Level 2</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_or3.jpg" alt="Orange Gauss Level 3">
+        <a href="proj2images/gauss_or3.jpg" class="lightbox"><img src="proj2images/gauss_or3.jpg" alt="Orange Gauss Level 3"></a>
         <p class="image-subtitle">Level 3</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_or4.jpg" alt="Orange Gauss Level 4">
+        <a href="proj2images/gauss_or4.jpg" class="lightbox"><img src="proj2images/gauss_or4.jpg" alt="Orange Gauss Level 4"></a>
         <p class="image-subtitle">Level 4</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/gauss_or5.jpg" alt="Orange Gauss Level 5">
+        <a href="proj2images/gauss_or5.jpg" class="lightbox"><img src="proj2images/gauss_or5.jpg" alt="Orange Gauss Level 5"></a>
         <p class="image-subtitle">Level 5</p>
     </div>
 </div>
@@ -323,27 +323,27 @@
 <h2>Orange Laplace Stack</h2>
 <div class="image-grid cols-6">
     <div class="image-container">
-        <img src="proj2images/lap_or0.jpg" alt="Orange Laplace Level 0">
+        <a href="proj2images/lap_or0.jpg" class="lightbox"><img src="proj2images/lap_or0.jpg" alt="Orange Laplace Level 0"></a>
         <p class="image-subtitle">Level 0</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_or1.jpg" alt="Orange Laplace Level 1">
+        <a href="proj2images/lap_or1.jpg" class="lightbox"><img src="proj2images/lap_or1.jpg" alt="Orange Laplace Level 1"></a>
         <p class="image-subtitle">Level 1</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_or2.jpg" alt="Orange Laplace Level 2">
+        <a href="proj2images/lap_or2.jpg" class="lightbox"><img src="proj2images/lap_or2.jpg" alt="Orange Laplace Level 2"></a>
         <p class="image-subtitle">Level 2</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_or3.jpg" alt="Orange Laplace Level 3">
+        <a href="proj2images/lap_or3.jpg" class="lightbox"><img src="proj2images/lap_or3.jpg" alt="Orange Laplace Level 3"></a>
         <p class="image-subtitle">Level 3</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_or4.jpg" alt="Orange Laplace Level 4">
+        <a href="proj2images/lap_or4.jpg" class="lightbox"><img src="proj2images/lap_or4.jpg" alt="Orange Laplace Level 4"></a>
         <p class="image-subtitle">Level 4</p>
     </div>
     <div class="image-container">
-        <img src="proj2images/lap_or5.jpg" alt="Orange Laplace Level 5">
+        <a href="proj2images/lap_or5.jpg" class="lightbox"><img src="proj2images/lap_or5.jpg" alt="Orange Laplace Level 5"></a>
         <p class="image-subtitle">Level 5</p>
     </div>
 </div>
@@ -351,11 +351,11 @@
     <h2>Oraple</h2>
         <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj2images/oraple.jpg" alt="Oraple!">
+            <a href="proj2images/oraple.jpg" class="lightbox"><img src="proj2images/oraple.jpg" alt="Oraple!"></a>
             <p class="image-subtitle">Oraple!</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/blended_levels.jpg" alt="Blend Levels">
+            <a href="proj2images/blended_levels.jpg" class="lightbox"><img src="proj2images/blended_levels.jpg" alt="Blend Levels"></a>
             <p class="image-subtitle">Blend Levels</p>
         </div>
         </div>
@@ -366,19 +366,19 @@
     <p> Finally, I was able to blend Didier Drogba and Gheorghe Hagi onto the same image.</p>
     <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj2images/hagi.jpg" alt="Gheorghe Hagi">
+            <a href="proj2images/hagi.jpg" class="lightbox"><img src="proj2images/hagi.jpg" alt="Gheorghe Hagi"></a>
             <p class="image-subtitle">Gheorghe Hagi</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/drogba.jpg" alt="Didier Drogba">
+            <a href="proj2images/drogba.jpg" class="lightbox"><img src="proj2images/drogba.jpg" alt="Didier Drogba"></a>
             <p class="image-subtitle">Didier Drogba</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/drogba_mask.jpg" alt="Mask">
+            <a href="proj2images/drogba_mask.jpg" class="lightbox"><img src="proj2images/drogba_mask.jpg" alt="Mask"></a>
             <p class="image-subtitle">Mask</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/drogba_hagi.png" alt="Didier Drogba & Gheorghe Hagi (kernel size = 24, sigma = 4, depth = 5)">
+            <a href="proj2images/drogba_hagi.png" class="lightbox"><img src="proj2images/drogba_hagi.png" alt="Didier Drogba & Gheorghe Hagi (kernel size = 24, sigma = 4, depth = 5)"></a>
             <p class="image-subtitle">Didier Drogba & Gheorghe Hagi (kernel size = 24, sigma = 4, depth = 5)</p>
         </div>
         </div>
@@ -386,26 +386,26 @@
     <p> Here is its blending process.</p>
      <div class="image-grid cols-1">
         <div class="image-container">
-            <img src="proj2images/drogba_hagi_blend.jpg" alt="Drogba & Hagi Blend Process">
+            <a href="proj2images/drogba_hagi_blend.jpg" class="lightbox"><img src="proj2images/drogba_hagi_blend.jpg" alt="Drogba & Hagi Blend Process"></a>
             <p class="image-subtitle">Drogba & Hagi Blend Process</p>
         </div>
         </div>
     <h2>Spidermeme Recreation</h2>
     <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj2images/spiderman.jpg" alt="Spiderman">
+            <a href="proj2images/spiderman.jpg" class="lightbox"><img src="proj2images/spiderman.jpg" alt="Spiderman"></a>
             <p class="image-subtitle">Spiderman</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/spidermeme.jpg" alt="Spidermeme">
+            <a href="proj2images/spidermeme.jpg" class="lightbox"><img src="proj2images/spidermeme.jpg" alt="Spidermeme"></a>
             <p class="image-subtitle">Spidermeme</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/spideymask.jpg" alt="Mask">
+            <a href="proj2images/spideymask.jpg" class="lightbox"><img src="proj2images/spideymask.jpg" alt="Mask"></a>
             <p class="image-subtitle">Mask</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/spidermeme_spiderman.png" alt="Spiderman Meme with Andrew Garfield! (kernel size = 24, sigma = 4, depth = 5)">
+            <a href="proj2images/spidermeme_spiderman.png" class="lightbox"><img src="proj2images/spidermeme_spiderman.png" alt="Spiderman Meme with Andrew Garfield! (kernel size = 24, sigma = 4, depth = 5)"></a>
             <p class="image-subtitle">Spiderman Meme with Andrew Garfield! (kernel size = 24, sigma = 4, depth = 5)</p>
         </div>
         </div>
@@ -414,19 +414,19 @@
     <p>I think I could have achieved a better blending with a better mask but still it is early Halloween!</p>
     <div class="image-grid cols-2">
         <div class="image-container">
-            <img src="proj2images/jokerr_750.jpg" alt="Joker">
+            <a href="proj2images/jokerr_750.jpg" class="lightbox"><img src="proj2images/jokerr_750.jpg" alt="Joker"></a>
             <p class="image-subtitle">Joker</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/pumpkin_750.jpg" alt="Pumpkin">
+            <a href="proj2images/pumpkin_750.jpg" class="lightbox"><img src="proj2images/pumpkin_750.jpg" alt="Pumpkin"></a>
             <p class="image-subtitle">Pumpkin</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/jokemask_750.jpg" alt="Mask">
+            <a href="proj2images/jokemask_750.jpg" class="lightbox"><img src="proj2images/jokemask_750.jpg" alt="Mask"></a>
             <p class="image-subtitle">Mask</p>
         </div>
         <div class="image-container">
-            <img src="proj2images/joker_pumpkin.png" alt="Early Halloween (kernel size = 24, sigma = 4, depth = 5)">
+            <a href="proj2images/joker_pumpkin.png" class="lightbox"><img src="proj2images/joker_pumpkin.png" alt="Early Halloween (kernel size = 24, sigma = 4, depth = 5)"></a>
             <p class="image-subtitle">Early Halloween (kernel size = 24, sigma = 4, depth = 5)</p> 
         </div>
         </div>
@@ -435,5 +435,6 @@
     <footer>
         <a href="index.html" class="footer-link">Back to Home</a>
     </footer>
+    <script src="overlay.js"></script>
 </body>
 </html>
