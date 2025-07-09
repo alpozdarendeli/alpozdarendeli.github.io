@@ -229,6 +229,9 @@ h2 {
 footer {
     text-align: center;
     margin-top: 40px;
+    background-color: var(--card-bg);
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
 }
 
 .footer-link {
@@ -253,4 +256,20 @@ footer {
 
 .back-to-top:hover {
     background-color: var(--accent-hover);
+}
+
+.contact-info {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.contact-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 4px;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    color: var(--accent-hover);
 }
