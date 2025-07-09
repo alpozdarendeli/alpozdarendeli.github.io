@@ -31,7 +31,7 @@
     <div class="project-overview">
         <h2>Shoot the Pictures</h2>
             <p> Here are the pictures I used for this project: </p>
-            <div class="image-gri">
+            <div class="grid-2">
             <div class="image-container">
                 <img src="proj4images/IMG_5854.png" alt="Illustration of IMG 5854">
             </div>
@@ -112,7 +112,7 @@
             <p> After calculating the homography, I use inverse warping to warp original images to the desired shape. Since I use inverse warping, the corresponding pixels in the source image can be lie between pixels so I used RegularGridInterpolator to interpolate the pixel values.</p>
         <p> For image rectification I used the inverse warping with homography I calculated earlier. Instead of selecting corresponding points between two images, I chose the edges of a rectangle or a square shape from an image and I manually defined the corresponding points so that these edges would form a rectified rectangular shape. Here are the corresponding points I have chosen and the resultant rectified images:</p>
         <div class="clear-float"></div>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/yastikp.png" alt="Illustration of yastikp">
         </div>
@@ -130,7 +130,7 @@
         <p>For the first image, I have manually chosen the corresponding points to be [[200,200],[500,200],[500,500],[200,500]] to form a square. For the second iamge, I have manually chosen the corresponding points to be [[200,200],[800,200],[800,400],[200,400]] to form a rectangle.</p>
         <h2>Blend the images into a mosaic</h2>
             <p> To blend the images into a mosaic, firstly, I warped one of the images based on the correspondence points. Before warping, I calculate the final image's shape and align the warped image with the original image by calculating if there is any offsets. Then, I created indicator masks for both the original and warped image in the final image's shape. These masks set pixels to 1 if there is a corresponding pixel in the original or warped image. I found the overlapping pixels between the two images using these masks. After finding the overlapping pixels, I used a Laplacian stack for blending. For a Laplacian stack, we need a mask for the images to blend. I separated the mask into two parts. The first part is the non-overlapping pixels for the original image. Since there is no overlap between the images at these pixels, I used the indicator mask I created for the images at these pixels. For the overlapping pixels, the computation is more complicated. I used cv2.distanceTransform to calculate distance to non-overlapping pixels from both images for each overlapping pixel. Then, I found the ratio of distance2/(distance2+distance1) for each overlapping pixel where distance1 indicates the distance to the closest non-overlapping pixel in the original image. By combining these two parts, I create the mask for the Laplacian stack: </p>
-        <div class="image-grid">
+        <div class="grid-3">
         <div class="image-container">
             <img src="proj4images/mask_1_non_overlap.png" alt="Non-overlap part of the mask">
             <p class="image-subtitle"> Non-overlap part of the mask</p>
@@ -145,7 +145,7 @@
         </div>
         </div>
         <p> After creating the mask, I used a Laplacian stack with original and warped images padded to the final image's shape to create the mosaic:
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/IMG_5854.png" alt="Illustration of IMG 5854">
         </div>
@@ -160,7 +160,7 @@
         </div>
         </div>
         <p> Here are other examples of mosaicing with their original images, mask, and the final blended image:</p>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/img3-1.png" alt="Illustration of img3-1">
         </div>
@@ -169,7 +169,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <div class="image-grid">
+        <div class="grid-3">
         <div class="image-container">
             <img src="proj4images/mask3-1.png" alt="Illustration of mask3-1">
         </div>
@@ -187,7 +187,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/img2-2.png" alt="Illustration of img2-2">
         </div>
@@ -196,7 +196,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <div class="image-grid">
+        <div class="grid-3">
         <div class="image-container">
             <img src="proj4images/mask21.png" alt="Illustration of mask21">
         </div>
@@ -216,7 +216,7 @@
     <h1>Part B</h1>
     <h2>Detecting Corner Features</h2>
     <p>To detect the corner features, I used the given Harris Point detector. For one of my images, here is the points that Harris Point detector classified as likely to be corner features:</p>
-            <div class="image-gr">
+            <div class="grid-1">
         <div class="image-container">
             <img src="proj4images/harris.png" alt="Illustration of harris">
         </div>
@@ -224,7 +224,7 @@
         <div class="clear-float"></div>
     <h2>Adaptive Non-Maximal Suppression</h2>
     <p>Even though Harris Point detector detects corner-like features, clearly, there are too much points and they are abundant. Thus, I use Adaptive Non-Maximal Suppression to extract features. To get correspondence points that are far away from each other and have strong corner features, we sort the distance based on the strength of their corner response. For each point, we calculate the distance to the closest point who has a stronger corner response. Then, we sort the points based on these distances and limit the number of features to be extracted to 300. Here is the result: </p>
-                <div class="image-gr">
+                <div class="grid-1">
         <div class="image-container">
             <img src="proj4images/limitedharris.png" alt="Illustration of limitedharris">
         </div>
@@ -232,7 +232,7 @@
         <div class="clear-float"></div>
     <h2>Extracting Feature Descriptors</h2>
     <p> After identifying the features, now we have to extract feature descriptors. For each feature, we extract 40x40 windows, and downsample to get 8x8 patches. Before this step, low-pass Gaussian filter is applied. After getting the patches, each patch is normalized and reshaped to form 64 element feature descriptors for each feature. Here are some examples:</p>
-    <div class="image-gri">
+    <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/patch1.png" alt="Illustration of patch1">
         </div>
@@ -243,7 +243,7 @@
         <div class="clear-float"></div>
     <h2>Matching Feature Descriptors</h2>
     <p>After extracting the feature descriptors for each image, we need to match them. I created k-d trees for each image. I query the closest 2 pairwise feature vectors for each feature in one of the images. I calculated the L2 norm distance ratio of these 2 vectors to the original features. Using Lowe's trick, I only keep the closest feature vectors that have less a certain threshold distance ratio and also checked with the other tree to ensure that original feature vector is also the closest feature vector for the chosen feature. This greatly reduced the outliers, and here is the filtered matches: </p>
-    <div class="image-gri">
+    <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/features1.png" alt="Illustration of features1">
         </div>
@@ -257,7 +257,7 @@
     
     <h2>Produce Mosaics</h2>
         <p>After computing homographies with RANSAC, I ran the same code that I used for part A to produce mosaics for the same 3 pictures. Here are the side-by-side manually and automatically stitched results for these images:</p>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/img3_ful.png" alt="Manual Stitching">
             <p class="image-subtitle">Manual Stitching</p>
@@ -268,7 +268,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-        <div class="image-gri">
+        <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/mosaic1.png" alt="Manual Stitching">
             <p class="image-subtitle">Manual Stitching</p>
@@ -279,7 +279,7 @@
         </div>
         </div>
         <div class="clear-float"></div>
-                <div class="image-gri">
+                <div class="grid-2">
         <div class="image-container">
             <img src="proj4images/manual2.png" alt="Manual Stitching">
             <p class="image-subtitle">Manual Stitching</p>
