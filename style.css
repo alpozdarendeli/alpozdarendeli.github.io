@@ -39,9 +39,38 @@ h1 {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Image grid system: add cols-1 through cols-6 to set the number of columns.
+   Example usage: <div class="image-grid cols-3"> */
+
+.cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.cols-6 {
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .image-container {
@@ -82,59 +111,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.image-gri {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-gr {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-    justify-items: center;
-    align-items: center;
-}
-
-.image-g {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-gi {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-grrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-grrid img {
-    width: 40%;
-    height: 40%;
-    object-fit: contain;
-}
-
-.image-griddd {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.image-griddd, .image-grrid, .image-gi, .image-g {
-    width: 100%;
-}
 
 .project-link {
     display: inline-block;

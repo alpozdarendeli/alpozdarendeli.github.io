@@ -33,7 +33,7 @@
     <div class="project-overview">
         <h2>Part 1:  Defining Correspondences</h2>
             <p> To morph two images, we need to select points of correspondences. I used the given tool to select points on the images. After defining the correspondences, I used Delaney Triangulation to triangulate the mean points of Larry David's and Can Ruso's images to find the mean shape. </p>
-            <div class="image-grid">
+            <div class="image-grid cols-3">
             <div class="image-container">
                 <img src="proj3images/ruso_tr.png" alt="Ruso points">
                 <p class="image-subtitle">Ruso points</p>
@@ -108,7 +108,7 @@
     <p> Thus, we can use a linear algebra solver to find a, b, c, d, e, and f, and calculate the transformation matrix.</p>
     <p> Once we have the tranformation matrix for every triangle, we use inverse warping to warp original images to the average shape. Since I use inverse warping, the corresponding pixels in the source image can be between pixels so I used RegularGridInterpolator to interpolate the pixel values for dissolving. Applying warping to both of the images, and taking the point-wise average of them gives us the average face. This is basically morphing with warp and morph fraction of 0.5. </p>
 </html>
-        <div class="image-grid">
+        <div class="image-grid cols-3">
         <div class="image-container">
             <img src="proj3images/warpedcan.png" alt="Warped Can">
             <p class="image-subtitle">Warped Can</p>
@@ -126,7 +126,7 @@
         <h2>Part 3: The Morph Sequence</h2>
             <p> To produce the morphing sequence, I applied the previous procedure for finding the mid-way face with different warp and dissolve fractions. To create 45 frames, I increase the fractions by 1/45 for each frame. Dissolve fraction determines the weight of source image for the final image while taking the average of the source images. Warp fraction determines how close the shape of final image will be to the source image. Here is a gif with 45 frames for transforming Larry David to Can:</p>
         <div class="clear-float"></div>
-        <div class="image-gr">
+        <div class="image-grid cols-1">
         <div class="image-container">
             <img src="proj3images/larrycan.gif" alt="Larry David to Can Ruso">
             <p class="image-subtitle">Larry David to Can Ruso</p>
@@ -134,7 +134,7 @@
         </div>
         <div class="clear-float"></div>
         <p> I also applied the morphing sequence to my father and myself. It turns out we look pretty alike:</p>
-        <div class="image-gr">
+        <div class="image-grid cols-1">
         <div class="image-container">
             <img src="proj3images/morph.gif" alt="My father to Me">
             <p class="image-subtitle">My father to Me</p>
@@ -143,7 +143,7 @@
         <h2>Part 4: The "Mean face" of a population</h2>
             <p> For this part, I used all of the data points from Danes dataset to compute the mean face of the population. Firstly, I found the average of all the corresponding points for the given images. I warped all images to the average shape and computed their average to get the mean face. Here are a few examples of the warped images to the average shape:</p>
         <div class="clear-float"></div>
-        <div class="image-gri">
+        <div class="image-grid cols-2">
         <div class="image-container">
             <img src="proj3images/morphed2.png" alt="Illustration of morphed2">
         </div>
@@ -159,14 +159,14 @@
         </div>
         <div class="clear-float"></div>
         <p> Here is the mean face of the population:</p>
-        <div class="image-gr">
+        <div class="image-grid cols-1">
         <div class="image-container">
             <img src="proj3images/avgface.jpg" alt="Illustration of avgface">
         </div>
         </div>
         <div class="clear-float"></div>
         <p> After computing the mean face of the population, I warped Can's face into the average face, and warped the mean face into Can's face:</p>
-        <div class="image-gri">
+        <div class="image-grid cols-2">
         <div class="image-container">
             <img src="proj3images/warped_avg.png" alt="Illustration of warped avg">
         </div>
@@ -178,7 +178,7 @@
         <h2>Part 5: Caricatures: Extrapolating from the mean</h2>
             <p> I also caricaturize Can's image. Instead of warping Can's image to the mean shape, we can warp Can's face to can_shape + alpha(can_shape - average_shape) for a negative alpha and a positive alpha > 1 to extrapolate Can's face. These basically exaggerates Can's facial features that are far away from the mean face and the mean face's features that are far away from Can's face. Here are the results:</p>
         <div class="clear-float"></div>
-        <div class="image-gri">
+        <div class="image-grid cols-2">
         <div class="image-container">
             <img src="proj3images/alpha1_7.png" alt="Illustration of alpha1 7">
         </div>
@@ -191,7 +191,7 @@
         <p> I completed two Bells and Whistles. For the first one, I made a video of myself at different ages. There are 13 different pictures of myself that are morphed sequentially to produce aging effect. I used the morphing sequence defined earlier for each consecutive image. Here is the link:</p>
         <a href="https://youtu.be/4YwmFifFEhw"> Link to my video</a>
         <p>For the second B&W, I computed the mean face of all the woman images in Danes dataset, and tried to morph only Can's appearance, only Can's shape and both. These are done by having 0 warp frac and 1 dissolve frac, 1 warp frac and 0 dissolve frac, and 0.5 dissolve and warp frac.</p>
-        <div class="image-gri">
+        <div class="image-grid cols-2">
         <div class="image-container">
             <img src="proj3images/womanavg.jpg" alt="Mean Woman Face">
             <p class="image-subtitle">Mean Woman Face</p>
