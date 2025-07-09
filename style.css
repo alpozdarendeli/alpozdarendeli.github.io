@@ -173,3 +173,40 @@ h1 {
         align-items: center;
     }
 }
+
+/* Lightbox Overlay */
+#img-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+#img-overlay.active {
+  display: flex;
+}
+#img-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #fff;
+}
+#overlay-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
