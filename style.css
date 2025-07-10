@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
 
 :root {
-    --bg-color: #f4f4f4;
+    --bg-color: #fafafa;
     --card-bg: #ffffff;
-    --primary-text: #2c3e50;
-    --accent-color: #3498db;
-    --accent-hover: #2980b9;
-    --body-text: #333333;
+    --primary-text: #1a1a1a;
+    --accent-color: #b9975b;
+    --accent-hover: #a3813b;
+    --body-text: #444444;
 }
 
 body {
@@ -23,7 +24,8 @@ body {
 
 h1, h2 {
     color: var(--primary-text);
-    font-family: 'Playfair Display', serif;
+    font-family: 'Merriweather', 'Playfair Display', serif;
+    letter-spacing: 0.5px;
 }
 
 p {
@@ -47,7 +49,7 @@ h2 {
 .hero {
     text-align: center;
     padding: 120px 20px;
-    background: linear-gradient(135deg, #2c3e50, #34495e);
+    background: linear-gradient(135deg, #111111, #333333);
     color: #fff;
     opacity: 0;
     animation: fadeInUp 1s ease forwards;
@@ -56,6 +58,7 @@ h2 {
 .hero h1 {
     font-size: 3em;
     margin-bottom: 0.4em;
+    letter-spacing: 1px;
 }
 
 .hero p {
@@ -181,7 +184,8 @@ h2 {
 .project-card {
     background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: transform 0.3s, box-shadow 0.3s;
     overflow: hidden;
     opacity: 0;
@@ -205,7 +209,7 @@ h2 {
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
 @media (max-width: 800px) {
@@ -239,7 +243,7 @@ h2 {
 .navbar {
     display: flex;
     justify-content: space-around;
-    background-color: #333;
+    background-color: #111;
     flex-wrap: wrap;
     padding: 10px;
     position: sticky;
@@ -260,7 +264,7 @@ h2 {
 }
 
 .navbar a:hover {
-    background-color: #555;
+    background-color: #222;
 }
 
 @media (max-width: 600px) {
